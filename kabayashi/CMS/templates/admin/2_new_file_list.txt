@@ -1,0 +1,10 @@
+<div id="file_new_%_num_%" class="file-unit sugu-file-unit">
+	<div class="sugu-clearfix">
+		<span class="sugu-nowrap sugu-pull-right">
+			<button type="button" class="pure-button sugu-button-small"  onclick="change_order('new_%_num_%', 'up')">上へ</button>
+			<button type="button" class="pure-button sugu-button-small"  onclick="change_order('new_%_num_%', 'down')">下へ</button>
+		</span>
+		<input type="file" name="filename%_num_%" id="filename%_num_%" class="sugu-input-file pure-input-1-2">
+	</div>
+	<label for="filetext%_num_%">リンクテキスト</label> <input type="text" name="filetext%_num_%" id="filetext%_num_%" value="" maxlength="100" class="imeauto pure-input-1-2">
+</div>

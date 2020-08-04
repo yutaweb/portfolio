@@ -1,0 +1,20 @@
+<div id="file_current_%_n_%" class="file-unit sugu-file-unit">
+	<input type="hidden" name="current_file_id" value="%_n_%">
+	<input type="hidden" name="current_file_name,%_n_%" value="%_filedir_%/%_filename_%">
+	<span class="sugu-nowrap sugu-pull-right">
+		<button type="button" class="pure-button sugu-button-small"  onclick="change_order('current_%_n_%', 'up')">上へ</button>
+		<button type="button" class="pure-button sugu-button-small"  onclick="change_order('current_%_n_%', 'down')">下へ</button>
+	</span>
+	<div class="sugu-clearfix">
+		<a href="%_relative_filedir_%/%_filename_escaped_%" class="filelink %_icon_class_%" title="%_filetext_%" id="current_file_%_n_%" target="_blank">%_filename_%</a>
+		<span class="sugu-nowrap">
+			<label class="pure-radio sugu-inline">
+			<input type="radio" name="current_file_flg,%_n_%" value="1" %_checked1_%> 添付
+			</label>
+			<label class="pure-radio sugu-inline">
+			<input type="radio" name="current_file_flg,%_n_%" value="0" %_checked0_%> 削除
+			</label>
+		</span>
+	</div>
+	<label for="current_file_text,%_n_%">リンクテキスト</label> <input type="text" name="current_file_text,%_n_%" id="current_file_text,%_n_%" value="%_filetext_%" maxlength="100" class="imeauto pure-input-1-2">
+</div>

@@ -1,0 +1,458 @@
+@charset "utf-8";
+/*==============================================
+                      main css
+=================================================*/
+
+body{
+  margin:0;
+  padding:0;
+  background-color: #ccc;
+  color:#333;
+  font-size:15px;
+  line-height:2;
+  font-family: 'Sawarabi Mincho', sans-serif;
+}
+
+p,h1,h2,h3,h4,h5,h6{
+  margin-top:0;
+}
+
+img{
+  vertical-align: bottom;
+}
+
+ul{
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+a{
+  color:#3583aa;
+  text-decoration:none;
+  transition:all 0.3s;
+}
+
+a:hover{
+  text-decoration:underline;
+}
+
+/*==============================================
+                      main css
+=================================================*/
+
+
+:root{
+  --h1:5rem;/*1remは16pxと考える*/
+  --h2:2.5rem;
+  --h3:1.8rem;
+  --h4:1.4rem;
+}
+
+
+
+
+/*==============================================
+                      header css
+=================================================*/
+#index{
+  background-image:url(../myportfolio-images/alabama015.jpg);
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-attachment: fixed;
+  box-sizing: border-box;
+  height:100vh;
+}
+
+
+
+.header_wrapper{
+  display:flex;
+  max-width:1200px;
+  margin:0 auto;
+  justify-content: space-between;
+  align-items:center;
+  /* background: rgba(0,0,0,0.5); */
+  font-weight:bold;
+}
+
+.header_wrapper h1.pc{
+  flex:0 0 450px;
+  height:100px;
+  line-height:100px;
+  font-size:3.5vw;
+  padding-left:10px;
+  cursor:pointer;
+}
+
+.header_wrapper h1 img{
+  width:100%;
+  height:100%;
+}
+
+.header_wrapper h1:hover{
+  opacity:0.7;
+}
+
+.header_wrapper ul{
+  display: flex;
+  flex:1;
+}
+
+.header_wrapper ul li{
+  height:100px;
+  line-height:100px;
+  height:100px;
+  line-height:100px;
+  box-sizing: border-box;
+  text-align:center;
+}
+
+.header_wrapper ul li a{
+  width:100px;
+  display:block;
+  text-decoration:none;
+  padding:0 10px;
+  transition:all 0.5s;
+  color:white;
+}
+
+.header_wrapper ul li a:hover{
+  background:rgba(0,0,0,0.2);
+}
+
+.subvisual{
+  display: none;
+}
+
+/*===================重要=======================*/
+/*toggleを開いたままpc画面にすると、sp表示が残ってしまうので、無理やり消した。*/
+@media screen and (min-width:1100px){ 
+  .sp{
+    display:none!important;
+  }
+}
+
+/*===================重要=======================*/
+
+@media screen and (max-width:1099px){
+  .pc{
+    display:none;
+  }
+
+  .sp{
+    display:block;
+  }
+
+  
+  header{
+    width:100%;
+    position:absolute;
+    background:none;
+    z-index:5;
+    top:0;
+    left:0;
+  }
+
+  .header_wrapper{
+    display:block;
+  }
+
+  .header_wrapper h1{
+    text-align:center;
+    font-size:2.5rem;
+    width:350px;
+    margin:0 auto;
+    height:auto;
+  }
+
+  .header_wrapper h1 img{
+    width:100%;
+    height:100%;
+  }
+
+  #toggle_nav{
+    display:none;
+  }
+
+  .header_wrapper nav ul{
+    display:block;
+    text-align:center;
+  }
+
+  .header_wrapper nav ul li{
+    background: rgba(0,0,0,0.5);
+    border-bottom:1px solid #ddd;
+    width:100%;
+    height:60px;
+    line-height:60px;
+  }
+
+  
+  .header_wrapper ul li a:hover{
+    background:rgba(0,0,0,0.4);
+  }
+
+
+
+  .header_wrapper nav ul li:first-child{
+    border-top:1px solid #ddd;
+  }
+
+  .header_wrapper nav ul li a{
+    display:inline-block;
+    width:100%;
+    padding:0;
+    color:white;
+  }
+
+}
+
+@media screen and (max-width:767px){
+  #index{
+    background: none;
+  }
+  .subvisual{
+    display: block;
+  }
+
+  .TOP_PC{
+    /* display:none; */
+  }
+  
+  
+  .sub_image_wrapper{
+    background: rgba(0,0,0,0.3);
+    background-image:url(../myportfolio-images/alabama015.jpg);
+    background-repeat:no-repeat;
+    background-position: left center;
+    background-size: cover;
+    object-fit:cover;
+    width:100%;
+    height:500px;
+    position:relative;
+  }
+
+  .sub_image_wrapper:after{
+    position:absolute;
+    content:"";
+    background: rgba(0,0,0,0.5);
+    widows: 100% ;
+    height:100%;
+    top:0;
+    left:0;
+  }
+
+.subvisual h2{
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  font-size:var(--h2);
+  padding:250px 0;
+  text-shadow:5px 5px 10px black;
+}
+
+.subvisual{
+  width:100%;
+  position:relative;
+}
+
+.subvisual::after{
+  position:absolute;
+  content:"";
+  background:rgba(255,255,255,0.4);
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+}
+  #wrap{
+    position:absolute;
+  }
+
+.subvisual h2{
+  padding:0;
+  text-shadow:5px 5px 10px black;
+}
+
+.subvisual{
+  position:static;
+  position:relative;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+.subvisual::after{
+  position:static;
+}
+
+.header_wrapper h1{
+  text-align:center;
+  font-size:2.5rem;
+  width:320px;
+  margin:0 auto;
+}
+
+}
+
+
+
+
+@media screen and (max-width:424px){
+  .header_wrapper h1{
+    width:300px;
+  }
+}
+
+/*============================================
+                  header css
+===============================================*/
+
+
+/* ------------------
+      main begin
+--------------------- */
+.content{
+  padding:0 20px;
+  /* background:red; */
+  max-width:1200px;
+  margin:0 auto;
+}
+
+#index h1{
+  font-size:var(--h1);
+  line-height:1.2;
+  color:#fff;
+  font-family:"Bitter",serif;
+  margin-bottom:50px;
+  /* -webkit-text-stroke:1px black; */
+}
+
+#index .content{
+  margin-top:150px;
+}
+
+#index p{
+  font-size:16px;
+  color:#fff;
+  /* -webkit-text-stroke:1px black; */
+  /* font-weight:bold; */
+}
+
+.btn-wrapper{
+  display:flex;
+}
+
+.btn_1{
+  margin-right:40px;
+}
+
+.btn a{
+  background-color:rgb(210, 8, 22);
+  color:#fff;
+  font-size:20px;
+  font-family: "Bitter",serif;
+  width:200px;
+  display:block;
+  text-align:center;
+  line-height:50px;
+  margin-top:50px;
+  border-radius:5px;
+  border:3px solid rgb(150, 8, 10);
+  box-sizing: border-box;
+  transition:all 0.5s;
+}
+
+.btn a:hover{
+  text-decoration:none;
+  background-color:#fff;
+  color:rgb(150, 8, 10);
+}
+
+.pc_none{
+  display:none;
+}
+
+
+@media screen and (max-width:900px){
+  #index h1{
+    font-size:50px;
+    margin-bottom:40px;
+  }
+
+  #index .content{
+    margin-top:120px;
+  }
+
+}
+
+@media screen and (max-width:767px){
+  .pc_none{
+    display:block;
+    width:100%;
+    height:auto;
+    margin:50px auto;
+  }
+
+  .pc_none img{
+    display:block;
+    width:100%;
+    height:100%;
+  }
+  
+#index .content{
+  margin-top:50px;
+}
+
+
+  #index h1,#index p{
+    color:#000;
+  }
+
+  footer{
+    color:#000!important;
+  }
+}
+
+@media screen and (max-width:500px){
+  .btn-wrapper{
+    display:block;
+  }
+
+  .btn_1{
+    margin-right:0;
+  }
+
+  .btn a{
+    width:100%;
+  }
+}
+
+
+
+/* ------------------
+      main finish
+--------------------- */
+
+/* ------------------
+      footer begin
+--------------------- */
+
+footer{
+  box-sizing:border-box;
+  margin:0;
+  text-align:center;
+  color:#fff;
+  padding-top:40px;
+  /* background: red; */
+}
+
+footer small{
+  font-size:12px;
+}
+
+/* ------------------
+      footer finish
+--------------------- */

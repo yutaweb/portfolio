@@ -1,0 +1,39 @@
+<tr class="sugu-hidden-phone">
+<td><span class="sugu-nowrap">%_yyyy_%/%_mm_%/%_dd_%</span></td>
+<td class="sugu-keep-width sugu-t-subject">%_subject_%</td>
+<td class="sugu-t-edit">
+<button type="submit" class="pure-button pure-button-primary sugu-button-small" onclick="set_param(%_d_%,1,2,%_n_%)">編集</button>
+</td>
+<td class="sugu-t-delete">
+<button type="submit" class="pure-button sugu-button-danger sugu-button-small" onclick="set_param(%_d_%,2,3,%_n_%)">削除</button>
+</td>
+<td class="sugu-t-up">
+<button type="submit" class="pure-button sugu-button-small"  onclick="set_param(%_d_%,3,4,%_n_%)">上へ</button>
+</td>
+<td class="sugu-t-down">
+<button type="submit" class="pure-button sugu-button-small"  onclick="set_param(%_d_%,4,4,%_n_%)">下へ</button>
+</td>
+<td class="sugu-t-check"><a href="%_relative_web_dir_%%_to_article_%" target="check" 
+title="%_article_filename_parsed_%">チェック</a></td>
+</tr>
+
+<tr class="sugu-visible-phone">
+<td colspan="7">%_subject_%
+<a href="%_relative_web_dir_%%_to_article_%" target="check" class="sugu-pull-right">チェック</a></td>
+</tr>
+<tr class="sugu-visible-phone sugu-phone-last">
+<td colspan="3"><span class="sugu-nowrap">%_mm_%/%_dd_%</span></td>
+<td>
+<button type="submit" class="pure-button pure-button-primary sugu-button-small" onclick="set_param(%_d_%,1,2,%_n_%)">編<span class="sugu-hidden-tiny">集</span></button>
+</td>
+<td>
+<button type="submit" class="pure-button sugu-button-danger sugu-button-small" onclick="set_param(%_d_%,2,3,%_n_%)">削<span class="sugu-hidden-tiny">除</span></button>
+</td>
+<td>
+<button type="submit" class="pure-button sugu-button-small" onclick="set_param(%_d_%,3,4,%_n_%)">上<span class="sugu-hidden-tiny">へ</span></button>
+</td>
+<td>
+<button type="submit" class="pure-button sugu-button-small" onclick="set_param(%_d_%,4,4,%_n_%)">下<span class="sugu-hidden-tiny">へ</span></button>
+</td>
+</tr>
+

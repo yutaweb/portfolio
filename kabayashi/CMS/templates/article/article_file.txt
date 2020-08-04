@@ -1,0 +1,4 @@
+<!-- BOMなし UTF-8（または Unicode など） で保存して下さい -->
+<li>
+<a href="%_d_%/%_filename_escaped_%" target="_blank" class="filelink %_icon_class_%" title="ファイル名: %_filename_%">%_filetext_%</a>
+</li>

@@ -1,0 +1,396 @@
+@charset "utf-8";
+
+/*==============================================
+                      all css
+=================================================*/
+
+body{
+  margin:0;
+  padding:0;
+  /* background-color: #ccc; */
+  color:#333;
+  font-size:15px;
+  line-height:2;
+  font-family: 'Sawarabi Mincho', sans-serif;
+}
+
+p,h1,h2,h3,h4,h5,h6{
+  margin-top:0;
+}
+
+img{
+  vertical-align: bottom;
+}
+
+ul{
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+a{
+  color:#3583aa;
+  text-decoration:none;
+  transition:all 0.3s;
+}
+
+a:hover{
+  text-decoration:underline;
+}
+
+
+/*==============================================
+                      all css
+=================================================*/
+
+:root{
+  --h1:2.4rem;
+  --h2:1.8rem;
+  --h3:1.4rem;
+  --h4:1.2rem;
+  --sp_h1:1.8rem;
+  --sp_h2:1.4rem;
+  --sp_h3:1.2rem;
+  --sp_h4:1rem;
+}
+
+/*============================================
+                  header css
+===============================================*/
+header{
+  z-index:1;
+  position:absolute;
+  width:100%;
+}
+
+
+.header_wrapper{
+  display:flex;
+  max-width:1200px;
+  margin:0 auto;
+  justify-content: space-between;
+  align-items:center;
+  /* background: rgba(0,0,0,0.5); */
+  font-weight:bold;
+}
+
+.header_wrapper h1.pc{
+  flex:0 0 450px;
+  height:100px;
+  line-height:100px;
+  font-size:3.5vw;
+  padding-left:10px;
+  cursor:pointer;
+}
+
+.header_wrapper h1 img{
+  width:100%;
+  height:100%;
+}
+
+.header_wrapper h1:hover{
+  opacity:0.7;
+}
+
+.header_wrapper ul{
+  display: flex;
+  flex:1;
+}
+
+.header_wrapper ul li{
+  height:100px;
+  line-height:100px;
+  height:100px;
+  line-height:100px;
+  box-sizing: border-box;
+  text-align:center;
+}
+
+.header_wrapper ul li a{
+  width:100px;
+  display:block;
+  text-decoration:none;
+  padding:0 10px;
+  transition:all 0.5s;
+  color:white;
+}
+
+.header_wrapper ul li a:hover{
+  background:rgba(0,0,0,0.2);
+}
+
+/*===================重要=======================*/
+/*toggleを開いたままpc画面にすると、sp表示が残ってしまうので、無理やり消した。*/
+@media screen and (min-width:1100px){ 
+  .sp{
+    display:none!important;
+  }
+}
+
+/*===================重要=======================*/
+
+@media screen and (max-width:1099px){
+  .pc{
+    display:none;
+  }
+
+  .sp{
+    display:block;
+  }
+
+  
+  header{
+    width:100%;
+    position:absolute;
+    background:none;
+    z-index:5;
+    top:0;
+    left:0;
+  }
+
+  .header_wrapper{
+    display:block;
+  }
+
+  .header_wrapper h1{
+    text-align:center;
+    font-size:2.5rem;
+    width:350px;
+    margin:0 auto;
+    height:auto;
+  }
+
+  .header_wrapper h1 img{
+    width:100%;
+    height:100%;
+  }
+
+  #toggle_nav{
+    display:none;
+  }
+
+  .header_wrapper nav ul{
+    display:block;
+    text-align:center;
+  }
+
+  .header_wrapper nav ul li{
+    background: rgba(0,0,0,0.1);
+    border-bottom:1px solid #ddd;
+    width:100%;
+    height:60px;
+    line-height:60px;
+  }
+
+  
+  .header_wrapper ul li a:hover{
+    background:rgba(0,0,0,0.4);
+  }
+
+
+
+  .header_wrapper nav ul li:first-child{
+    border-top:1px solid #ddd;
+  }
+
+  .header_wrapper nav ul li a{
+    display:inline-block;
+    width:100%;
+    padding:0;
+    color:white;
+  }
+
+}
+
+@media screen and (max-width:767px){
+
+.header_wrapper h1{
+  text-align:center;
+  font-size:2.5rem;
+  width:320px;
+  margin:0 auto;
+}
+
+}
+
+@media screen and (max-width:424px){
+  .header_wrapper h1{
+    width:300px;
+  }
+}
+
+/*============================================
+                  header css
+===============================================*/
+
+
+/*============================================
+                  subvisual css
+===============================================*/
+
+.sub_image_wrapper{
+  background: rgba(0,0,0,0.3);
+  background-repeat:no-repeat;
+  background-position: center;
+  background-size: cover;
+  object-fit:cover;
+  width:100%;
+  height:500px;
+}
+
+.subvisual h2{
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  font-size:var(--h2);
+  padding:250px 0;
+  text-shadow:5px 5px 10px black;
+}
+
+.subvisual{
+  width:100%;
+  position:relative;
+}
+
+.subvisual::after{
+  position:absolute;
+  content:"";
+  background:rgba(255,255,255,0.4);
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+}
+
+@media screen and (max-width:768px){
+  /* #wrap{
+    position:absolute;
+  } */
+
+.subvisual h2{
+  padding:0;
+  text-shadow:5px 5px 10px black;
+}
+
+.subvisual{
+  position:static;
+  position:relative;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+.subvisual::after{
+  position:static;
+}
+}
+
+
+/*============================================
+                  subvisual css
+===============================================*/
+
+
+
+/*==============================================
+                      scroll_top css
+=================================================*/
+
+#page_top{
+  position:fixed;
+  bottom:30px;
+  right:20px;
+}
+
+#page_top a{
+  background-color: rgba(0,0,0,0.1);
+  color:#fff;
+  text-align:center;
+  text-decoration:none;
+  padding:20px;
+}
+
+#page_top a:hover{
+  background: rgba(0,0,0,0.2);
+  text-decoration:none;
+}
+
+/*==============================================
+                      scroll_top css
+=================================================*/
+
+
+/*==============================================
+                      main css
+=================================================*/
+
+
+#wrap{
+  background:#fff;
+  padding:35px 0;
+}
+
+
+.content{
+  /* background:red; */
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 20px;
+  box-sizing: border-box;
+}
+
+.main-center{
+  max-width:1050px;
+  margin:0 auto;
+}
+
+
+.main-center h1{
+  font-family:"Bitter",serif;
+  font-size:var(--h1);
+  border-bottom:1px solid #ccc;
+}
+
+h2{
+  font-family:"Bitter",serif;
+  font-size:var(--h2);
+}
+
+h3{
+  font-family:"Bitter",serif;
+  font-size:var(--h3);
+}
+
+.icon::before{
+  content:"";
+  padding-left:10px;
+  border-left:7px solid #9cb4a4;
+}
+/*==============================================
+                      main css
+=================================================*/
+
+/*==============================================
+                      footer css
+=================================================*/
+
+
+footer{
+  width:100%;
+  box-sizing:border-box;
+  margin:200px 0 0 0;
+  text-align:center;
+  color:#fff;
+  padding:20px 0;
+  background:rgb(14, 47, 99);
+}
+
+footer small{
+  font-size:12px;
+}
+
+
+
+/*==============================================
+                      footer css
+=================================================*/

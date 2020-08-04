@@ -1,0 +1,5 @@
+<!-- BOMなし UTF-8（または Unicode など） で保存して下さい-->
+<li class="pure-g">
+<span class="pure-u sugu-listdate">%_yyyy_%-%_mm_%-%_dd_%</span>
+<span class="pure-u pure-u-1 pure-u-md-3-4 sugu-listlink"><a href="%_to_article_%" target="_top">%_subject_%</a></span>
+</li>

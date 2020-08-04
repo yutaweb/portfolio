@@ -1,0 +1,278 @@
+@charset "utf-8";
+
+/*============================================
+                  work_head css
+===============================================*/
+
+.work .container h4{
+  font-size:var(--h4);
+  text-align:center;
+  margin:50px 0;
+  line-height:1.6;
+  color:rgb(56, 84, 96);
+}
+.work_wrap{
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  margin-bottom:100px;
+}
+
+.work_wrap .work_text{
+  white-space: nowrap;
+  width:40%;
+  line-height:3;
+  color:rgb(83,71,65);
+  z-index:1;
+}
+
+.work_wrap .work_text p span{
+  display:block;
+}
+
+.work_wrap .work_img{
+  width:40%;
+}
+
+.work_wrap .work_img img{
+  width:100%;
+}
+
+.sp_work{
+  display:none;
+}
+
+
+
+@media screen and (max-width:850px){
+  .pc_work{
+    display:none;
+  }
+
+  .sp_work{
+    display:block!important;
+  }
+
+  .work .container h4{
+    text-align:center;
+    margin:50px 0;
+    line-height:1;
+    color:rgb(56, 84, 96);
+  }
+    
+  .work_wrap{
+    display:block;
+  }
+
+  .work_wrap .work_text{
+    white-space:normal;
+    width:80%;
+    margin:0 auto;
+    line-height:1.6;
+    color:rgb(83,71,65);
+    z-index:1;
+  }
+
+  .work_wrap .work_img{
+    width:50%;
+    margin:0 auto;
+  }
+
+  .worl_wrap .work_img img{
+    display:block;
+    background: #000;
+  }
+
+
+}
+
+
+@media screen and (max-width:425px){
+  .work_wrap .work_img{
+    width:90%;
+    margin:0 auto;
+  }
+}
+
+/*============================================
+                  work_head css
+===============================================*/
+
+/*============================================
+                  zyuutaku css
+===============================================*/
+.zyuutaku{
+  margin:50px 0;
+}
+
+.zyuutaku_bg {
+  background: rgb(250, 247, 240);
+  padding:20px 40px;
+  box-sizing:border-box;
+}
+
+.zyuutaku h3{
+  margin:50px 0;
+  font-size:var(--h3);
+  text-align:center;
+  position:relative;
+  font-weight:bold;
+}
+
+.zyuutaku h3::after{
+  position:absolute;
+  top:40px;
+  content:"";
+  width:30px;
+  height:3px;
+  background: #000;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:10px;
+}
+
+.zyuutaku .head_text{
+  text-align:center;
+  color:rgb(83,71,65);
+  letter-spacing:0.1rem;
+}
+
+.zyuutaku .zyuutaku_wrap{
+  margin:50px 0;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+}
+
+
+.zyuutaku .zyuutaku_wrap .zyuutaku_text{
+  width:45%;
+}
+
+.zyuutaku_text h5{
+  color:rgb(148,201,76);
+  line-height:2;
+  border-bottom:1px solid rgb(148,201,76);
+  font-size:var(--h4);
+  white-space:nowrap;
+}
+
+.zyuutaku_text_content p{
+  line-height:2;
+  margin:20px 0;
+}
+
+.zyuutaku_text_content a{
+  text-decoration: none;
+  color:white;
+  background: rgb(148,201,76);
+  display:inline-block;
+  padding:5px 10px;
+  border-radius:5px;
+}
+
+.zyuutaku_text_content a:hover{
+  opacity:0.7;
+}
+
+.zyuutaku .zyuutaku_wrap .zyuutaku_img_wrap{
+  width:45%;
+  position:relative;
+}
+
+.zyuutaku .zyuutaku_wrap .zyuutaku_img_wrap::after{
+  position:absolute;
+  content:"";
+  top:0;
+  left:0;
+  background:rgba(255,255,255,0.4);
+  width:100%;
+  height:100%;
+}
+
+.zyuutaku .zyuutaku_wrap .zyuutaku_img_wrap img{
+  width:100%;
+  height:350px;
+  object-fit:cover;
+}
+@media screen and (max-width:850px){
+  
+.zyuutaku .zyuutaku_wrap{
+  margin:50px 0;
+  display:block;
+  justify-content: space-between;
+  align-items:center;
+}
+
+
+.zyuutaku .zyuutaku_wrap .zyuutaku_text{
+  width:100%;
+}
+
+.zyuutaku_text h5{
+  white-space:normal;
+}
+
+.zyuutaku_text_content a:hover{
+  opacity:0.7;
+}
+
+.zyuutaku .zyuutaku_wrap .zyuutaku_img_wrap{
+  width:90%;
+  margin:20px auto;
+  position:relative;
+}
+
+.zyuutaku .zyuutaku_wrap .zyuutaku_img_wrap img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+}
+}
+
+@media screen and (max-width:425px){
+  .zyuutaku_bg {
+    background: rgb(250, 247, 240);
+    padding:10px 20px;
+    box-sizing:border-box;
+  }
+  
+
+  .zyuutaku .zyuutaku_wrap .zyuutaku_img_wrap{
+    width:100%;
+    margin:20px auto;
+    position:relative;
+  }
+
+  
+  .zyuutaku .zyuutaku_wrap .zyuutaku_img_wrap img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+  }
+}
+
+/*============================================
+                  zyuutaku css
+===============================================*/
+
+/*============================================
+                  kentiku css
+===============================================*/
+
+.kentiku_bg{
+  background: white;
+}
+
+.kentiku_wrap{
+  flex-direction:row-reverse;
+}
+
+
+.kentiku_text_content a{
+  background: #C69C6D;;
+}
+
+/*============================================
+                  kentiku css
+===============================================*/

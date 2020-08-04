@@ -1,0 +1,597 @@
+@charset "utf-8";
+
+/*============================================
+                  contact css
+===============================================*/
+
+.container{
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.contact_form h3{
+  margin:50px 0;
+  font-size:var(--h3);
+  text-align:center;
+  position:relative;
+  font-weight:bold;
+}
+
+.contact_form h3::after{
+  position:absolute;
+  top:40px;
+  content:"";
+  width:30px;
+  height:3px;
+  background: #000;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:10px;
+}
+
+
+.contact_form .thanks{
+  width:60%;
+  margin:30px auto;
+  padding:20px;
+  border:1px solid #ddd;
+  line-height:1.4rem;
+}
+
+.contact_usage{
+  display:flex;
+  width:80%;
+  margin:50px auto;
+  justify-content: center;
+}
+
+.contact_usage .tel,.contact_usage .mail{
+  width:40%;
+  border:1px solid rgba(0,0,0,0.2);
+  padding:5px;
+}
+
+.contact_usage .tel{
+  margin-right:50px;
+}
+
+.contact_usage .mail .usage_text{
+  padding-right:20px;
+}
+
+.contact_usage div a{
+  display:block;
+  color:black;
+  text-decoration:none;
+  background:rgba(0,0,0,0.1);
+  display:flex;
+  align-items:center;
+  padding:10px;
+}
+
+.contact_usage div a span{
+  width:30%;
+  text-align:center;
+  font-size:30px;
+}
+
+.contact_usage small{
+  font-size:12px;
+}
+
+.usage_text{
+  line-height:1.4rem;
+  width:70%;
+}
+
+@media screen and (max-width:900px){
+  .contact_usage{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:100%;
+    margin:50px auto;
+    justify-content: center;
+  }
+  
+  .contact_usage .tel,.contact_usage .mail{
+    width:300px;
+    border:1px solid rgba(0,0,0,0.2);
+    padding:1px;
+  }
+  
+  .contact_usage .tel{
+    margin-right:0;
+    margin-bottom:10px;
+  }
+  
+  .contact_usage div a{
+    display:flex;
+    color:black;
+    text-decoration:none;
+    background:rgba(0,0,0,0.1);
+    padding:0;
+  }
+  
+  .contact_usage div a span{
+    width:70px;
+    text-align:center;
+  }
+  
+  .contact_usage small{
+    font-size:12px;
+  }
+  
+  .usage_text{
+    width:230px;
+    text-align:center;
+  }
+}
+
+/*form start*/
+
+.contact_form form{
+  width:70%;
+  margin:0 auto;
+  border:3px solid rgb(160, 160, 160);
+}
+
+.contact_form form dl{
+  display:flex;
+}
+
+.contact_form form dl:last-child{
+  border-bottom:none;
+}
+
+
+.contact_form form dl dt{
+  width:40%;
+  display:flex;
+  align-items:center;
+  padding-left:30px;
+  box-sizing:border-box;
+  background: rgba(0,0,0,0.1);
+  border-bottom:1px solid white;
+}
+
+.contact_form form dl dd{
+  padding:10px 10px 10px 20px;
+  width:60%;
+  box-sizing: border-box;
+  border-bottom:1px solid #ddd;
+}
+
+.contact_form form dl:last-child dt{
+  border-bottom:none;
+}
+
+.contact_form form dl dd input{
+  padding:5px;
+  width:90%;
+  border:none;
+  border:1px solid #ddd;
+}
+
+.contact_form form dl:last-child dd{
+  border-bottom:none;
+}
+
+select{
+  padding:10px;
+  border:none;
+  border:1px solid #ddd;
+}
+
+textarea{
+  width:90%;
+  border:none;
+  border:1px solid #ddd;
+}
+
+.must::after{
+  margin-left:10px;
+  content:"必須";
+  background:rgb(255, 49, 67) ;
+  color:white;
+  font-size:14px;
+  padding:1px 3px;
+  border-radius:5px;
+}
+
+.button{
+  padding-top:50px;
+  width:70%;
+  margin:0 auto;
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+}
+
+.btn{
+  width:100%;
+  background: rgba(0,0,0,0.1);
+  border:none;
+  font-size:16px;
+  padding:5px;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.checkbox{
+  width:70%;
+  margin:0 auto;
+  margin-top:10px;
+}
+
+/* リセット */
+
+.reset{
+  width:20%;
+  margin-bottom:10px;
+  border:2px solid rgb(255, 49, 67) ;
+  color:white;
+  background:rgb(255, 49, 67);
+  font-weight:bold;
+}
+
+.reset:hover{
+  background: white;
+  color:rgb(255, 49, 67);
+}
+
+/* リセット */
+
+/* 送信 */
+
+.submit{
+  border:2px solid black;
+  padding:10px 30px;
+  font-weight:bold;
+  font-size:20px;
+  background: #000;
+  color:white;
+}
+
+.submit:hover{
+  color:black;
+  background: white;
+}
+
+/* 送信 */
+
+@media screen and (max-width:767px){
+  .contact_form form{
+    width:80%;
+    margin:0 auto;
+    border:3px solid rgb(160, 160, 160);
+  }
+
+  .contact_form .thanks{
+    width:90%;
+    padding:10px;
+  }
+
+  .contact_form form dl{
+    display:block;
+  }
+
+  .contact_form form dl dt{
+    width:100%;
+    display:flex;
+    align-items:center;
+    padding-left:30px;
+    box-sizing:border-box;
+    background: rgba(0,0,0,0.1);
+    padding:20px 0;
+    justify-content: center;
+    border-bottom:1px solid #ddd;
+  }
+
+
+  .contact_form form dl dd{
+    padding:10px;
+    width:100%;
+    box-sizing: border-box;
+  }
+
+  .contact_form form dl dd input{
+    padding:5px;
+    width:95%;
+    border:none;
+    border:1px solid #ddd;
+  }
+
+  select{
+    padding:10px;
+    border:none;
+    border:1px solid #ddd;
+    width:100%;
+  }
+
+  textarea{
+    width:98%;
+    border:none;
+    border:1px solid #ddd;
+  }
+
+  .must::after{
+    margin-left:10px;
+    content:"必須";
+    background:rgb(255, 49, 67) ;
+    color:white;
+    font-size:14px;
+    padding:1px 3px;
+    border-radius:5px;
+  }
+
+  .button{
+    width:80%;
+  }
+
+  .reset{
+    width:40%;
+  }
+
+  
+  .checkbox{
+    width:80%;
+    margin:0 auto;
+    margin-top:10px;
+  }
+
+}
+
+/*============================================
+                  contact css
+===============================================*/
+
+/*============================================
+                  map css
+===============================================*/
+
+.map h3{
+  text-align:center;
+  font-weight:bold;
+  font-size:var(--h3);
+  position:relative;
+  margin:100px 0 50px 0;
+}
+
+.map h3::after{
+  position:absolute;
+  top:45px;
+  content:"";
+  width:30px;
+  height:3px;
+  background: #000;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:10px;
+}
+
+.map{
+  text-align:center;
+}
+
+.map p{
+  margin-bottom:30px;
+  line-height:1.4rem;
+}
+
+.map_wrap{
+  margin:0 auto;
+  width:100%;
+}
+
+@media screen and (max-width:767px){
+  .map{
+    margin-top:50px;
+  }
+
+  iframe{
+    height:250px;
+    width:90%;
+  }
+}
+
+/*============================================
+                  map css
+===============================================*/
+
+/*============================================
+                  secret css
+===============================================*/
+.secret .container .secret_wrapper{
+  width:70%;
+  margin:0 auto;
+  line-height:1.4rem;
+}
+
+.secret h3{
+  text-align:center;
+  font-weight:bold;
+  font-size:var(--h3);
+  position:relative;
+  margin:100px 0 50px 0;
+}
+
+.secret h3::after{
+  position:absolute;
+  top:45px;
+  content:"";
+  width:30px;
+  height:3px;
+  background: #000;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:10px;
+}
+
+.secret .container a{
+  color:black;
+  display:block;
+  text-align:right;
+  margin-top:10px;
+  text-decoration:none;
+}
+
+.secret .container a:hover{
+  opacity:0.7;
+  text-decoration:underline;
+}
+
+@media screen and (max-width:767px){
+  .secret .container .secret_wrapper{
+    width:90%;
+    margin:0 auto;
+    line-height:1.4rem;
+  }
+  
+  
+  .secret h3{
+    text-align:center;
+    font-weight:bold;
+    font-size:var(--h3);
+    position:relative;
+    margin:100px 0 50px 0;
+  }
+  
+  .secret h3::after{
+    position:absolute;
+    top:45px;
+    content:"";
+    width:30px;
+    height:3px;
+    background: #000;
+    left:50%;
+    transform:translateX(-50%);
+    border-radius:10px;
+  }
+  
+  .secret .container a{
+    color:black;
+    display:block;
+    text-align:right;
+    margin-top:10px;
+    text-decoration:none;
+    margin-right:10px;
+  }
+  
+  .secret .container a:hover{
+    opacity:0.7;
+    text-decoration:underline;
+  }
+}
+
+/*============================================
+                  secret css
+===============================================*/
+
+/*============================================
+                  FAQ css
+===============================================*/
+
+.faq h3{
+  text-align:center;
+  font-weight:bold;
+  font-size:var(--h3);
+  position:relative;
+  margin:100px 0 50px 0;
+}
+
+.faq h3::after{
+  position:absolute;
+  top:45px;
+  content:"";
+  width:30px;
+  height:3px;
+  background: #000;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:10px;
+}
+
+.faq-inner{
+  margin:0 auto;
+  padding:60px 90px;
+  background: rgba(194,194,208,0.1);
+}
+
+.faq-checkbox{
+  display:none;
+}
+
+.faq-label{
+  cursor:pointer;
+  display:block;
+  width:100%;
+  background: #fff;
+  text-align:left;
+  padding:24px;
+  font-size:16px;
+  box-shadow:0 10px 55px rgba(0,0,0,0.05);
+  position:relative;
+  box-sizing:border-box;
+}
+
+.faq-label::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  right:24px;
+  transform:translateY(-50%);
+  background: url(../images/faq_off.svg) no-repeat 50%;
+  background-size: contain;
+  width:25px;
+  height:25px;
+}
+
+.faq-checkbox:checked + .faq-label::after{
+    background:url(../images/faq_on.svg) no-repeat 50%;
+    background-size: contain;
+}
+
+.faq-accordion{
+  max-height:0;
+  overflow-y:hidden;
+  transition:all 0.5s;
+}
+
+.faq-checkbox:checked + .faq-label + .faq-accordion{
+  max-height:120px;
+  visibility:visible;
+}
+
+.faq-answer{
+  background-color: rgba(37,117,252,0.8);
+  padding:40px 24px 40px 3em;
+  color:#fff;
+  text-indent:-1em;
+  font-size:16px;
+}
+
+@media screen and (max-width:768px){
+  .faq-inner{
+    padding:20px 30px;
+  }
+
+  .faq-label{
+    padding:24px 36px 24px 24px;
+  }
+
+  .faq-label::after{
+    right:16px;
+    width:18px;
+    height:18px;
+  }
+
+  .faq-checkbox:checked + .faq-label + .faq-accordion{
+    max-height:224px;
+  }
+}
+
+/*============================================
+                  FAQ css
+===============================================*/
+

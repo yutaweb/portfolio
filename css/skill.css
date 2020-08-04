@@ -1,0 +1,280 @@
+@charset "UTF-8";
+
+/*
+ * インフォグラフィック
+ */
+
+.scene{
+    width:98%;
+    margin:0 auto 100px auto;
+    /* background:#eee;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1); */
+}
+
+#scene-2-content {
+    width: 100%;
+}
+
+.charts { 
+    box-sizing: border-box;
+    padding:10px;
+    position: relative; 
+    margin: 0 auto;
+    width:100%;
+    margin:0 auto;
+    height: auto;
+    top: 50%;
+    overflow: hidden;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+}
+
+.chart  { 
+    position: relative; 
+    margin: 50px 0;
+
+    width: 160px;
+    height: 160px;
+    
+    /* width: 200px;
+    height: 200px; */
+}
+
+.circle-mask-outer,
+.circle-mask-inner {
+    overflow: hidden;
+    position: absolute;
+    width: 80px;
+    height: 160px;
+    /* width: 100px;
+    height: 200px; */
+}
+
+.circle-mask-outer.left {
+    left: 0;
+}
+.circle-mask-outer.right {
+    right: 0;
+}
+
+.circle-mask-outer.left .circle-mask-inner {
+    left: 100%;
+    -webkit-transform-origin: 0 50%;
+        -ms-transform-origin: 0 50%;
+            transform-origin: 0 50%;
+}
+.circle-mask-outer.right .circle-mask-inner {
+    right: 100%;
+    -webkit-transform-origin: 100% 50%;
+        -ms-transform-origin: 100% 50%;
+            transform-origin: 100% 50%;
+}
+
+.circle-body {
+    border-radius: 50%;
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    /* width: 200px;
+    height: 200px; */
+}
+.circle-mask-outer.left .circle-body {
+    right: 0;
+}
+.circle-mask-outer.right .circle-body {
+    left: 0;
+}
+#HTML .circle-body {
+  background-color: #ef6122;
+}
+#CSS .circle-body {
+  background-color: #0078ff;
+}
+
+#SASS .circle-body {
+  background-color: rgb(207, 98, 150);
+}
+#JS .circle-body {
+    background-color: rgb(241, 191, 38);
+}
+#VEU .circle-body {
+    background-color: rgb(65, 184, 131);
+}
+
+#PHP .circle-body {
+    background-color: rgb(108, 126, 183);
+}
+
+#Laravel .circle-body {
+    background-color: rgb(255, 159, 103);
+}
+
+#Python .circle-body {
+    background-color: rgb(54, 111, 158);
+}
+
+#Django .circle-body {
+  background-color: rgb(9, 45, 31);
+}
+
+#PS .circle-body {
+  background-color: rgb(0, 170, 219);
+}
+#Github .circle-body {
+  background-color: rgb(0,0,0);
+}
+#WordPress .circle-body {
+  background-color: #ddd;
+}
+#jQuery .circle-body {
+  background-color: rgb(8, 104, 172);
+}
+
+.chart-content {
+    position: absolute;
+    left: 10px;
+    top:10px;
+    width: 140px;
+    height: 100px;
+    /* width: 180px;
+    height: 140px; */
+    background-color: #fff;
+    border-radius: 50%;
+    padding-top: 40px;
+    text-align: center;
+    -webkit-backface-visibility: hidden;
+    -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+.chart-content img{
+  width:80px;
+  height:80px;
+  position:absolute;
+  top:20px;
+  left:50%;
+  transform: translateX(-50%);
+  object-fit:contain;
+}
+
+.text{
+    position:absolute;
+    bottom:15px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.chart-content .percent-number {
+    font-size: 20px;
+    font-weight: bold;
+}
+.chart-content .percent-symbol {
+    font-size: 20px;
+    font-size:16px;
+}
+
+@media screen and (max-width:768px){    
+    .chart  { 
+        margin: 15px;
+
+        width: 120px;
+        height: 120px;
+        
+        /* width: 200px;
+        height: 200px; */
+    }
+
+    .circle-mask-outer,
+    .circle-mask-inner {
+        width: 60px;
+        height: 120px;
+        /* width: 100px;
+        height: 200px; */
+    }
+    
+    .circle-body {
+        width: 120px;
+        height: 120px;
+        /* width: 200px;
+        height: 200px; */
+    }
+
+    .chart-content {
+        width: 100px;
+        height: 60px;
+    }
+
+    .chart-content img{
+        width:65px;
+        height:65px;
+        top:15px;
+        left:50%;
+    }
+
+        
+    .text{
+        bottom:5px;
+    }
+
+    .chart-content .percent-number {
+        font-size: 14px;
+    }
+    .chart-content .percent-symbol {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:525px){ 
+    .chart{ 
+        margin:30px 15px;
+    }
+}
+
+@media screen and (max-width:425px){
+    .chart  { 
+        margin:20px 0px;
+        width: 80px;
+        height: 80px;
+    }
+
+    .circle-mask-outer,
+    .circle-mask-inner {
+        width: 40px;
+        height: 80px;
+        /* width: 100px;
+        height: 200px; */
+    }
+    
+    .circle-body {
+        width: 80px;
+        height: 80px;
+        /* width: 200px;
+        height: 200px; */
+    }
+
+    .chart-content {
+        width: 60px;
+        height: 20px;
+    }
+
+    .chart-content img{
+        width:35px;
+        height:35px;
+        top:8px;
+        left:50%;
+    }
+
+        
+    .text{
+        bottom:2px;
+    }
+
+    .chart-content .percent-number {
+        font-size: 12px;
+    }
+    .chart-content .percent-symbol {
+        font-size: 10px;
+    }
+}
+

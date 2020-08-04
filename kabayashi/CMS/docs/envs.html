@@ -1,0 +1,792 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>オプション設定（変更できる環境変数）</title>
+<link rel="stylesheet" href="env.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<div class="topnavi">[<a href="index.html" name="top">目次へ戻る</a>]</div>
+<h1 class="grobaltitle">すぐ使えるCGI 添付ファイル付 ウェブページ更新ツール 大容量版（日本語 UTF-8 版） 説明書</h1>
+<h2 class="pagetitle">オプション設定（変更できる環境変数）</h2>
+
+<!-- main contents begins -->
+
+<script type="text/javascript">
+function toggle_sub(myTgt, myTop){
+	var mySublist = document.getElementById(myTgt);
+	var mySelf = document.getElementById(myTop);
+	if (!mySublist.style.display || mySublist.style.display == 'block'){
+		mySublist.style.display = 'none'
+		mySelf.className = 'togglelink_plus';
+	} else {
+		if (mySublist.style.display == 'none'){
+			mySublist.style.display = 'block'
+			mySelf.className = 'togglelink';
+		} 
+	}
+}
+</script>
+
+<p>CMSの動作はオプション設定で変更が可能です。<br>
+	変更する場合は admin/admin.cgi 内の記載を変更して下さい。<br>
+	Webサイトへ設定を反映させるには、変更後の admin/admin.cgi をサーバに上書きアップロードした後で「再構築」を行って下さい。
+	</p><h3><a name="list">オプション一覧</a></h3>
+	<table border="1" cellspacing="0" cellpadding="2" class="templatelist" id="envlist">
+	<tr>
+	<th class="th_case">変更できる内容</th>
+	<th class="th_case">環境変数名<br>（書換え対象部分）</th>
+	<th class="th_case">行数<br>（およそ）</th>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env1">ディレクトリ data/ の設置場所と名前</a></td>
+	<td class="td_file"><a href="#env1">$conf{data_dir}</a></td>
+	<td class="td_file"><a href="#env1">65</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env2">ディレクトリ templates/ の設置場所と名前</a></td>
+	<td class="td_file"><a href="#env2">$conf{templatedir}</a></td>
+	<td class="td_file"><a href="#env2">80</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env3">ディレクトリ tempfiles/ の設置場所と名前</a></td>
+	<td class="td_file"><a href="#env3">$conf{file_dir}</a></td>
+	<td class="td_file"><a href="#env3">95</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env4">（$conf{file_dir} を変更したら同時に変更）</a></td>
+	<td class="td_file"><a href="#env4">$conf{relative_file_dir}</a></td>
+	<td class="td_file"><a href="#env4">110</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env5">ディレクトリ webdir/ の設置場所と名前</a></td>
+	<td class="td_file"><a href="#env5">$conf{web_dir}</a></td>
+	<td class="td_file"><a href="#env5">125</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env6">（$conf{web_dir} を変更したら同時に変更）</a></td>
+	<td class="td_file"><a href="#env6">$conf{relative_web_dir}</a></td>
+	<td class="td_file"><a href="#env6">140</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env7">全一覧（目次）のファイル名と書き出し有無</a></td>
+	<td class="td_file"><a href="#env7">$conf{index_filename}</a></td>
+	<td class="td_file"><a href="#env7">155</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env8">全一覧（目次）に表示する件数</a></td>
+	<td class="td_file"><a href="#env8">$conf{index_list_no}</a></td>
+	<td class="td_file"><a href="#env8">170</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env9">短い一覧（新着情報）のファイル名と書き出し有無</a></td>
+	<td class="td_file"><a href="#env9">$conf{short_list_filename}</a></td>
+	<td class="td_file"><a href="#env9">185</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env10">短い一覧（新着情報）に表示する件数</a></td>
+	<td class="td_file"><a href="#env10">$conf{short_list_no}</a></td>
+	<td class="td_file"><a href="#env10">200</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env11">記事ページのファイル名</a></td>
+	<td class="td_file"><a href="#env11">$conf{article_filename}</a></td>
+	<td class="td_file"><a href="#env11">215</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env12">最新記事のファイル名と書き出し有無</a></td>
+	<td class="td_file"><a href="#env12">$conf{top_filename}</a></td>
+	<td class="td_file"><a href="#env12">245</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env13">RSSファイルのファイル名と書き出し有無</a></td>
+	<td class="td_file"><a href="#env13">$conf{rss_list_filename}</a></td>
+	<td class="td_file"><a href="#env13">265</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env14">RSSファイルに表示する件数</a></td>
+	<td class="td_file"><a href="#env14">$conf{rss_list_no}</a></td>
+	<td class="td_file"><a href="#env14">280</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env15">サマリー（記事抜粋）の文字数</a></td>
+	<td class="td_file"><a href="#env15">$conf{summary_length}</a></td>
+	<td class="td_file"><a href="#env15">295</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env16">サマリー（記事抜粋）の後置文字列「...」の設定</a></td>
+	<td class="td_file"><a href="#env16">$conf{summary_tail}</a></td>
+	<td class="td_file"><a href="#env16">310</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env17">画像ピクセルサイズの上限設定（固定画像の幅と高さ）</a></td>
+	<td class="td_file"><a href="#env17">$conf{max_imagewidth}<br>$conf{max_imageheight}</a></td>
+	<td class="td_file"><a href="#env17">325</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env18">画像ピクセルサイズの上限設定（繰り返しファイルアップロード欄）</a></td>
+	<td class="td_file"><a href="#env18">$conf{max_multiple_imagewidth}<br>$conf{max_multiple_imageheight}</a></td>
+	<td class="td_file"><a href="#env18">340</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env19">画像ファイル容量の上限設定</a></td>
+	<td class="td_file"><a href="#env19">$conf{max_imagesize}</a></td>
+	<td class="td_file"><a href="#env19">360</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env20">画像サムネイルのファイル名と書き出し有無</a></td>
+	<td class="td_file"><a href="#env20">$conf{thumbnail_filename}</a></td>
+	<td class="td_file"><a href="#env20">375</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env21">画像サムネイルのサイズ設定</a></td>
+	<td class="td_file"><a href="#env21">$conf{thumbnail_imagewidth}<br>$conf{thumbnail_imageheight}</a></td>
+	<td class="td_file"><a href="#env21">395</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env22">日本語名ファイルの許可の設定</a></td>
+	<td class="td_file"><a href="#env22">$conf{if_ja_file}</a></td>
+	<td class="td_file"><a href="#env22">410</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env23">ファイル添付フィールドの数</a></td>
+	<td class="td_file"><a href="#env23">$conf{file_max}</a></td>
+	<td class="td_file"><a href="#env23">425</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env24">月の形式</a></td>
+	<td class="td_file"><a href="#env24">$conf{month_type}</a></td>
+	<td class="td_file"><a href="#env24">440</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env25">曜日の形式</a></td>
+	<td class="td_file"><a href="#env25">$conf{dayname_type}</a></td>
+	<td class="td_file"><a href="#env25">460</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env26">タイトルの改行とタグ入力</a></td>
+	<td class="td_file"><a href="#env26">$conf{htmltag4subject}</a></td>
+	<td class="td_file"><a href="#env26">480</a></td>
+	</tr>
+	
+	<tr>
+	<td class="td_normal"><a href="#env27">管理画面パスワード</a></td>
+	<td class="td_file"><a href="#env27">$conf{admin_name}</a></td>
+	<td class="td_file"><a href="#env27">495</a></td>
+	</tr>
+	</table>
+
+<ol class="envlist">
+
+		<li class="env"><h4><a name="env1">ディレクトリ data/ の設置場所と名前</a> / $conf{data_dir}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;--------------------------------------------------------[line 065]--<br>
+&#35; データディレクトリ<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; アーカイブに含まれていた data/ ディレクトリへのパスを指定します。<br>
+&#35; 相対パスでも絶対パスでも指定できます。<br>
+&#35; Windowsで稼動させる場合、絶対パスでないとアクセスできない場合があり<br>
+&#35; ます。<br>
+<br>
+$conf{data_dir} = &#39;../data/&#39;;</blockquote>
+</div>
+<p><code class="vals">data/</code> ディレクトリのサーバ上の設置パスを指定します。<br>相対パスでも絶対パスでも指定できます。</p><p>このディレクトリには登録データ管理用のファイルが書き出されます。<br>設置場所の他、ディレクトリ名も変更可能です。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env2">ディレクトリ templates/ の設置場所と名前</a> / $conf{templatedir}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;--------------------------------------------------------[line 080]--<br>
+&#35; テンプレート格納ディレクトリ<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; アーカイブに含まれていた templates/、templates/admin/ および<br>
+&#35; templates/article/ ディレクトリへのパスを指定します。<br>
+&#35; 相対パスでも絶対パスでも指定できます。<br>
+&#35; Windowsで稼動させる場合、絶対パスでないとアクセスできない場合があり<br>
+&#35; ます。<br>
+&#35; templates/admin/ と templates/article/ は階層を変える移動も可能です。<br>
+<br>
+$conf{templatedir}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= &#39;../templates/&#39;;<br>
+<br>
+$conf{admin_templatedir}&nbsp;&nbsp;&nbsp;= &#39;../templates/admin/&#39;;<br>
+$conf{article_templatedir} = &#39;../templates/article/&#39;;</blockquote>
+</div>
+<p>templates/、<code class="vals">templates/admin/</code> および <code class="vals">templates/article/</code> ディレクトリの、サーバ上の設置パスを指定します。<br>相対パスでも絶対パスでも指定できます。</p><p>このディレクトリにはテンプレートファイル（デザイン設定ファイル）が含まれています。<br>設置場所の他、ディレクトリ名も変更可能です。</p><p><code class="vals">templates/admin/</code> と <code class="vals">templates/article/</code> は個別に階層を変える移動も可能です。配置例は「<a href="http://sugutsukaeru.jp/cgi/j/53/" target="_blank" class="external">ディレクトリ配置と環境変数の設定例</a>」を参照して下さい。<br>なお、<code class="vals">$conf{article_templatedir}</code> と <code class="vals">$conf{admin_templatedir}</code> を両方変更（移動）した場合でも、<code class="vals">$conf{templatedir}</code> の設定と元の <code class="vals">templates/</code> ディレクトリは削除せずに残して下さい。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env3">ディレクトリ tempfiles/ の設置場所と名前</a> / $conf{file_dir}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;--------------------------------------------------------[line 095]--<br>
+&#35; 添付ファイル一時保存ディレクトリ<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; アーカイブに含まれていた tempfiles/ ディレクトリへのパスを指定<br>
+&#35; します。<br>
+&#35; このディレクトリには、Webサーバ経由でアクセスできる必要があります。<br>
+&#35; 相対パスでも絶対パスでも指定できます。<br>
+&#35; Windowsで稼動させる場合、絶対パスでないとアクセスできない場合があり<br>
+&#35; ます。<br>
+&#35; 変更した時は $conf{relative_file_dir} の設定も必ず見直して下さい。<br>
+<br>
+$conf{file_dir} = &#39;../tempfiles/&#39;;</blockquote>
+</div>
+<p><code class="vals">tempfiles/</code> ディレクトリの、サーバ上の設置パスを指定します。<br>このディレクトリには作業中に必要なデータが一時的に保存されます。</p><p>設置場所の他、ディレクトリ名も変更可能です。<br>変更の際は（サーバ上のCGI専用ディレクトリではなく）通常のWebコンテンツが設置できる場所に設定して下さい。<br>配置例は「<a href="http://sugutsukaeru.jp/cgi/j/53/" target="_blank" class="external">ディレクトリ配置と環境変数の設定例</a>」を参照して下さい。</p><p>相対パスでも絶対パスでも指定できます。<br>変更した時は <code class="vals">$conf{relative_file_dir}</code> の設定も必ず見直して下さい。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env4">（$conf{file_dir} を変更したら同時に変更）</a> / $conf{relative_file_dir}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;--------------------------------------------------------[line 110]--<br>
+&#35; （$conf{file_dir} を変更したら同時に変更）<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; admin/admin.cgi から一時保存ディレクトリ（ $conf{file_dir} ）への<br>
+&#35; URL 上のパスを指定します。<br>
+&#35; 相対パスか、ウェブサーバのトップ階層からの絶対パスで指定します。<br>
+<br>
+$conf{relative_file_dir} = &#39;../tempfiles/&#39;;</blockquote>
+</div>
+<p><code class="vals">admin/admin.cgi</code> からディレクトリ tempfiles/（<code class="vals">$conf{file_dir}</code>）への URL 上のパスを指定します。<br><code class="vals">$conf{file_dir}</code> を変更した場合は、必ず設定を見直して下さい。</p><p>相対パスか、URL上のサーバルート（ホスト名の後のスラッシュ）からのパスで指定します。<br><code class="vals">$conf{file_dir}</code> を絶対パスで指定した場合、<code class="vals">$conf{file_dir}</code> と同じにはならない事に注意して下さい。<br>CGI 用ディレクトリがウェブサーバディレクトリ（ HTML 用ディレクトリ）の外にある場合も、<code class="vals">$conf{file_dir}</code> とは異なる設定が必要です。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env5">ディレクトリ webdir/ の設置場所と名前</a> / $conf{web_dir}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;--------------------------------------------------------[line 125]--<br>
+&#35; ファイル書き出しウェブディレクトリ<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; このディレクトリは、通常 Web コンテンツが格納されているディレクトリ<br>
+&#35; のどこかになります。<br>
+&#35; 相対パスでも絶対パスでも指定できます。<br>
+&#35; Windowsで稼動させる場合、絶対パスでないとアクセスできない場合があり<br>
+&#35; ます。<br>
+&#35; 変更した時は $conf{relative_web_dir} の設定も必ず見直して下さい。<br>
+<br>
+$conf{web_dir} = &#39;../webdir/&#39;;</blockquote>
+</div>
+<p>記事ページを書き出すディレクトリを指定します。</p><p>設置場所もディレクトリ名も変更可能です。サイトの構成に合わせて変更して下さい。<br>配置例は「<a href="http://sugutsukaeru.jp/cgi/j/53/" target="_blank" class="external">ディレクトリ配置と環境変数の設定例</a>」を参照して下さい。</p><p>相対パスでも絶対パスでも指定できます。<br>変更した時は <code class="vals">$conf{relative_web_dir}</code> の設定も必ず見直して下さい。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env6">（$conf{web_dir} を変更したら同時に変更）</a> / $conf{relative_web_dir}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;--------------------------------------------------------[line 140]--<br>
+&#35; （$conf{web_dir} を変更したら同時に変更）<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; admin/admin.cgi からファイル書き出しウェブディレクトリ<br>
+&#35; （ $conf{web_dir} ）へのURL 上のパスを指定します。<br>
+&#35; 相対パスか、ウェブサーバのトップ階層からの絶対パスで指定します。<br>
+<br>
+$conf{relative_web_dir} = &#39;../webdir/&#39;;</blockquote>
+</div>
+<p><code class="vals">admin/admin.cgi</code> から書き出しディレクトリ（<code class="vals">$conf{web_dir}</code>）への URL 上のパスを指定します。<br><code class="vals">$conf{web_dir}</code> を変更した場合は、必ず設定を見直して下さい。</p><p>相対パスか、URL上のサーバルート（ホスト名の後のスラッシュ）からのパスで指定します。<br><code class="vals">$conf{web_dir}</code> を絶対パスで指定した場合、<code class="vals">$conf{web_dir}</code> と同じにはならない事に注意して下さい。<br>CGI 用ディレクトリがウェブサーバディレクトリ（ HTML 用ディレクトリ）の外にある場合も、<code class="vals">$conf{web_dir}</code> とは異なる設定が必要です。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env7">全一覧（目次）のファイル名と書き出し有無</a> / $conf{index_filename}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;--------------------------------------------------------[line 155]--<br>
+&#35; 一覧のファイル名<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; 登録記事の全一覧のファイル名です。<br>
+&#35; $conf{web_dir} 内に、ここで指定したファイル名で書き出されます。<br>
+&#35;<br>
+&#35; 一覧の書き出しが不要な場合は、ファイル名を削除して下さい。<br>
+&#35; 書き出し不要な場合の設定） $conf{index_filename} = &#39;&#39;;<br>
+<br>
+$conf{index_filename} = &#39;index.html&#39;;</blockquote>
+</div>
+<p>登録記事の全一覧（目次）のファイル名です。<br>
+<code class="vals">$conf{web_dir}</code> 内に、ここで指定したファイル名で書き出されます。</p><p>全一覧を使用しない場合、指定を削除して空白にすれば、書き出しは行われません。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env8">全一覧（目次）に表示する件数</a> / $conf{index_list_no}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;--------------------------------------------------------[line 170]--<br>
+&#35; 一覧に表示する件数<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; 全一覧および管理画面の記事一覧に表示する記事件数を設定して下さい。<br>
+&#35; これより多い登録があるとページ分割されます。<br>
+&#35; 0を指定すると1ページに全件を表示します。<br>
+<br>
+$conf{index_list_no} = 10;</blockquote>
+</div>
+<p>全一覧（目次）および管理画面の記事一覧の1ページごとの最大記事件数を指定します。<br>これより多い登録があるとページ分割されます。</p><p>ページ分割しなくてよい場合は「0」を指定して下さい。</p><p>運用途中でこの値を変更した場合、変更後に管理画面一覧から「再構築（テンプレート変更反映）」を行って下さい。</p><p>運用途中に変更してこの値を増やしたり「0」に設定した場合、変更前の一覧ページが <code class="vals">webdir/</code> 内に残る事があります。<br>不要な一覧が残っていたら FTP ソフト等で削除して下さい。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env9">短い一覧（新着情報）のファイル名と書き出し有無</a> / $conf{short_list_filename}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;--------------------------------------------------------[line 185]--<br>
+&#35; 短い一覧のファイル名<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; 短い一覧のファイル名です。<br>
+&#35; $conf{web_dir} 内に、ここで指定したファイル名で書き出されます。<br>
+&#35;<br>
+&#35; 短い一覧の書き出しが不要な場合は、ファイル名を削除して下さい。<br>
+&#35; 書き出し不要な場合の設定） $conf{short_list_filename} = &#39;&#39;;<br>
+<br>
+$conf{short_list_filename} = &#39;index_short.html&#39;;</blockquote>
+</div>
+<p>短い一覧（新着情報）のファイル名です。<br>
+<code class="vals">$conf{web_dir}</code> 内に、ここで指定したファイル名で書き出されます。</p><p>短い一覧を使用しない場合、指定を削除して空白にすれば、書き出しは行われません。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env10">短い一覧（新着情報）に表示する件数</a> / $conf{short_list_no}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;--------------------------------------------------------[line 200]--<br>
+&#35; 短い一覧に表示する件数<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; 短い一覧に書き出す記事件数を設定して下さい。<br>
+&#35; 0 にすると全件を書き出します。<br>
+<br>
+$conf{short_list_no} = 3;</blockquote>
+</div>
+<p>短い一覧（新着情報）に掲載する件数を指定します。<br>管理画面の一覧と同じ順番で上から指定した件数が表示されます。</p><p>短い一覧にも全件を書き出したい時は 「0」を指定して下さい。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env11">記事ページのファイル名</a> / $conf{article_filename}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;--------------------------------------------------------[line 215]--<br>
+&#35; 記事ページのファイル名<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; 記事ページのファイル名の規則を指定して下さい。<br>
+&#35; $conf{web_dir} 内に、ここで指定したファイル名で書き出されます。<br>
+&#35; 指定には、記事ごとに別々の値になるように日付や連番を表すテンプレート<br>
+&#35; 変数を付けて下さい。<br>
+&#35; <br>
+&#35; 使用できるテンプレート変数は以下の通りです。<br>
+&#35; %_d_%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;記事の管理用連番<br>
+&#35; %_yyyy_%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;記事の年（入力された値。以下同様。）<br>
+&#35; %_mm_%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;　記事の月<br>
+&#35; %_dd_%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;記事の日<br>
+&#35;<br>
+&#35; 記事の書き出しが不要な場合は、ファイル名を削除して下さい。<br>
+&#35; 書き出し不要な場合の設定） $conf{article_filename} = &#39;&#39;;<br>
+<br>
+$conf{article_filename} = &#39;%_d_%.html&#39;;<br>
+<br>
+&#35; ここで指定した値は各記事を編集時に個々に変更する事ができますが、<br>
+&#35; ここでファイル名を指定しなかった場合は、管理画面からファイル名を<br>
+&#35; 指定しても記事ページは一切書き出しされません。<br>
+&#35; 「最新記事」も書き出されなくなります。</blockquote>
+</div>
+<p>記事ページのファイル名の規則を指定できます。拡張子の変更をしたり、日付や、固定の名前をファイル名に付けたい場合に指定して下さい。</p><p>それぞれの記事で指定した値に置き換えられるテンプレート変数も使用できます。使用できるテンプレート変数は以下の通りです。</p><p>%_d_%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;記事の管理用連番<br>%_yyyy_%&nbsp;&nbsp;&nbsp;記事の年（入力された値。以下同様。）<br>%_mm_%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;記事の月<br>%_dd_%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;記事の日</p><p>%_d_% は記事の連番、%_yyyy_% は記事に指定した年に（月、日についても同様）置き換えられた名前で <code class="vals">$conf{web_dir}</code> 内に記事ページが書き出されます。</p><p>置き換え後のファイル名に重複するものがあった場合はエラーになりますので、重複しないように指定して下さい。「%_d_%」は記事ごとに異なる連番ですのでこの番号を含めれば重複する事はありません。</p><p>記事の書き出しが不要な場合は、指定を削除して空白にすれば、書き出しは行われません。なお、ここでファイル名を指定しなかった場合は、「最新記事」も書き出されなくなります。</p><p>ここで指定した値は各記事を編集時に個々に変更する事ができます（Ver. 5.0以上で初期設定の隠し項目を有効にする必要があります。）。</p><p>ここでファイル名を指定しなかった場合は、管理画面からファイル名を指定しても記事ページは一切書き出しされません。逆に、ここでファイル名を指定しても、管理画面から個別の記事について記事ページを作成しない設定が可能です。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env12">最新記事のファイル名と書き出し有無</a> / $conf{top_filename}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;-------------------------------------------[line 215]--&gt;[line 245]--<br>
+&#35; 最新記事のファイル名<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; 最新記事のファイル名です。<br>
+&#35; $conf{web_dir} 内に、ここで指定したファイル名で書き出されます。<br>
+&#35;<br>
+&#35; 最新記事の書き出しが不要な場合は、ファイル名を削除して下さい。<br>
+&#35; 書き出し不要な場合の設定） $conf{top_filename} = &#39;&#39;;<br>
+&#35; ここで書き出しを行わなくても、一覧からは記事ページにアクセスでき<br>
+&#35; ます。<br>
+<br>
+$conf{top_filename} = &#39;top.html&#39;; <br>
+<br>
+&#35; 記事ページのファイル名 ( $conf{article_filename} ) のファイル名を<br>
+&#35; 削除すると、ここで $conf{top_filename} にファイル名を指定しても<br>
+&#35; 書き出されません。</blockquote>
+</div>
+<p>最新記事のファイル名です。<br><code class="vals">$conf{web_dir}</code> 内に、ここで指定したファイル名で書き出されます。</p><p>最新記事とは、管理画面一覧の一番上にある記事だけを、通常の記事ページとは別に固定ファイル名で書き出すものです。<br>他のページから最新記事に直接リンクしたい場合に使用して下さい。</p><p>最新記事の書き出しが不要な場合は、ファイル名を削除して空白にすれば書き出しは行われません。<br>
+ここで書き出しを抑えた場合でも、一覧からアクセスする通常の記事ファイル（記事番号がファイル名に付くもの）は書き出されます。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env13">RSSファイルのファイル名と書き出し有無</a> / $conf{rss_list_filename}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;-------------------------------------------[line 230]--&gt;[line 265]--<br>
+&#35; RSSのファイル名<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; RSSのファイル名です。<br>
+&#35; $conf{web_dir} 内に、ここで指定したファイル名で書き出されます。<br>
+&#35;<br>
+&#35; RSSファイルの書き出しが不要な場合は、ファイル名を削除して下さい。<br>
+&#35; 書き出し不要な場合の設定） $conf{rss_list_filename} = &#39;&#39;;<br>
+<br>
+$conf{rss_list_filename} = &#39;new.xml&#39;;</blockquote>
+</div>
+<p>RSSファイルのファイル名です。<br><code class="vals">$conf{web_dir}</code> 内に、ここで指定したファイル名で書き出されます。<br>拡張子の変更も可能です。</p><p>RSSファイルを使用しない場合、指定を削除して空白にすれば、書き出しは行われません。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env14">RSSファイルに表示する件数</a> / $conf{rss_list_no}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;-------------------------------------------[line 245]--&gt;[line 280]--<br>
+&#35; RSSに表示する件数<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; RSSに書き出す記事件数を設定して下さい。<br>
+&#35; 0 にすると全件を書き出します。<br>
+<br>
+$conf{rss_list_no} = 10;</blockquote>
+</div>
+<p>RSSファイルに書き出す記事件数を設定します。<br>10 件程度が一般的です。</p><p>RSSファイルにも全件を書き出したい時は 「0」を指定して下さい。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env15">サマリー（記事抜粋）の文字数</a> / $conf{summary_length}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;-------------------------------------------[line 260]--&gt;[line 295]--<br>
+&#35; RSSの詳細の文字数<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; RSSファイル等に記載する詳細（サマリー、記事内容の抜粋）の文字数を<br>
+&#35; 全角1文字 ＝ 2 の割合で指定します。<br>
+&#35; 例）全角 150文字で制限する場合： $conf{summary_length} = 300;<br>
+&#35; 500 以下の設定を推奨します。<br>
+&#35;<br>
+&#35; 0 を指定すると、切り捨てを行わずに全文を掲載します。<br>
+<br>
+$conf{summary_length} = 200;</blockquote>
+</div>
+<p>RSSファイルや記事ページに表示するサマリー（記事の抜粋、&lt;description&gt; ）の文字数を 全角1文字 ＝ 2 の割合で指定します。<br>例えば、全角 150文字で制限する場合は 300 と指定して下さい。<br>ここで指定した文字数分、記事内容の冒頭から切り出されます。</p><p>英単語の区切りや全角文字の位置によっては、正確な文字数で切り出されない場合があります。<br>500以下の設定を推奨します。</p><p>0 を指定すると、切り捨てを行わずに全文を掲載します。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env16">サマリー（記事抜粋）の後置文字列「...」の設定</a> / $conf{summary_tail}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;-------------------------------------------[line 275]--&gt;[line 310]--<br>
+&#35; 詳細の後置文字列<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; 切り捨てた内容がある場合、詳細に後置する文字列を指定します。<br>
+&#35; HTMLタグと記事へリンクするためのテンプレート変数が使えます。<br>
+&#35; 例）<br>
+&#35; $conf{summary_tail} = &#39;...(&lt;a href=&quot;%_d_%.html&quot;&gt;全文表示&lt;/a&gt;)&#39;;<br>
+<br>
+<br>
+$conf{summary_tail} = &#39;...&#39;;</blockquote>
+</div>
+<p>サマリー（記事の抜粋、RSS の &lt;description&gt;）を切り出す際に切り捨てた内容がある場合に、後置する文字列を指定します。<br>記事内容が短くサマリーに全文が含まれている場合は、ここに指定しても後置されません。</p><p>固定の文字列だけでなく、HTMLタグと記事へリンクするためのテンプレート変数が使えます（上記枠内例）。<br>HTMLタグを使用すると、サマリーの表示指定位置によっては文法エラーとなる場合があります（&lt;meta&gt; タグの description に使った場合など）。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env17">画像ピクセルサイズの上限設定（固定画像の幅と高さ）</a> / $conf{max_imagewidth} $conf{max_imageheight}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;------------------------------[line 320]--&gt;[line 290]--&gt;[line 325]--<br>
+&#35; 画像ピクセルサイズの上限設定（固定画像欄）<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; 固定画像欄に画像がアップロードされた場合に画像のピクセル<br>
+&#35; サイズを縮小するかの設定です。画像の幅と高さの上限をピクセル数で設定<br>
+&#35; して下さい。<br>
+&#35; 指定したより大きな画像がアップロードされた場合、指定サイズに収まる<br>
+&#35; ように縮小されます。<br>
+&#35; 制限を行わない場合は 0 を指定して下さい。（縦横どちらかのみ 0 でも可。）<br>
+<br>
+&#35; 上の行=幅：&nbsp;&nbsp;※左の数字から順に画像 1-5 のサイズを指定<br>
+&#35; 下の行=高さ：※（同上）<br>
+$conf{max_imagewidth}&nbsp;&nbsp;= [1200,1200,1200,1200,1200];<br>
+$conf{max_imageheight} = [1200,1200,1200,1200,1200];</blockquote>
+</div>
+<p>固定画像欄にアップロードした画像の幅と高さの上限をピクセル数で指定します。<br>指定したサイズより大きな画像がアップロードされた場合、指定サイズに収まるように自動的に縮小（リサイズ）されます。<br>制限を行わない場合は「0」を指定して下さい。</p><p>画像それぞれについて、縦横別々に設定できます。（画像ぞれぞれの指定は Ver. 4.4 以降。）<br>例えば画像の横幅を一定にしたい場合は、<code class="vals">$conf{max_imagewidth}</code> にその幅を指定し <code class="vals">$conf{max_imageheight}</code> には「0」を指定して下さい。</p><p>サーバ環境が対応していない場合、ここで設定しても縮小されません。<br>サーバで以下のモジュールのいずれかが使用できる事が必要です。<br>・Image::Magick<br>・GD</p><p>サーバによってはモジュールはあっても特定の拡張子の画像に対応がない場合や、リサイズ後の画像の品質が極端に落ちる場合があります。</p><p>画像のアップロード後にこの値を変更した場合は、既存の画像には反映されません。<br>アップロード済の画像を縮小するには再度アップロードを行って下さい。</p><p>なお、縮小されるのは拡張子が右のファイルのみで、他の種類のファイルには影響を与えません。：gif/jpg/jpeg/png。svg と svgz （Ver. 4.8 からアップロード可能）の縮小（データの書き換え）は行われませんので、HTMLタグや CSS で表示サイズを設定して下さい。</p><p>【画像の個数の指定】<br>Ver. 4.8 以降では、設定する数字の個数がアップロードできる画像またはファイルの数になります。上限は5個です。</p><p>最大まで画像またはファイルを利用するには、下記のように設定して下さい。数字は画像の上限サイズを設定して下さい。</p><p><code class="vals">$conf{max_imagewidth}</code>&nbsp;&nbsp;= [0,0,0,0,0];<br><code class="vals">$conf{max_imageheight}</code> = [0,0,0,0,0];</p><p>画像やファイルの数を増やした時は、管理画面テンプレート（入力画面および確認画面）と記事用テンプレートにも表示を追加して下さい。詳しい方法は下記URLをご覧下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/61/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/61/</a></p><p>画像やファイルの個数を減らす時はテンプレートから表示を削除するだけでも構いませんが、以下のように数字の指定を1つにするとアップロードできる画像またはファイルが1つに制限されます。このように設定すると、ファイル名を変更せずに同じ名前のファイルを繰り返しアップロードできるようになります。</p><p><code class="vals">$conf{max_imagewidth}</code>&nbsp;&nbsp;= [0];<br><code class="vals">$conf{max_imageheight}</code> = [0];</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env18">画像ピクセルサイズの上限設定（繰り返しファイルアップロード欄）</a> / $conf{max_multiple_imagewidth} $conf{max_multiple_imageheight}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;-------------------------------------------[line 305]--&gt;[line 340]--<br>
+&#35; 画像ピクセルサイズの上限設定（繰り返しファイルアップロード欄）<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; ファイルアップロード欄に画像がアップロードされた場合に画像のピクセル<br>
+&#35; サイズを縮小するかの設定です。画像の幅と高さの上限をピクセル数で設定<br>
+&#35; して下さい。<br>
+&#35; 指定したより大きな画像がアップロードされた場合、指定サイズに収まる<br>
+&#35; ように縮小されます。<br>
+&#35; 制限を行わない場合は 0 を指定して下さい。（縦横どちらかのみ 0 でも可。）<br>
+&#35;<br>
+&#35; この設定は、ファイルアップロード欄にアップロードされた全ての画像で<br>
+&#35; 共通です。<br>
+<br>
+&#35; 上の行=幅<br>
+&#35; 下の行=高さ<br>
+$conf{max_multiple_imagewidth}&nbsp;&nbsp;= 1200;<br>
+$conf{max_multiple_imageheight} = 1200;</blockquote>
+</div>
+<p>ファイルアップロード欄（無制限数のファイルがアップロードできる欄）にアップロードされたファイルが画像だった場合に自動縮小ができます（Ver. 4.8 以降のみ）。この画像の幅と高さの上限をピクセル数で指定します。<br>指定したサイズより大きな画像がアップロードされた場合、自動的にリサイズされます。<br>制限を行わない場合は「0」を指定して下さい。</p><p>縦横別々に設定できます。例えば画像の高さを一定にしたい場合は、<code class="vals">$conf{max_multiple_imagewidth}</code> には「0」を指定し <code class="vals">$conf{max_multiple_imageheight}</code> にはその高さを指定して下さい。</p><p>なお、縮小されるのは拡張子が右のファイルのみで、他の種類のファイルには影響を与えません。：gif/jpg/jpeg/png。<br>また逆に、拡張子が上記のファイルであれば、全てに共通して一つの設定が適用されます。特定の画像だけ縮小する設定はここではできません。特定の画像だけ縮小したい場合は、固定画像欄にアップロードして下さい。</p><p>サーバ環境が対応していない場合、ここで設定しても縮小されません。<br>サーバで以下のモジュールのいずれかが使用できる事が必要です。<br>・Image::Magick<br>・GD</p><p>サーバによってはモジュールはあっても特定の拡張子の画像に対応がない場合や、リサイズ後の画像の品質が極端に落ちる場合があります。</p><p>画像のアップロード後にこの値を変更した場合は、既存の画像には反映されません。<br>アップロード済の画像を縮小するには再度アップロードを行って下さい。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env19">画像ファイル容量の上限設定</a> / $conf{max_imagesize}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;------------------------------[line 305]--&gt;[line 325]--&gt;[line 360]--<br>
+&#35; 画像ファイル容量の上限設定<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; CGIで制限する画像ファイル容量の上限を KB 数で指定します。<br>
+&#35; ピクセルサイズの上限設定を行う場合は、あまり大容量のファイルを処理<br>
+&#35; できないように、ここで制限をする事をお勧めします。<br>
+&#35;<br>
+&#35; 1MB = 1024KB です。<br>
+&#35; 制限を行わない場合は 0 を指定して下さい。<br>
+&#35;<br>
+&#35; ここで制限を行わなくても、ウェブサーバによって制限されエラーに<br>
+&#35; なる場合もあります。<br>
+<br>
+$conf{max_imagesize} = 0;</blockquote>
+</div>
+<p>アップロードできる画像の容量を制限する場合、その容量を KB 単位で指定します。<br>画像のリサイズを行う場合はあまり大きな画像がアップロードされると処理がエラーになる場合がありますので、ここで容量の制限をする事をお勧めします。</p><p>1MB = 1024KB です。例えば 1MB で制限したい場合は以下のように設定して下さい。<br><code class="vals">$conf{max_imagesize}</code> = 1024;</p><p>制限を行わない場合は「0」を指定して下さい。</p><p>Ver. 4.4 以降の製品では固定画像欄に画像以外のファイルもアップロードできますが、画像以外にはこの容量制限は適用されません。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env20">画像サムネイルのファイル名と書き出し有無</a> / $conf{thumbnail_filename}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;------------------------------[line 320]--&gt;[line 340]--&gt;[line 375]--<br>
+&#35; 画像サムネイルのファイル名<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; ここでサムネイルファイル名のパターンを指定すると、画像欄にアップロード<br>
+&#35; したファイルは別のサイズに縮小した画像も保存されます。<br>
+&#35; <br>
+&#35; 元ファイルの名前を ORIGINAL として必ず含めて下さい。<br>
+&#35; サムネイルの保存が不要な場合は、空に設定して下さい（下記例）。<br>
+&#35; $conf{thumbnail_filename} = &#39;&#39;;<br>
+&#35;<br>
+&#35; 例）<br>
+&#35; ファイル名の指定　　： $conf{thumbnail_filename} = &#39;s_ORIGINAL&#39;;<br>
+&#35; サムネイルファイル名： myfoto123.jpg -&gt; s_myfoto123.jpg<br>
+<br>
+$conf{thumbnail_filename} = &#39;s_ORIGINAL&#39;;<br>
+<br>
+&#35; なお、この設定が有効になるのは固定位置画像のみで、ファイルアップロード欄に<br>
+&#35; アップロードした画像のサムネイルは作成されません。</blockquote>
+</div>
+<p>Ver. 4.4 以降の製品では固定画像欄にアップロードした画像のサムネイル（縮小版）も生成できるようになりました。<br>ファイル名を指定すると、元の画像のファイル名を含む名前でサムネイルファイルを生成します。</p><p>ファイル名の指定には元ファイルの名前を「ORIGINAL」という固定文字列で必ず含めて下さい。<br>拡張子の指定は不要です。</p><p>例）<br>ファイル名の指定　　　　　　： <code class="vals">$conf{thumbnail_filename}</code> = &#39;s_ORIGINAL&#39;;<br>アップロードした画像ファイル： myfoto123.jpg<br>作成されるサムネイルファイル： s_myfoto123.jpg</p><p>サムネイル名を指定したら必ず下のサムネイルのサイズも指定して下さい。</p><p>サムネイルの保存が不要な場合は、空に設定して下さい。<br>例）<br><code class="vals">$conf{thumbnail_filename}</code> = &#39;&#39;;</p><p>画像のアップロード後にサムネイルのファイル名を指定した場合、既にアップロード済みの画像についてはサムネイルは作成されません。<br>サムネイルの表示を指定した場所には、メインの画像が表示されます。<br>アップロード済の画像のサムネイルが必要な場合は再度アップロードを行って下さい。</p><p>一旦サムネイルを作成する設定で運用を行った後にファイル名の設定を空に変更した場合、登録できる画像の数に余裕があるとサムネイル画像が一つの登録済画像として管理画面に表示されます。手動で削除して下さい。<br>このような状態の時に「再構築（テンプレート変更反映）」を行うと、サムネイル画像が2、3番目の画像として記事ページに表示されますのでご注意下さい。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env21">画像サムネイルのサイズ設定</a> / $conf{thumbnail_imagewidth} $conf{thumbnail_imageheight}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;------------------------------[line 340]--&gt;[line 360]--&gt;[line 395]--<br>
+&#35; 画像サムネイルのピクセルサイズ設定<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; 画像サムネイルの幅と高さの上限をピクセル数で設定して下さい。<br>
+&#35; 0 を指定すると、リサイズを行いません（アップロードされたサイズ）。<br>
+&#35; タテヨコ比の変更は行わず、長い辺が指定されたサイズに収まるように<br>
+&#35; 縮小されます。<br>
+<br>
+&#35; 上の行=幅：&nbsp;&nbsp;※左の数字から順に画像 1-5 のサイズを指定<br>
+&#35; 下の行=高さ：※（同上）<br>
+$conf{thumbnail_imagewidth}&nbsp;&nbsp;= [300,300,300,300,300];<br>
+$conf{thumbnail_imageheight} = [&nbsp;&nbsp;0,&nbsp;&nbsp;0,&nbsp;&nbsp;0,&nbsp;&nbsp;0,&nbsp;&nbsp;0];</blockquote>
+</div>
+<p>画像サムネイルの幅と高さの上限をピクセル数で指定します。<br>サムネイルのファイル名（<code class="vals">$conf{thumbnail_filename}</code>）が指定されていれば、ここで指定されたサイズでサムネイルが保存されます。<br>サムネイルのファイル名が指定されていなければ、サイズを指定してもサムネイルは作成されません。</p><p>メインの画像サイズ（ <code class="vals">$conf{max_imagewidth}</code> と <code class="vals">$conf{max_imageheight}</code> で指定 ）と無関係で指定できます。<br>縮小を行わず、アップロードされたサイズで保存したい場合は「0」を指定して下さい。<br>タテヨコ比の変更は行わず、長い辺が指定されたサイズに収まるように縮小されます。</p><p>画像それぞれについて、縦横別々に設定できます。<br>例えばサムネイルの横幅を一定にしたい場合は、<code class="vals">$conf{thumbnail_imagewidth}</code> にその幅を指定し <code class="vals">$conf{thumbnail_imageheight}</code> には「0」を指定して下さい。</p><p>画像のアップロード後にこの値を変更した場合は、既存の画像のサムネイルには反映されません。<br>アップロード済の画像についてサムネイルサイズを変更したい場合は再度アップロードを行って下さい。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env22">日本語名ファイルの許可の設定</a> / $conf{if_ja_file}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;------------------------------[line 355]--&gt;[line 375]--&gt;[line 410]--<br>
+&#35; 日本語名ファイルの許可の設定<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; 添付ファイルに日本語ファイル名を許可するかを設定します。<br>
+&#35; 1=許可、0=許可しない<br>
+&#35;<br>
+&#35; この設定は、以下のファイルに適用されます。<br>
+&#35; - 固定画像欄にアップロードする画像以外のファイル<br>
+&#35; - 繰り返し添付ファイル欄にアップロードする全てのファイル<br>
+&#35; <br>
+&#35; つまり、固定画像欄にアップロードする画像については、ここで「1」を設定<br>
+&#35; しても半角英数字のファイルしかアップロードできません。<br>
+<br>
+$conf{if_ja_file} = 1;</blockquote>
+</div>
+<p>添付ファイルに日本語ファイル名を許可するかを設定します。</p><p>1=許可<br>0=許可しない</p><p>Ver. 4.4 以降の製品では固定画像欄に画像以外のファイルもアップロードできますが、そのように設定したフィールドについてはこの設定が適用されます。</p><p>ブラウザによっては、ここで許可しても日本語名ファイルのアップロードができない場合があります。</p><p>Ver. 4.6 以下の場合は、サーバの OS が Windows で Webサーバとして Apache を使用する場合、ファイルがダウンロードできなくなる日本語文字があります（全角数字やカタカナを含む200個程度の文字）。</p><p>Ver. 3.1 以下の製品ではさらに以下の制限があります。<br>サーバの OS が Windows の場合は、日本語ファイル名対応は Shift_JIS 版のみです。<br>サーバの OS が Macintosh(Mac OS X 以上) の場合は、日本語ファイル名対応はUTF-8 版のみです。<br>サーバの OS が Macintoshの場合、濁点付きのひらがなとカタカナが文字化けする場合があります。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env23">ファイル添付フィールドの数</a> / $conf{file_max}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;------------------------------[line 370]--&gt;[line 390]--&gt;[line 425]--<br>
+&#35; ファイル添付フィールドの数<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; 入力画面に表示するファイル添付フィールドの数を指定します。<br>
+&#35; 一度にアップロードするファイル数の上限を指定して下さい。<br>
+<br>
+$conf{file_max} = 3;</blockquote>
+</div>
+<p>入力画面に表示するファイル添付フィールドの数を指定します。<br>一度にアップロードするファイル数の上限を指定して下さい。</p><p>1つの記事に添付できるファイル数の上限とは関係ありません。<br>（繰り返し編集すれば無制限数のファイルが添付できます。）</p><p>サイズの大きいファイルを添付する事が多い場合は、フィールド数は少なめに設定して下さい。<br>（一度に大量のファイルを送信するとエラーになる可能性があります。）</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env24">月の形式</a> / $conf{month_type}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;------------------------------[line 385]--&gt;[line 405]--&gt;[line 440]--<br>
+&#35; 月の形式<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; 月の形式を2ケタの数字以外にしたい場合に以下から設定をして下さい。<br>
+&#35; テンプレート変数 %_month_% と %_mon_% に反映されます。<br>
+&#35; 2ケタの数字での表示は、ここで設定しなくても %_mm_% で表示できます。<br>
+&#35;<br>
+&#35; 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt; 1, 2, ....<br>
+&#35; January =&gt; January, February, ....<br>
+&#35; Jan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt; Jan, Feb, ....<br>
+&#35; janvier =&gt; janvier, ....<br>
+&#35; enero&nbsp;&nbsp;&nbsp;=&gt; enero, febrero, ....<br>
+&#35; 01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt; 01, 02, ....<br>
+<br>
+$conf{month_type} = &#39;1&#39;;<br>
+<br>
+&#35;他の形式 $conf{month_type} = [&#39;睦月&#39;, &#39;如月&#39;..];</blockquote>
+</div>
+<p>%_mon_% と %_month_% に反映される月の表示形式を設定します。</p><p>設定と表示の対応は以下の通りです。<br><code class="vals">$conf{month_type}</code> = &#39;1&#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt; (1桁数字) 1, 2, ...<br><code class="vals">$conf{month_type}</code> = &#39;January&#39; -&gt; (英語) January, February, ...<br><code class="vals">$conf{month_type}</code> = &#39;Jan&#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt; (英語省略形) Jan, Feb, ...<br><code class="vals">$conf{month_type}</code> = &#39;janvier&#39; -&gt; (フランス語) janvier, ...<br><code class="vals">$conf{month_type}</code> = &#39;enero&#39;&nbsp;&nbsp;&nbsp;-&gt; (スペイン語) enero, febrero, ...</p><p>2ケタの数字でよい場合は特に設定は不要です。2ケタの数字の場合テンプレート変数は %_mm_% を使用して下さい。</p><p>&#39;January&#39; または &#39;Jan&#39; を選んだ場合は、記事ファイルではどちらの形式も使用することができます。<br>記事ファイルでの表示に関して詳しくは「<a href="template_vals.html">テンプレート変数一覧</a>」を参照して下さい。</p><p>この他の形式で表示したい場合は以下のように1月-12月までの表示をカンマ区切りで指定して下さい。<br>例）<br><code class="vals">$conf{month_type}</code> = [&#39;睦月&#39;, &#39;如月&#39;..];</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env25">曜日の形式</a> / $conf{dayname_type}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;------------------------------[line 405]--&gt;[line 425]--&gt;[line 460]--<br>
+&#35; 曜日の形式<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; 曜日（グレゴリオ暦）の形式を以下から選択して下さい。<br>
+&#35; Sunday&nbsp;&nbsp;&nbsp;=&gt; Sunday, Monday, ....<br>
+&#35; sunday&nbsp;&nbsp;&nbsp;=&gt; sunday, monday, ....<br>
+&#35; Sun&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt; Sun, Mon, ....<br>
+&#35; sun&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt; sun, mon, ....<br>
+&#35; tian&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt; 天, 一, ....（中文）<br>
+&#35; ri&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt; 日, 一, ....（中文）<br>
+&#35; nichi&nbsp;&nbsp;&nbsp;&nbsp;=&gt; 日, 月, ....（日本語）<br>
+&#35; dimanche =&gt; dimanche, lundi....<br>
+&#35; domingo&nbsp;&nbsp;=&gt; domingo, lunes, ....<br>
+<br>
+$conf{dayname_type} = &#39;nichi&#39;;<br>
+<br>
+&#35;他の形式 $conf{dayname_type} = [&#39;Domingo&#39;, &#39;Segunda-Feira&#39;..];</blockquote>
+</div>
+<p>曜日の表示形式を指定します。</p><p>設定と表示の対応は以下の通りです。<br><code class="vals">$conf{dayname_type}</code> = &#39;nichi&#39;&nbsp;&nbsp;&nbsp;&nbsp;-&gt; (日本語) janvier, ...<br><code class="vals">$conf{dayname_type}</code> = &#39;Sunday&#39;&nbsp;&nbsp;&nbsp;-&gt; (英語、曜日名、大文字で開始) Sunday, Monday, ....<br><code class="vals">$conf{dayname_type}</code> = &#39;sunday&#39;&nbsp;&nbsp;&nbsp;-&gt; (英語、曜日名、小文字で開始) sunday, monday, ....<br><code class="vals">$conf{dayname_type}</code> = &#39;Sun&#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt; (英語、短縮曜日、大文字で開始) Sun, Mon, ....<br><code class="vals">$conf{dayname_type}</code> = &#39;sun&#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt; (英語、短縮曜日、小文字で開始) sun, mon, ....<br><code class="vals">$conf{dayname_type}</code> = &#39;tian&#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt; (中国語、日曜日が「天」) 天, 一, ....<br><code class="vals">$conf{dayname_type}</code> = &#39;ri&#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt; (中国語、日曜日が「日」) 日, 一, ....<br><code class="vals">$conf{dayname_type}</code> = &#39;dimanche&#39; -&gt; (フランス語) dimanche, lundi....<br><code class="vals">$conf{dayname_type}</code> = &#39;domingo&#39;&nbsp;&nbsp;-&gt; (スペイン語) domingo, lunes, ....</p><p>この他の形式で表示したい場合は以下のように日曜日-土曜日までの表示をカンマ区切りで指定して下さい。<br>例）<br><code class="vals">$conf{dayname_type}</code> = [&#39;Domingo&#39;, &#39;Segunda-Feira&#39;..];</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env26">タイトルの改行とタグ入力</a> / $conf{htmltag4subject}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;------------------------------[line 425]--&gt;[line 445]--&gt;[line 480]--<br>
+&#35; タイトルの改行とタグ入力<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; タイトル欄の改行とタグ入力を許可する場合に「1」に設定して下さい。<br>
+&#35; 「記事内容」欄と同じタグ入力規則でHTMLタグの入力が可能になります。<br>
+&#35; 特殊文字のエンティティ入力もできるようになります。<br>
+&#35; <br>
+&#35; 管理画面からの改行の入力ができるようにするには、入力画面用の<br>
+&#35; テンプレートも編集して下さい。<br>
+<br>
+$conf{htmltag4subject} = 1;</blockquote>
+</div>
+<p>「タイトル」欄でHTMLタグ入力と改行を有効にする場合に「1」を設定します。<br>通常はHTMLタグ入力も改行も入力できません。入力しない場合の設定は「0」です。</p><p>「1」を設定するとタイトルにも HTML タグや改行の他、「&amp;&#35;x9ad9;」（はしご高）などのように特殊文字のエンティティ入力ができるようになります。</p><p>HTMLタグの入力だけでなく改行も入力する場合は入力欄も広げる必要があります。環境変数の変更の他に <code class="vals">templates/admin/2.html</code> も編集して入力フィールドを1行テキスト（&lt;input type=&quot;text&quot;&gt;）からテキストエリア（&lt;textarea&gt;）に変更して下さい。</p><p>「タイトル」欄にタグや改行を入力する時は、&lt;title&gt; - &lt;/title&gt; タグ内などそれらの表示が適さない場所にはタイトルの表示をしないように留意して下さい。<br>また、目次内のタイトルから固定でリンクを設定している場合なども、HTMLタグが意図せず入れ子になる可能性がありますので運用上注意して下さい。</p></div>
+</li>
+
+
+		<li class="env"><h4><a name="env27">管理画面パスワード</a> / $conf{admin_name}</h4>
+		<div class="eachcontent">
+		
+<div class="container">
+<blockquote class="code">&#35;------------------------------[line 440]--&gt;[line 460]--&gt;[line 495]--<br>
+&#35; 管理画面パスワードの設定<br>
+&#35;--------------------------------------------------------------------<br>
+&#35; 管理画面のアクセス制限をする場合はユーザ名とパスワードを設定して<br>
+&#35; 下さい。<br>
+&#35; 両方を設定すると認証が有効になります。<br>
+&#35;<br>
+&#35; 使用できる文字： 半角アルファベット、半角数字、@、.（ドット）、-、_<br>
+&#35; 文字数： 半角 6-30文字<br>
+<br>
+$conf{admin_name} = &#39;&#39;; &#35;ユーザ名<br>
+$conf{admin_pass} = &#39;&#39;; &#35;パスワード</blockquote>
+</div>
+<p>ユーザ名（ <code class="vals">$conf{admin_name}</code> ）とパスワード（ <code class="vals">$conf{admin_pass}</code> ）を設定して下さい。<br>「ユーザ名」と「パスワード」の両方が正しく設定された場合のみ認証が有効になります。</p><p>使用できる文字： a-z、A-Z、0-9、@(アットマーク)、. (ドット)、-(ハイフン)、_(アンダーバー)<br>文字数： 半角 6-30文字</p><p>例）<br><code class="vals">$conf{admin_name}</code> = &#39;k.k.nishitei&#39;; &#35;ユーザ名<br><code class="vals">$conf{admin_pass}</code> = &#39;anzen,Daiichi&#39;; &#35;パスワード</p><p>なお、上記例の指定では実際には期待どおり動作しません。<br>
+かならずご自身でユーザ名とパスワードを決定して下さい。</p></div>
+</li>
+
+</ol>
+
+
+
+<!-- main contents ends -->
+<div class="footer">
+copyright(c) Sugutsukaeru Inc. All rights reserved.
+</div>
+<div class="bottomnavi">[<a href="index.html">目次ページへ戻る</a>] [<a href="#top">このページのトップへ戻る</a>]</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+span.code_green {
+	color: #006600;
+}
+.code_hl_red {
+	font-style: normal;
+	font-weight: bold;
+	color: #DD0000;
+}
+.code_hl_blue {
+	font-style: normal;
+	font-weight: bold;
+	color: #0000ff;
+}
+.code_hl_gray {
+	font-style: normal;
+	font-weight: normal;
+	color: #999999;
+}
+.code_hl_black {
+	font-style: normal;
+	font-weight: bold;
+}
+em.important{
+	font-style: normal;
+	font-weight: bold;
+}
+code.vals {
+	font-style: normal;
+	font-family: "Consolas","Monaco","Bitstream Vera Sans Mono","Courier New",Courier,"メイリオ", Meiryo, "ＭＳ ゴシック", "MS Gothic",monospace !important;
+	white-space: nowrap;
+	font-size: 1.1em;
+}

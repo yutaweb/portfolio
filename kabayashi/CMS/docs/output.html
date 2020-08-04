@@ -1,0 +1,734 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>ファイル一覧</title>
+<link rel="stylesheet" href="manual.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<div class="topnavi">[<a href="index.html" name="top">目次へ戻る</a>]</div>
+<h1 class="grobaltitle">すぐ使えるCGI 添付ファイル付 ウェブページ更新ツール 大容量版（日本語 UTF-8 版） 説明書</h1>
+<h2 class="pagetitle">ファイル一覧</h2>
+
+<!-- main contents begins -->
+
+<script type="text/javascript">
+function toggle_sub(myTgt, myTop){
+	var mySublist = document.getElementById(myTgt);
+	var mySelf = document.getElementById(myTop);
+	if (!mySublist.style.display || mySublist.style.display == 'block'){
+		mySublist.style.display = 'none'
+		mySelf.className = 'togglelink_plus';
+	} else {
+		if (mySublist.style.display == 'none'){
+			mySublist.style.display = 'block'
+			mySelf.className = 'togglelink';
+		} 
+	}
+}
+</script>
+
+
+
+<ol>
+<li><a href="#filesincluded">同梱ファイル</a></li>
+<li>書き出されるファイル
+	<ol>
+	<li><a href="#filesinwebdir">記事ファイル</a>（webdir/ 配下）</li>
+	<li><a href="#filesindata">管理用ファイル</a>（data/ 配下）</li>
+	</ol>
+</li>
+<li><a href="#temporaryfiles">一時ファイル</a></li>
+</ol>
+
+<hr class="contentsbegin">
+
+<h3 id="filesincluded" class="sec">同梱ファイル</h3>
+<p>製品を解凍した時に含まれているファイルは以下の通りです。</p>
+<table cellpadding="2" cellspacing="0" border="0" class="permission">
+<tr>
+<th colspan="5" class="th_case" rowspan="3">ファイル名</th>
+<th class="th_case" rowspan="3">内容</th>
+<th class="th_case" colspan="4">パーミッション設定例</th>
+</tr>
+<tr>
+<th class="th_case" colspan="2">CGIが<br>700の場合</th>
+<th class="th_case" colspan="2">CGIが<br>755/705の場合</th>
+</tr>
+<tr>
+<th class="th_case">値</th>
+<th class="th_case">必ず設定</th>
+<th class="th_case">値</th>
+<th class="th_case">必ず設定</th>
+</tr>
+<tr><td class="td_file"><img src="img/icon_dir_open.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="4" class="td_file">admin</td>
+<td class="td_normal">CGI用ディレクトリ</td>
+<td align="center" class="td_pmtn">755</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">755</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td class="td_file"><img src="img/icon_cgi.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="3" class="td_file">admin.cgi</td>
+<td class="td_normal">管理用CGI</td>
+<td align="center" class="td_pmtn">700</td>
+<td align="center" class="td_normal">●</td>
+<td align="center" class="td_pmtn">755</td>
+<td align="center" class="td_normal">●</td>
+</tr>
+<tr><td class="td_file"><img src="img/icon_dir_open.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="4" class="td_file">data</td>
+<td class="td_normal">データファイル用ディレクトリ</td>
+<td align="center" class="td_pmtn">705</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">707</td>
+<td align="center" class="td_normal">●</td>
+</tr>
+<tr><td></td><td class="td_file"><img src="img/icon_general.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="3" class="td_file">license.dat</td>
+<td class="td_normal">ライセンス情報ファイル</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">606</td>
+<td align="center" class="td_normal">●</td>
+</tr>
+<tr><td></td><td class="td_file"><img src="img/icon_general.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="3" class="td_file">.htaccess</td>
+<td class="td_normal">セキュリティ用</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td class="td_file"><img src="img/icon_dir.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="4" class="td_file">tempfiles</td>
+<td class="td_normal">一時ファイル保存ディレクトリ</td>
+<td align="center" class="td_pmtn">755</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">757</td>
+<td align="center" class="td_normal">●</td>
+</tr>
+<tr><td class="td_file"><img src="img/icon_dir.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="4" class="td_file">webdir</td>
+<td class="td_normal">HTML書き出しディレクトリ（テスト用）</td>
+<td align="center" class="td_pmtn">755</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">757</td>
+<td align="center" class="td_normal">●</td>
+</tr>
+<tr><td></td><td class="td_file"><img src="img/icon_dir.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="3" class="td_file">parts</td>
+<td class="td_normal">CSSやJavaScriptなどの部品ファイル</td>
+<td align="center" class="td_pmtn">755</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">755</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_dir.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">css</td>
+<td class="td_normal">CSSファイル</td>
+<td align="center" class="td_pmtn">755</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">755</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td></td><td class="td_file"><img src="img/icon_general.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="1" class="td_file">sugu-site.css</td>
+<td class="td_normal">公開側CSS</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td></td><td class="td_file"><img src="img/icon_general.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="1" class="td_file">sugu-site-old-ie.css</td>
+<td class="td_normal">公開側CSS(古いIE用)</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td></td><td class="td_file"><img src="img/icon_general.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="1" class="td_file">sugu-admin.css</td>
+<td class="td_normal">管理画面CSS</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td></td><td class="td_file"><img src="img/icon_general.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="1" class="td_file">sugu-admin-old-ie.css</td>
+<td class="td_normal">管理画面CSS(古いIE用)</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td></td><td class="td_file"><img src="img/icon_general.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="1" class="td_file">jquery-lightbox.css</td>
+<td class="td_normal">ライトボックス用CSS</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_dir.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">js</td>
+<td class="td_normal">JavaScriptファイル</td>
+<td align="center" class="td_pmtn">755</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">755</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td></td><td class="td_file"><img src="img/icon_cgi.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="1" class="td_file">sugu-admin.js</td>
+<td class="td_normal">管理画面JavaScript</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td></td><td class="td_file"><img src="img/icon_cgi.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="1" class="td_file">sugu-site.js</td>
+<td class="td_normal">公開側JavaScript</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_dir.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">img</td>
+<td class="td_normal">ライトボックス用画像</td>
+<td align="center" class="td_pmtn">755</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">755</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td class="td_file"><img src="img/icon_dir.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="3" class="td_file">icons</td>
+<td class="td_normal">添付ファイル用アイコン</td>
+<td align="center" class="td_pmtn">755</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">755</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_img.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">xls.gif</td>
+<td class="td_normal">MS-エクセル</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_img.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">pdf.gif</td>
+<td class="td_normal">PDFファイル</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_img.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">txt.gif</td>
+<td class="td_normal">テキストファイル</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_img.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">ppt.gif</td>
+<td class="td_normal">MS-パワーポイント</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_img.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">doc.gif</td>
+<td class="td_normal">MS-ワード</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_img.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">img.gif</td>
+<td class="td_normal">画像</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_img.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">zip.gif</td>
+<td class="td_normal">ZIPファイル</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_img.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">general.gif</td>
+<td class="td_normal">一般（上記以外）</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td class="td_file"><img src="img/icon_dir_open.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="4" class="td_file">templates</td>
+<td class="td_normal">テンプレートディレクトリ</td>
+<td align="center" class="td_pmtn">705</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">755</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td class="td_file"><img src="img/icon_general.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="3" class="td_file">.htaccess</td>
+<td class="td_normal">セキュリティ用</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td class="td_file"><img src="img/icon_cgi.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="3" class="td_file">jcode.pl</td>
+<td class="td_normal">文字コード変換ライブラリ</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td class="td_file"><img src="img/icon_dir_open.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="3" class="td_file">article</td>
+<td class="td_normal">自動更新ページ用テンプレート</td>
+<td align="center" class="td_pmtn">705</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">755</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">article.html</td>
+<td class="td_normal">記事（全体）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">article_file.txt</td>
+<td class="td_normal">記事（ファイル部分）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">article_image_1.txt</td>
+<td class="td_normal">記事（画像部分）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">article_image_2.txt</td>
+<td class="td_normal">記事（画像部分）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">article_image_3.txt</td>
+<td class="td_normal">記事（画像部分）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">article_image_4.txt</td>
+<td class="td_normal">記事（画像部分）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">article_image_5.txt</td>
+<td class="td_normal">記事（画像部分）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">article_list.html</td>
+<td class="td_normal">記事一覧（全体）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">article_list.txt</td>
+<td class="td_normal">記事一覧（リスト部分）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">short_list.html</td>
+<td class="td_normal">短い一覧（全体）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">short_list.txt</td>
+<td class="td_normal">短い一覧（リスト部分）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">rss_list.html</td>
+<td class="td_normal">RSSファイル（全体）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">rss_list.txt</td>
+<td class="td_normal">RSSファイル（リスト部分）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td class="td_file"><img src="img/icon_dir_open.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="3" class="td_file">admin</td>
+<td class="td_normal">管理画面用テンプレート</td>
+<td align="center" class="td_pmtn">705</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">755</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">1.html</td>
+<td class="td_normal">一覧（全体）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">1.txt</td>
+<td class="td_normal">一覧（リスト部分）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">2.html</td>
+<td class="td_normal">入力画面</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">2_current_file_list.txt</td>
+<td class="td_normal">入力画面（添付ファイル部分）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">2_new_file_list.txt</td>
+<td class="td_normal">入力画面（新規添付ファイル部分）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">2_current_image_list.txt</td>
+<td class="td_normal">入力画面（画像部分）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">2_current_attached_list.txt</td>
+<td class="td_normal">入力画面（画像部分にファイルがアップロードされた時）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">3.html</td>
+<td class="td_normal">確認画面</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">3_new_file_list.txt</td>
+<td class="td_normal">確認画面（添付ファイル部分）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">3_new_image_list.txt</td>
+<td class="td_normal">確認画面（画像部分）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">3_new_attached_list.txt</td>
+<td class="td_normal">確認画面（画像部分にファイルがアップロードされた時）</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">5.html</td>
+<td class="td_normal">ライセンス情報画面</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">6.html</td>
+<td class="td_normal">ログイン画面</td>
+<td align="center" class="td_pmtn">600</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">644</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td class="td_file"><img src="img/icon_txt.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="4" class="td_file">README_win.txt</td>
+<td class="td_normal">説明書（Windows環境用）</td>
+<td align="center" class="td_pmtn">&nbsp;</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">&nbsp;</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td class="td_file"><img src="img/icon_txt.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="4" class="td_file">README_mac.txt</td>
+<td class="td_normal">説明書（Macintosh環境用）</td>
+<td align="center" class="td_pmtn">&nbsp;</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">&nbsp;</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td class="td_file"><img src="img/icon_txt.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="4" class="td_file">README_unix.txt</td>
+<td class="td_normal">説明書（UNIX環境用）</td>
+<td align="center" class="td_pmtn">&nbsp;</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">&nbsp;</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td class="td_file"><img src="img/icon_dir_open.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="4" class="td_file">docs</td>
+<td class="td_normal">説明書</td>
+<td align="center" class="td_pmtn">&nbsp;</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">&nbsp;</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="3" class="td_file">index.html</td>
+<td class="td_normal">説明書目次</td>
+<td align="center" class="td_pmtn">&nbsp;</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">&nbsp;</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td class="td_file"><img src="img/icon_dir_open.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="3" class="td_file">manual</td>
+<td class="td_normal">操作マニュアル</td>
+<td align="center" class="td_pmtn">&nbsp;</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">&nbsp;</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_html.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">index.html</td>
+<td class="td_normal">操作マニュアルページ</td>
+<td align="center" class="td_pmtn">&nbsp;</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">&nbsp;</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+<tr><td></td><td></td><td class="td_file"><img src="img/icon_dir.gif" width="16" height="16" alt="" hspace="2"></td>
+<td colspan="2" class="td_file">snap</td>
+<td class="td_normal">操作マニュアル用画像</td>
+<td align="center" class="td_pmtn">&nbsp;</td>
+<td align="center" class="td_normal">&nbsp;</td>
+<td align="center" class="td_pmtn">&nbsp;</td>
+<td align="center" class="td_normal">&nbsp;</td>
+</tr>
+</table>
+
+
+
+<h3 class="sec">書き出されるファイル</h3>
+
+<p>記事を登録すると以下のファイルが新規作成/更新されます。これらのファイルは定期的にバックアップして下さい。</p>
+<h4 id="filesinwebdir">記事ファイル（webdir/ 配下）</h4>
+<table border="1" cellspacing="0" cellpadding="2" class="templatelist">
+<tr>
+<th class="th_case">ファイル名</th>
+<th class="th_case">内容</th>
+</tr>
+
+
+<tr>
+<td class="td_file">index.html</td>
+<td class="td_normal">全一覧（目次）</td>
+</tr>
+
+<tr>
+  <td class="td_file">index_#.html</td>
+  <td class="td_normal">全一覧（目次）（ページ分割した場合の2ページ目以降）
+  <br>※「#」 は数字。例: index_1.html、index_2.html、...</td>
+</tr>
+
+<tr>
+<td class="td_file">index_short.html</td>
+<td class="td_normal">短い一覧（新着情報）</td>
+</tr>
+
+<tr>
+<td class="td_file">new.xml</td>
+<td class="td_normal">RSSファイル</td>
+</tr>
+
+<tr>
+<td class="td_file">#.html</td>
+<td class="td_normal">記事ファイル
+  <br>※「#」 は数字。例: 1.html、2.html、...</td>
+</tr>
+
+
+
+<tr>
+<td class="td_file">#/</td>
+<td class="td_normal">画像・ファイル用ディレクトリ
+  <br>※「#」 は数字。例: 1/、2/、...<br>
+最初に画像が添付された時に作成され、記事が削除された時に一緒に削除されます。</td>
+</tr>
+<tr>
+<td class="td_file">#/*.*</td>
+<td class="td_normal">添付した画像またはファイル
+<br>※「*.*」はファイル名。例: 1/photo.png、2/logo.gif、3/document.pdf、...</td>
+</tr>
+
+
+
+<tr>
+<td class="td_file">top.html</td>
+<td class="td_normal">最新の記事ファイル。<br>
+最新記事はこのファイルと #.html が両方書き出されます。</td>
+</tr>
+
+</table>
+
+<h4 id="filesindata">管理用ファイル（data/ 配下）</h4>
+<table border="1" cellspacing="0" cellpadding="2" class="templatelist">
+<tr>
+<th class="th_case">ファイル名</th>
+<th class="th_case">内容</th>
+</tr>
+
+
+<tr>
+<td class="td_file">article.tsv</td>
+<td class="td_normal">記事データ</td>
+</tr>
+
+<tr>
+  <td class="td_file">#.tsv</td>
+  <td class="td_normal">記事データ　
+<br>※「#」 は数字。例: 1.tsv、2.tsv、...</td>
+</tr>
+
+<tr>
+  <td class="td_file">license.dat</td>
+  <td class="td_normal">ライセンス情報</td>
+</tr>
+<tr>
+  <td class="td_file">session.tsv</td>
+  <td class="td_normal">ログイン管理用（パスワードによるアクセス制限をした場合のみ）</td>
+</tr>
+</table>
+
+<h3 id="temporaryfiles" class="sec">一時ファイル</h3>
+<p>以下のファイルはCGI実行中のみ作成されます。<br>
+旧いファイルが残ってしまっていた場合は削除して構いません。
+</p>
+<table border="1" cellspacing="0" cellpadding="2" class="templatelist">
+<tr>
+<th class="th_case">ファイル名</th>
+<th class="th_case">内容</th>
+</tr>
+
+<tr>
+<td class="td_file">templfiles/temp_#/</td>
+<td class="td_normal">編集作業用の一時保存ディレクトリ<br>
+※「#」の部分は数字。例: temp_1375694459<br>
+作業後一定期間経つと削除されます。</td>
+</tr>
+
+<tr>
+<td class="td_file">data/lock/</td>
+<td class="td_normal">ロック用ディレクトリ</td>
+</tr>
+
+
+<tr>
+<td class="td_file">data/*.temp</td>
+<td class="td_normal">更新用一時ファイル<br>
+※「*」の部分は英数字</td>
+</tr>
+
+<tr>
+<td class="td_file">webdir/*.temp</td>
+<td class="td_normal">更新用一時ファイル<br>
+※「*」の部分は英数字</td>
+</tr>
+
+</table>
+
+
+
+<!-- main contents ends -->
+<div class="footer">
+copyright(c) Sugutsukaeru Inc. All rights reserved.
+</div>
+<div class="bottomnavi">[<a href="index.html">目次ページへ戻る</a>] [<a href="#top">このページのトップへ戻る</a>]</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<!-- 画像3の表示指定。article.html の %_article_image_3_% 部分に挿入されます。 -->
+<div>
+	<a href="%_d_%/%_filename_escaped_%" target="_blank" title="拡大:%_imagetext_%" class="image-link" data-caption="%_imagetext_%">
+	<img src="%_d_%/%_thumbnail_escaped_%" alt="%_imagetext_%" class="pure-img"></a>
+</div>
+<!--
+画像欄をファイル用に使う場合、img タグを削除して下記例のようにファイルにリンクして下さい。
+<a href="%_d_%/%_filename_escaped_%" title="%_imagetext_%" class="filelink %_icon_class_%">%_imagetext_%</a>
+-->

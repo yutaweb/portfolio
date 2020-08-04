@@ -1,0 +1,53 @@
+<!-- BOMなし UTF-8（または Unicode など） で保存して下さい-->
+<div class="pure-g sugu-entry">
+	<div class="pure-u pure-u-1 pure-u-sm-3-4 pure-u-lg-4-5 sugu-entry-left">
+		<h3 class=""><a href="%_to_article_%">%_subject_%</a> <small>(%_yyyy_%-%_mm_%-%_dd_%)</small></h3>
+		<p>%_summary_%</p>
+	</div>
+	<div class="pure-u pure-u-1 pure-u-sm-1-4 pure-u-lg-1-5 sugu-entry-right">
+		<a class="image-link" href="%_to_article_%">
+		<img src="%_d_%/%_thumbnail_escaped_1_%" alt="%_imagetext_1_%" class="pure-img">
+		</a>
+	</div>
+
+	<div class="pure-u pure-u-1 sugu-entry-left">
+
+		<!-- ファイルの表示 -->
+		<ul class="sugu-file-list">
+		<!-- attached files : generate from article_file.txt -->
+		%_file_list_%
+		</ul>
+
+		<!-- カスタム項目:1行テキスト -->
+		%_linetext1_%
+		%_linetext2_%
+		%_linetext3_%
+		%_linetext4_%
+		%_linetext5_%
+
+		<!-- カスタム項目:複数行テキスト -->
+		%_blocktext1_%
+		%_blocktext2_%
+		%_blocktext3_%
+		%_blocktext4_%
+		%_blocktext5_%
+
+		<!--
+		2-5番目の画像タグ
+		<img src="%_d_%/%_thumbnail_escaped_2_%" alt="%_imagetext_2_%">
+		<img src="%_d_%/%_thumbnail_escaped_3_%" alt="%_imagetext_3_%">
+		<img src="%_d_%/%_thumbnail_escaped_4_%" alt="%_imagetext_4_%">
+		<img src="%_d_%/%_thumbnail_escaped_5_%" alt="%_imagetext_5_%">
+		-->
+
+		<!--
+		画像をファイルとして使う場合
+		<a href="%_d_%/%_imagename_escaped_1_%" title="%_imagetext_1_%" class="filelink %_icon_class_1_%">%_imagetext_1_%</a>
+		<a href="%_d_%/%_imagename_escaped_2_%" title="%_imagetext_2_%" class="filelink %_icon_class_2_%">%_imagetext_2_%</a>
+		<a href="%_d_%/%_imagename_escaped_3_%" title="%_imagetext_3_%" class="filelink %_icon_class_3_%">%_imagetext_3_%</a>
+		<a href="%_d_%/%_imagename_escaped_4_%" title="%_imagetext_4_%" class="filelink %_icon_class_4_%">%_imagetext_4_%</a>
+		<a href="%_d_%/%_imagename_escaped_5_%" title="%_imagetext_5_%" class="filelink %_icon_class_5_%">%_imagetext_5_%</a>
+		-->
+	</div>
+
+</div><!-- /sugu-entry -->

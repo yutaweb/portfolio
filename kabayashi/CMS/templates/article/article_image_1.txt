@@ -1,0 +1,4 @@
+<!-- 画像1の表示指定。article.html の %_article_image_1_% 部分に挿入されます。 -->
+<div>
+	<img src="%_d_%/%_filename_escaped_%" alt="%_imagetext_%" class="pure-img">
+</div>

@@ -1,0 +1,323 @@
+@charset "utf-8";
+/* 「すぐ使えるCGI」記事ページテンプレート CSS */
+/* Sugutsukaeru CGI Article pages CSS (Please see the admin CSS file for English explanation) */
+/*
+■スタイルの分類
+
+「すぐ使えるCGI」の記事ページで使っているスタイル定義は、以下の2つに分類できます。
+
+A. Pure
+pure-* というクラス名のスタイル定義は、フレームワーク pure を使用しているものです。レスポンシブWebの仕組みの実装に利用しています。
+Pure のレスポンシブWebデザインの設定の仕組みについては、管理画面側のCSSファイル内にコメントで説明があります。
+
+B. 「すぐ使えるCGI」で定義したスタイル
+sugu-* というクラス名のスタイル定義は、「すぐ使えるCGI」で定義し表示調整に使用しています。
+
+これらのスタイルは不要であれば削除、変更して使って下さい。
+
+*/
+/* 
+■フレームワーク pure をベースにした、表示調整のためのスタイル  Pure-based layout adjustment */
+.pure-g > div {
+  /* マージンまで含んだ幅がボックスのサイズ */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* 
+■背景色と基本の枠組み  Background and container */
+body {
+  background-color: white;
+}
+/* ページ全体の枠 */
+.sugu-window {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+.sugu-container {
+  padding: 0 2em 2em 2em;
+}
+@media screen and (max-width: 35.499em) {
+  .sugu-container {
+    padding: 0 2.5em 1em 1em;
+  }
+}
+/* 
+■文字サイズ  Font */
+h1,
+h2,
+h3 {
+  line-height: 35px;
+}
+h1 {
+  font-size: 31.5px;
+}
+h2 {
+  font-size: 24.5px;
+}
+h3 {
+  font-size: 17.5px;
+}
+h4 {
+  font-size: 14px;
+}
+h5 {
+  font-size: 11.9px;
+}
+h6 {
+  font-size: 10.5px;
+}
+h1 small {
+  font-size: 17.5px;
+}
+h2 small {
+  font-size: 14px;
+}
+h3 small {
+  font-size: 11.9px;
+}
+h4 small {
+  font-size: 11.9px;
+}
+h1 small,
+h2 small {
+  white-space: nowrap;
+}
+/* 
+■右寄せ・左寄せ・中央  Alignment and Centering */
+.sugu-clearfix:before,
+.sugu-clearfix:after {
+  content: " ";
+  display: table;
+}
+.sugu-clearfix:after {
+  clear: both;
+}
+.sugu-center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sugu-pull-right {
+  float: right;
+}
+.sugu-pull-left {
+  float: left;
+}
+.sugu-text-center {
+  text-align: center;
+}
+.sugu-text-right {
+  text-align: right;
+}
+/* 
+■ページネーション  Pagination */
+/* （※管理画面と同じクラス名ですが、定義が異なります） */
+ul.sugu-pagination {
+  margin: 1em 0;
+  padding: 0;
+}
+ul.sugu-pagination li {
+  list-style: none;
+  display: inline-block;
+  min-height: 0.8;
+}
+ul.sugu-pagination li a {
+  padding: 4px 10px 4px 10px;
+  vertical-align: middle;
+  border: #cbcbcb 1px solid;
+  margin-left: -1px;
+  text-decoration: none;
+  color: gray;
+}
+ul.sugu-pagination li a:active,
+ul.sugu-pagination li a:hover {
+  background-color: #dfdfdf;
+  color: black;
+}
+ul.sugu-pagination li:first-child a {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+ul.sugu-pagination li:last-child a {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+ul.sugu-pagination .sugu-active a,
+ul.sugu-pagination .pagethis a {
+  font-weight: bold;
+  color: black;
+}
+/* 
+■前後リンク  Pager link */
+ul.sugu-pager {
+  margin: 2em 0 0.3em 0;
+  padding: 0;
+  height: 3em;
+}
+ul.sugu-pager li {
+  list-style: none;
+  display: inline-block;
+}
+ul.sugu-pager li a {
+  padding: 0.4em 1em;
+  vertical-align: middle;
+  height: 2em;
+  border: #cbcbcb 1px solid;
+  border-radius: 1.2em;
+  /* height + padding の 50% */
+  text-decoration: none;
+  color: gray;
+}
+ul.sugu-pager li a:active,
+ul.sugu-pager li a:hover {
+  background-color: #dfdfdf;
+  color: black;
+}
+/* 
+■全一覧のスタイル  Article list classes */
+.sugu-article-list .sugu-entry {
+  border-bottom: #dfdfdf solid 1px;
+}
+.sugu-article-list .sugu-entry:first-child {
+  border-top: #dfdfdf solid 1px;
+}
+.sugu-article-list .sugu-entry .sugu-entry-left {
+  padding: 0.8em 0;
+}
+.sugu-article-list .sugu-entry .sugu-entry-right {
+  padding: 0.8em 0;
+}
+@media screen and (min-width: 35.5em) {
+  .sugu-article-list .sugu-entry .sugu-entry-right {
+    padding: 0.8em 0 0.8em 2em;
+  }
+}
+.sugu-article-list .sugu-entry h3,
+.sugu-article-list .sugu-entry h2 {
+  margin-top: 0;
+  margin-bottom: 0.3em;
+  line-height: 1em;
+  font-weight: normal;
+}
+.sugu-article-list .sugu-entry p {
+  margin: 0.8em auto;
+}
+.sugu-article-list .sugu-entry p:last-child {
+  margin-bottom: 0;
+}
+/* 
+■短い一覧のスタイル  Short list classes */
+/* 罫線 */
+ul.sugu-ruled-list {
+  list-style: none outside none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-left: 0;
+}
+.sugu-ruled-list li {
+  border-bottom: #dfdfdf solid 1px;
+  /* 太さ、線種、色 */
+  padding: 0.3em 0.5em;
+}
+.sugu-ruled-list li:first-child {
+  border-top: #dfdfdf solid 1px;
+  /* 太さ、線種、色 */
+}
+/* 文字色・スタイル */
+.sugu-listdate {
+  color: gray;
+  padding-right: 1em;
+}
+.sugu-listlink a,
+.sugu-listlink a:link {
+  color: #389ABE;
+  text-decoration: none;
+}
+.sugu-listlink a:hover,
+.sugu-listlink a:active {
+  text-decoration: underline;
+}
+.sugu-listlink a:visited {
+  color: #9A38BE;
+}
+/* 文字色・スタイル ここまで */
+/* マウスオーバーでの背景色の設定 ここから */
+.sugu-interactive-list li:hover {
+  background-color: #f0f0f0;
+}
+/* マウスオーバーで背景色を変更する時は、リンク文字の変更を止めておく
+   （この措置が不要なら設定を削除して下さい。） */
+.sugu-interactive-list .sugu-listlink a:hover,
+.sugu-interactive-list .sugu-listlink a:active {
+  text-decoration: none;
+}
+/* マウスオーバーでの背景色の設定 ここまで */
+/* 
+■記事ページ設定  Article page classes */
+/* 記事部分 */
+.sugu-article {
+  /* 記事ページの画像
+	   pure-img クラスの付いているものは枠幅いっぱいに表示される設定になっている
+	 */
+}
+.sugu-article .sugu-article-left {
+  padding: 0.8em 0;
+}
+.sugu-article .sugu-article-right {
+  padding: 0.8em 0;
+}
+@media screen and (min-width: 35.5em) {
+  .sugu-article .sugu-article-right {
+    padding: 0.8em 0 0.8em 2em;
+  }
+}
+.sugu-article img {
+  margin-bottom: 20px;
+}
+/* 記事ページのフッタリンク調整 */
+.sugu-page-link {
+  margin: 2em 0;
+}
+.sugu-page-link a {
+  margin-right: 0.8em;
+  margin-bottom: 0.8em;
+}
+/* 
+■ファイル一覧の形式（ul） Files */
+.sugu-file-list {
+  list-style-position: outside;
+  padding-left: 1.35em;
+}
+.sugu-file-list li {
+  line-height: 1.4;
+}
+/* ファイルをアップロードしたときのアイコン表示  Icons for uploaded files */
+.filelink {
+  padding-left: 22px;
+  margin-right: 10px;
+  background-repeat: no-repeat;
+  background-position: 0.06em 50%;
+  background-image: url(../../icons/general.gif);
+}
+.doc {
+  background-image: url(../../icons/doc.gif);
+}
+.pdf {
+  background-image: url(../../icons/pdf.gif);
+}
+.ppt {
+  background-image: url(../../icons/ppt.gif);
+}
+.img {
+  background-image: url(../../icons/img.gif);
+}
+.txt {
+  background-image: url(../../icons/txt.gif);
+}
+.xls {
+  background-image: url(../../icons/xls.gif);
+}
+.zip {
+  background-image: url(../../icons/zip.gif);
+}

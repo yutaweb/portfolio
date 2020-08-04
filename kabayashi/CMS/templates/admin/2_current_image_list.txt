@@ -1,0 +1,23 @@
+<div class="pure-g">
+	<input type="hidden" name="current_image_id" value="%_n_%">
+	<input type="hidden" name="current_image_name,%_n_%" id="current_image_name,%_n_%" value="%_filedir_%/%_filename_%">
+
+	<div class="pure-u pure-u-1 pure-u-sm-1-2 pure-u-md-1-4 sugu-image-preview">
+		<a href="%_relative_filedir_%/%_filename_escaped_%" title="%_imagetext_%"
+		id="current_image_%_n_%" class="current_image" target="_blank">
+		<img src="%_relative_filedir_%/%_thumbnail_escaped_%" alt="%_imagetext_%"
+		id="current_thumbnail_%_n_%" class="current_image">
+		</a>
+	</div>
+
+	<div class="pure-u pure-u-1 pure-u-sm-1-2 pure-u-md-3-4">
+		<label class="pure-radio sugu-inline">
+		<input type="radio" name="current_image_flg,%_n_%" value="1" %_checked1_%> 添付
+		</label>
+		<label class="pure-radio sugu-inline">
+		<input type="radio" name="current_image_flg,%_n_%" value="0" %_checked0_%> 削除
+		</label>
+		<br>(%_filename_%)
+	</div>
+
+</div>

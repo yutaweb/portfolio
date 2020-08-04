@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Study abroad to Alabama</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/memory.css">
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Roboto&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <link rel="icon" href="/favicon.ico/">
+    <link rel="icon" href="myportfolio-images/alabama-newlogo.png">
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+  </head>
+  <body id="memory">
+   
+      <div class="sub_image_wrapper">
+  
+       <!--ヘッダー-->
+       <header>
+        <div class="header_wrapper">
+          <h1 id="corpolate_logo" class="sp">
+            <img src="images/Alabama.png" alt="Alabama">
+          </h1><!--sp:767px以下で表示-->
+          <h1 class="pc">
+            <a href="index.html"><img src="images/Alabama.png" alt="Alabama"></a>
+          </h1><!--pc:767px以上で表示-->
+          <nav id="toggle_nav" class="sp"><!--sp:767px以下で表示-->
+            <ul class="sp_global-nav">
+              <li><a href="index.html">Top</a></li>
+              <li><a href="memory.html">Memory</a></li>
+              <li><a href="life.html">Life</a></li>
+              <li><a href="javascript:void(0)">Flow</a></li>
+              <li><a href="alabama.html">Alabama</a></li>
+            </ul>
+          </nav>
+          <nav class="pc"><!--pc:767px以上で表示-->
+            <ul class="sp_global-nav">
+              <li><a href="index.html">Top</a></li>
+              <li><a href="memory.html">Memory</a></li>
+              <li><a href="life.html">Life</a></li>
+              <li><a href="javascript:void(0)">Flow</a></li>
+              <li><a href="alabama.html">Alabama</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <!--ヘッダー-->
+  
+      <!--メイン画像-->
+  
+      <section class="subvisual">
+        <h2>Memory</h2>
+      </section>
+    </div>
+      <!--メイン画像-->
+    <div id="wrap">
+      <div class="content">
+        <div class="main-center">
+
+          <div class="main">
+            <h1>Memory</h1>
+            <p>アラバマ留学での思い出を紹介したページとなっております。週末の旅行や、日々の暮らしをご覧ください。</p>
+            <div class="memory">
+              <div class="memory_text">
+                <h2 class="icon">Photograph</h2>
+                <p>アラバマ大学留学では、１か月間、寮で知らない海外の学生と生活しました。この経験談やアメリカならではの体験、そして週末に行った旅行の思い出を紹介しております。</p>
+              </div>
+              <div class="memory_img img1">
+                <a href="portfolio.html"><img src="myportfolio-images/univ-alabama.jpg" alt=""></a>
+              </div>
+            </div>
+            <div class="memory">
+              <div class="memory_text">
+                <h2 class="icon">Video</h2>
+                <p>ホームパーティーにいった時やクルーズ船に乗った時、そしてNew Orleansでの出来事を主に撮影して記録した動画となっています！<br>写真よりも留学の雰囲気がつかみやすいと思うので、ご覧ください。</p>
+              </div>
+              <div class="memory_img img2">
+                <a href="portfolio.html"><img src="myportfolio-images/alabama.gif" alt=""></a>
+              </div>
+            </div>
+
+          </div>
+
+          <aside class="sidebar">
+            <section>
+              <h3>Photograph</h3>
+              <ul>
+                <li><a href="portfolio.html#dorm">- Dorm</a></li>
+                <li><a href="portfolio.html#class">- Class</a></li>
+                <li><a href="portfolio.html#atlanta">- Atlanta</a></li>
+                <li><a href="portfolio.html#neworleans">- NewOrleans</a></li>
+                <li><a href="portfolio.html#others">- Others</a></li>
+              </ul>
+            </section>
+            <section>
+              <h3>Video</h3>
+              <ul>
+                <li><a href="portfolio.html#video">- All Kinds</a></li>
+                <li><a href="portfolio.html#video">- Alabama univ</a></li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+        </div>
+      </div>
+    <!--ページトップへ戻る-->
+
+    <div id="page_top">
+      <a href="#">TOP</a>
+    </div>
+
+    <!--ページトップへ戻る-->
+
+    <footer>
+      <small>(C)2020 yuta all rights reserved</small>
+    </footer>
+    <script>
+      $(function(){
+        $("#corpolate_logo").click(function(){
+          $("#toggle_nav").slideToggle();
+        });
+      });
+
+      //ボタンを消す動作
+      $(function(){
+        var pagetop=$("#page_top");
+
+        //最初は非表示にしておく
+        pagetop.hide();
+        //100pxスクロールしたら、ボタンを表示する
+        $(window).scroll(function(){
+          if($(this).scrollTop()>100){
+            pagetop.fadeIn();
+          }else{
+            pagetop.fadeOut();
+          }
+        });
+        pagetop.click(function(){
+          $("body,html").animate({scrollTop:0},500);
+          return false;
+        })
+      })
+
+      //スムーズスクロール
+      $(function(){
+        let runScroll=function(){
+          $('a[href^="#"]').click(function(){
+            let speed=400;
+            let href=$(this).attr("href");
+            let $target=$(href=="#" || href=="" ? "html":href);
+            let position=$target.offset().top-100;
+            $("body,html").animate({
+              scrollTop:position
+            },speed,"swing");
+          });
+        }
+        runScroll();
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+<!-- BOMなし UTF-8（または Unicode など） で保存して下さい -->
+<div id="sugu-t-file%_num_%">
+<a href="%_relative_filedir_%/%_filename_escaped_%" class="filelink %_icon_class_%" title="%_filename_%" target="_blank">%_filetext_%</a>
+(%_filename_%)
+</div>
+

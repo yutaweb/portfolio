@@ -1,0 +1,9 @@
+<item>
+<title>%_subject_%</title>
+<!-- link タグおよび guid タグ内の http から webdir/ までは、
+     書き出しディレクトリまでのURLに変更して下さい。 -->
+<link>http://www.example.com/sugu/webdir/%_to_article_%</link>
+<guid isPermaLink="true">http://www.example.com/sugu/webdir/%_to_article_%</guid>
+<pubDate>%_dd_% %_mon_% %_yyyy_% 00:00:00 +0900</pubDate>
+<description>%_summary_%</description>
+</item>

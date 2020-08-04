@@ -1,0 +1,34 @@
+@charset "utf-8";
+/* 「すぐ使えるCGI」管理画面テンプレート CSS IE8 以下用
+
+   極端に見にくくなるのを避けるためのものです。
+   必須ではない要素の表示を省略している部分がありますので、
+　 本格的に対応させるときは適宜編集して下さい。 */
+/* このファイルを sugu-admin.css の後から読み込み */
+.sugu-image-preview {
+  height: 150px;
+}
+.sugu-image-preview + div {
+  padding-left: 0.8em;
+}
+.sugu-visible-phone {
+  display: none;
+}
+.sugu-clearfix {
+  clear: both;
+}
+/* アイコンフォントを陰で表示 */
+.fa {
+  display: inline-block;
+  width: 1.4em;
+  background-color: #cbcbcb;
+  margin: auto 0.3em;
+}
+/* プログレスバー：表示しない */
+.sugu-progress {
+  display: none;
+}
+/* 一覧ページチェックリンク ：JavaScriptが機能しないため表示しない */
+.sugu-check-menu {
+  display: none;
+}

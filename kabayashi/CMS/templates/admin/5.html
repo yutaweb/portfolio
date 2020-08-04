@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ライセンス情報 - Webサイト管理ツール</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="stylesheet" href="//lcns2.sugutsukaeru.jp/c803d429b782f84/4.9/a4b94adbcbff24406a11ec647abba536/css/font-awesome-4_5_0-min.css">
+<link rel="stylesheet" href="//lcns2.sugutsukaeru.jp/c803d429b782f84/4.9/a4b94adbcbff24406a11ec647abba536/css/pure-min.css">
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="//lcns2.sugutsukaeru.jp/c803d429b782f84/4.9/a4b94adbcbff24406a11ec647abba536/css/pure-grids-responsive-old-ie-min.css">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="//lcns2.sugutsukaeru.jp/c803d429b782f84/4.9/a4b94adbcbff24406a11ec647abba536/css/pure-grids-responsive-min.css">
+<!--<![endif]-->
+<link rel="stylesheet" href="%_relative_web_dir_%parts/css/sugu-admin.css">
+<!--[if lte IE 8]>
+	<link rel="stylesheet" href="%_relative_web_dir_%parts/css/sugu-admin-old-ie.css">
+<![endif]-->
+<style type="text/css">
+.fkey%_reg_field_type_%{
+	display: none;
+}
+.bkey%_reg_button_type_%{
+	display: none;
+}
+</style>
+</head>
+
+<body>
+<div class="pure-g">
+<div class="pure-u-1 sugu-container">
+<h1><a href="%_myname_%?n=%_n_%&amp;i=%_i_%" title="一覧に戻る" class="sugu-icon-link"><span class="fa fa-reply"></span></a> ライセンス情報</h1>
+
+<form class="pure-form sugu-clearfix" action="https://sugutsukaeru.jp/ja/account/reg_viewinfo.html" method="post" target="_blank">
+<input type="hidden" name="dl_key" value="%_did_html_%">
+<input type="hidden" name="mail_key" value="%_mail_key_html_%">
+<button type="submit" class="pure-button sugu-button-success sugu-pull-right %_reg_button_type_%">ライセンス購入</button>
+</form>
+
+<p>
+%_msg_instruct_%
+</p>
+
+<form class="pure-form" action="%_myname_%" method="post" id="regform">
+<input type="hidden" name="s" value="0">
+<input type="hidden" name="cd" value="">
+<input type="hidden" name="i" value="%_i_%">
+
+<fieldset>
+<legend>製品情報</legend>
+
+	<!-- 製品名 -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">製品名</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span class=""><a href="%_prod_url_%" target="_blank">%_product_name_%</a></span>
+		</div>
+	</div>
+
+	<!-- 製品コード -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">製品コード</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span class="sugu-font-monospace">%_pid_%</span>
+		</div>
+	</div>
+
+	<!-- 登録状況 -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">登録状況</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span class="">%_if_registered_html_%</span>
+		</div>
+	</div>
+
+	<!-- 登録日時 -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">登録日時</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span class="">%_reg_date_html_%</span>
+		</div>
+	</div>
+
+	<!-- 試用開始日時 -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">試用開始日時</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span class="">%_down_date_html_%</span>
+		</div>
+	</div>
+
+	<!-- ダウンロードID -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">ダウンロードID</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span class="sugu-font-monospace">%_did_html_%</span>
+		</div>
+	</div>
+
+	<!-- 確認キー -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">確認キー</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span class="sugu-font-monospace">%_mail_key_html_%</span>
+		</div>
+	</div>
+
+	<!-- 試用期間（未登録の場合） -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">試用期間（未登録の場合）</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span class="">あと %_remains_html_% 日</span>
+		</div>
+	</div>
+
+	<!-- ライセンスキー -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right" for="license_key">ライセンスキー</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+				<span class="fkeytext sugu-font-monospace" id="lkey">
+				%_license_key_html_%
+				</span>
+				<span class="bkeyhidden fkeytext" id="changelink">
+				[<a href="javascript:show_form(this.form)">ライセンスキー変更</a>]
+				</span>
+				<span class="bkeyhidden" id="regfield">
+				<input type="text" name="license_key" id="license_key" value="%_license_key_%" class="noime pure-input-2-3">
+				<button type="submit" class="pure-button sugu-button-success" id="regbtn">登録</button>
+				</span>
+		</div>
+	</div>
+	
+</fieldset>
+
+</form>
+</div><!-- /pure-u -->
+</div><!-- /pure-g -->
+
+<script src="//lcns2.sugutsukaeru.jp/c803d429b782f84/4.9/a4b94adbcbff24406a11ec647abba536/js/jquery-1_11_3-min.js" type="text/javascript"></script>
+<script type="text/javascript" src="%_relative_web_dir_%parts/js/sugu-admin.js" charset="utf-8"></script>
+</body>
+</html>

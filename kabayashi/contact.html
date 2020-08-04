@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>（株）小林工務店</title>
+    <meta name="viewport" content="width=device-width,inicial-scale=1">
+    <!-- あとでメタタグに必要な要素を入力 -->
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+    <link href="slick-theme.css" rel="stylesheet" type="text/css">
+    <link href="slick.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/favicon.ico/">
+    <link rel="icon" href="images/favicon.png">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="slick.min.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <!--alert plugin-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  </head>
+  <body>
+    <div class="wrap">
+    <div class="sub_image_wrapper">
+
+     <!--ヘッダー-->
+     <header>
+      <div class="header_wrapper">
+        <h1 id="corpolate_logo" class="sp">
+          <img src="images/kobayashi_logo_g_sp_tree.png" alt="">
+        </h1><!--sp:767px以下で表示-->
+        <h1 class="pc">
+          <a href="index.html"><img src="images/kobayashi_logo_tree.png" alt=""></a>
+        </h1><!--pc:767px以上で表示-->
+        <nav id="toggle_nav" class="sp"><!--sp:767px以下で表示-->
+          <ul>
+            <li><a href="index.html">トップページ</a></li>
+            <li><a href="company.html">会社概要</a></li>
+            <li><a href="work.html">事業内容</a></li>
+            <li><a href="product.html">業務実績</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+          </ul>
+        </nav>
+        <nav class="pc"><!--pc:767px以上で表示-->
+          <ul>
+            <li><a href="index.html">トップページ</a></li>
+            <li><a href="company.html">会社概要</a></li>
+            <li><a href="work.html">事業内容</a></li>
+            <li><a href="product.html">業務実績</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!--ヘッダー-->
+
+    <!--メイン画像-->
+
+    <section class="subvisual">
+      <h2>お問い合わせ</h2>
+    </section>
+
+    <!--メイン画像-->
+
+  </div>
+
+    <!--お問い合わせ情報-->
+
+    <section class="contact_form">
+      <div class="container">
+        <h3 id="form">お問い合わせフォーム</h3>
+        <p class="thanks">この度は、小林工務店お問い合わせページにお越しくださりありがとうございます。<br>住まいに関するご質問、ご相談についてはこちらのお問い合わせフォーム、またはお電話・メールにて受け付けております。<br>弊社のスタッフがお応えいたしますので、お気軽にお問い合わせください。</p>
+        <div class="contact_usage">
+          <div class="tel">
+            <a href="tel:0778452022">
+              <span><i class="fas fa-phone"></i></span>
+              <div class="usage_text">
+                <small>お電話でのお問い合わせ</small>
+                <p>0778-45-2022</p>
+              </div>
+            </a>
+          </div>
+          <div class="mail">
+            <a href="mailto:ran19981014@gmail.com">
+              <span><i class="fas fa-envelope"></i></span>
+              <div class="usage_text">
+                <small>メールでのお問い合わせ</small>
+                <p>ran19981014@gmail.com</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <form action="" name="form">
+          <dl>
+            <dt>
+              <label for="name" class="must">お名前</label>
+            </dt>
+            <dd>
+              <input type="name" id="name" value="">
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              <label for="furigana">ふりがな</label>
+            </dt>
+            <dd>
+              <input type="text" id="furigana" value="">
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              <label for="tel" class="must">電話番号</label>
+            </dt>
+            <dd>
+              <input type="tel" id="tel" value="">
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              <label for="zip">郵便番号</label>
+            </dt>
+            <dd>
+              <input type="zip" id="zip" value="">
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              <label for="address" class="must">ご住所</label>
+            </dt>
+            <dd>
+              <input type="address" id="address" value="">
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              <label for="email" class="must">メールアドレス</label>
+            </dt>
+            <dd>
+              <input type="email" id="email" value="">
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              <label for="work" class="must">お問い合わせ内容</label>
+            </dt>
+            <dd>
+              <select name="work" id="work">
+                <option value="新築工事">新築工事</option>
+                <option value="リフォーム工事">リフォーム工事</option>
+                <option value="土木工事">土木工事</option>
+              </select>
+            </dd>
+          </dl>
+          <dl>
+            <dt>
+              <label for="text">その他</label>
+            </dt>
+            <dd>
+              <textarea name="text" id="text" cols="30" rows="10"></textarea>
+            </dd>
+          </dl>
+        </form>
+        <p class="checkbox"><input type="checkbox">個人情報の取扱いに同意する</p>
+        <div class="button">
+          <section id="reset_wrap">
+            <input id="reset" type="reset" class="btn reset" value="リセット">
+          </section>
+          <input type="submit" value="送信" class="btn submit" id="submit">
+        </div>
+      </div>
+    </section>
+
+    <!--お問い合わせ情報-->
+
+    <!--map-->
+    <div class="map" id="map">
+      <div class="container">
+        <h3>所在地</h3>
+        <p>〒919-0117<br>福井県南条郡南越前町馬上免16⁻25</p>
+        <div class="map_wrap">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3236.220369018545!2d136.24174031526178!3d35.79452298016808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600201a6423dd9c3%3A0x3035d913f1861ca!2z77yI5qCq77yJ5bCP5p6X5bel5YuZ5bqX!5e0!3m2!1sja!2sjp!4v1589361060975!5m2!1sja!2sjp" width="70%" height="400px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+      </div>
+   </div>
+
+    <!--map-->
+
+    <!--個人情報の取り扱い-->
+
+    <section class="secret" id="secret">
+      <div class="container">
+        <div class="secret_wrapper">
+          <h3>個人情報の取り扱い</h3>
+          <p>株式会社小林工務店では、個人情報個ご方針を定め、個人情報保護の仕組みを構築し、全従業員に個人情報保護の重要性の認識と取り組みを徹底させることにより、個人情報の保護を推進いたします。詳細に関しましては、下記リンクより、専用ページを訪問ください。</p>
+          <a href="secret.html">個人情報保護≫</a>
+        </div>
+      </div>
+    </section>
+
+    <!--個人情報の取り扱い-->
+
+    <!--FAQ-->
+
+    <section class="faq">
+      <div class="container">
+        <h3 id="faq">FAQ</h3>
+        <div class="faq-inner">
+
+          <!--質問1-->
+          <input class="faq-checkbox" type="checkbox" id="faqCheckBox01">
+          <label for="faqCheckBox01" class="faq-label">Q.質問①が入ります。</label>
+          <div class="faq-accordion">
+            <p class="faq-answer">
+              A.質問①の解答が入ります。<br>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+            </p>
+          </div>
+
+          <!--質問２-->
+          <input type="checkbox" class="faq-checkbox" id="faqCheckBox02">
+          <label for="faqCheckBox02" class="faq-label">Q.質問②が入ります。</label>
+          <div class="faq-accordion">
+            <p class="faq-answer">
+              A.質問②の解答が入ります。<br>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+            </p>
+          </div>
+
+          <!--質問３-->
+          <input type="checkbox" class="faq-checkbox" id="faqCheckBox03">
+          <label for="faqCheckBox03" class="faq-label">Q.質問③が入ります。</label>
+          <div class="faq-accordion">
+            <p class="faq-answer">
+              A.質問③の解答が入ります。<br>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+            </p>
+          </div>
+
+          <!--質問４-->
+          <input type="checkbox" class="faq-checkbox" id="faqCheckBox04">
+          <label for="faqCheckBox04" class="faq-label">Q.質問④が入ります。</label>
+          <div class="faq-accordion">
+            <p class="faq-answer">
+              A.質問④の解答が入ります。<br>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+            </p>
+          </div>
+
+          <!--質問５-->
+          <input type="checkbox" class="faq-checkbox" id="faqCheckBox05">
+          <label for="faqCheckBox05" class="faq-label">Q.質問⑤が入ります。</label>
+          <div class="faq-accordion">
+            <p class="faq-answer">
+              A.質問⑤の解答が入ります。<br>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--FAQ-->
+
+    <!--ページトップへ戻る-->
+
+    <div id="page_top">
+      <a href="#">TOP</a>
+    </div>
+
+    <!--ページトップへ戻る-->
+
+    <!-- フッター -->
+
+    <footer>
+      <div class="container">
+        <div class="footA">
+          <h3><img src="images/kobayashi_logo_g_under.png"></h3>
+          <p>〒919-0117<br>福井県南条郡南越前町馬上免16⁻25</p>
+          <p>Tel：<a href="tel:0778452022">0778-45-2022</a></p>
+          <nav class="footD">
+            <ul>
+              <li><a href="http://twitter.com/goemonran2"><span class="fab fa-twitter"></span></a></li>
+              <li><a href="http://www.instagram.com/goemonran"><span class="fab fa-instagram"></span></a></li>
+              <li><a href="http://www.facebook.com/profile.php?id=100025569558147"><span class="fab fa-facebook"></span></a></li>
+            </ul>
+          </nav>
+        </div>
+        <nav class="footB">
+          <div>
+            <h4>会社概要</h4>
+            <ul>
+              <li><a href="company.html#aisatu">ご挨拶</a></li>
+              <li><a href="company.html#gaiyou">会社概要</a></li>
+              <li><a href="company.html#yakuin">役員紹介</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>事業内容</h4>
+            <ul>
+              <li><a href="work.html#zyuutaku">住宅事業</a></li>
+              <li><a href="work.html#kentiku">建築事業</a></li>
+              <li><a href="work.html#doboku">土木事業</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>業務実績</h4>
+            <ul>
+              <li><a href="product.html#sample1">サンプル１</a></li>
+              <li><a href="product.html#sample2">サンプル２</a></li>
+              <li><a href="product.html#sample3">サンプル３</a></li>
+              <li><a href="product.html#sample4">サンプル４</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>お問い合わせ</h4>
+            <ul>
+              <li><a href="#form">お問い合わせフォーム</a></li>
+              <li><a href="#map">所在地</a></li>
+              <li><a href="#secret">個人情報の取り扱い</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <div class="footC">
+          &copy; Kobayashi corp. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- フッター -->
+    
+  </div>
+  <script src="js/loader.js"></script>
+    <script>
+      //toggle
+      $(function(){
+        $("#corpolate_logo").click(function(){
+          $("#toggle_nav").slideToggle();
+        });
+      });
+
+      document.querySelector("#corpolate_logo").addEventListener("click",()=>{
+        const body=document.querySelector("body");
+        if(body.classList.contains("dark")==true){
+          body.classList.remove("dark");
+        }else{
+          body.classList.add("dark");
+        }
+      });
+
+      //page_top
+      $(function(){
+        var pagetop=$("#page_top");
+        //ボタン非表示
+        pagetop.hide();
+        //100px スクロールしたらボタン表示
+        $(window).scroll(function(){
+          if($(this).scrollTop()>100){
+            pagetop.fadeIn();
+          }else{
+            pagetop.fadeOut();
+          }
+        });
+        pagetop.click(function () {
+        $('body, html').animate({ scrollTop: 0 }, 500);
+        return false;
+        });
+      });
+
+      $("#submit").click(function(){
+            var options={
+                title:"お問い合わせ方法について",
+                text:"現在コンタクトフォーム作成中の為、最下部にあります、E-mailまたは、コンタクトフォームの「こちら」をクリックしてください。",
+                icon:"warning",
+                buttons:{
+                    cancel:"Cancel",
+                    OK:true
+                }
+            };
+
+            swal(options).then(function(val){
+                if(val){
+                    swal({
+                        title:"ご理解ご協力ありがとうございます",
+                        // text:"早急に対応いたします。",
+                        icon:"success"
+                        });
+                }else{
+                    swal({
+                        text:"コンタクトフォームにつきましては、現在、作成中の為、今しばらくお待ちください",
+                        icon:"warning",
+                        buttons:false,
+                        timer:10000
+                    });
+                }
+            });
+         });
+
+      document.querySelector("#reset").addEventListener("click",function(){
+
+        var options={
+                title:"入力内容のキャンセル",
+                text:"OKボタンを押すと、入力内容はすべて消えてしまいます。復元不可能ですが、本当によろしいでしょうか？",
+                icon:"warning",
+                buttons:{
+                    cancel:"Cancel",
+                    OK:true
+                }
+            };
+
+            swal(options).then(function(val){
+                if(val){
+                    document.form.reset();
+                    swal({
+                        title:"再度入力をお願いいたします",
+                        icon:"success"
+                        });
+                }else{
+                    swal({
+                        text:"再度、入力情報をご確認の上、送信ボタンを押し、情報の送信を完了して下さい。",
+                        icon:"warning",
+                        buttons:false,
+                        timer:10000
+                    });
+                }
+            });
+         });
+
+         //スムーズスクロール
+         $(function(){
+           let runScroll =function(){
+             $('a[href^="#"]').click(function(){
+               let speed=400;
+               let href=$(this).attr("href");
+               let $target =$(href == "#" || href =="" ? "html":href);
+               let position = $target.offset().top-100;
+               $("body,html").animate({
+                scrollTop:position
+               },speed,"swing");
+             });
+           };
+
+           runScroll();
+         })
+
+    </script>
+  </body>
+</html>

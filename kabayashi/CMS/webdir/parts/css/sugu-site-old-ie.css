@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* 「すぐ使えるCGI」記事ページテンプレート CSS IE8 以下用
+
+   極端に見にくくなるのを避けるためのものです。
+　 本格的に対応させるときは適宜編集して下さい。 */
+/* このファイルを sugu-site.css の後から読み込み */
+.sugu-clearfix-old-ie,
+.sugu-clearfix {
+  clear: both;
+}
+ul.sugu-pagination li,
+ul.sugu-pager li {
+  float: left;
+}
+.sugu-article-list .sugu-entry .sugu-entry-right {
+  padding: 0.8em 0 0.8em 2em;
+}
+.sugu-article .sugu-article-right {
+  padding: 0.8em 0 0.8em 2em;
+}

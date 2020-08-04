@@ -1,0 +1,394 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>バージョンアップの方法</title>
+<link rel="stylesheet" href="manual.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<div class="topnavi">[<a href="index.html" name="top">目次へ戻る</a>]</div>
+<h1 class="grobaltitle">すぐ使えるCGI 添付ファイル付 ウェブページ更新ツール 大容量版（日本語 UTF-8 版） 説明書</h1>
+<h2 class="pagetitle">バージョンアップの方法</h2>
+
+<!-- main contents begins -->
+
+<script type="text/javascript">
+function toggle_sub(myTgt, myTop){
+	var mySublist = document.getElementById(myTgt);
+	var mySelf = document.getElementById(myTop);
+	if (!mySublist.style.display || mySublist.style.display == 'block'){
+		mySublist.style.display = 'none'
+		mySelf.className = 'togglelink_plus';
+	} else {
+		if (mySublist.style.display == 'none'){
+			mySublist.style.display = 'block'
+			mySelf.className = 'togglelink';
+		} 
+	}
+}
+</script>
+
+<ol class="indexlink">
+<li class="liststep"><a href="#step1">バージョンアップのできる製品</a>
+</li>
+<li class="liststep"><a href="#step2">バージョンアップの費用</a>
+</li>
+<li class="liststep"><a href="#step3">バージョンアップ作業の概要</a>
+</li>
+<li class="liststep"><a href="#step4">ダウンロード</a>
+</li>
+<li class="liststep"><a href="#step5">解凍</a>
+</li>
+<li class="liststep"><a href="#step6">バックアップ</a>
+</li>
+<li class="liststep"><a href="#step7">admin/admin.cgi の入替</a>
+</li>
+<li class="liststep"><a href="#step8">templates/admin/ の入替</a>
+</li>
+<li class="liststep"><a href="#step9">templates/article/ の統合</a>
+<a href="javascript: toggle_sub('sub_step9_0', 'top_step9')" class="togglelink_plus" id ="top_step9">サブメニュー</a>
+<ol class="stepdesc1" id="sub_step9_0" style="display: none;">
+<li class="listsubstep"><a href="#step9_1_1">1.0-4.7(任意): 記事ページ（webdir/&#35;.html）にSEO対策タグを追加(前後関係)</a>
+</li>
+<li class="listsubstep"><a href="#step9_1_2">4.8(任意): 記事ページ（webdir/&#35;.html）にSEO対策タグを追加(記事のURL)</a>
+</li>
+<li class="listsubstep"><a href="#step9_1_3">1.0-4.2(任意): 記事ページ（webdir/&#35;.html）への画像追加</a>
+</li>
+<li class="listsubstep"><a href="#step9_1_4">1.0-4.2(任意): 一覧ページ（webdir/index.html、webdir/index_short.html）に画像を追加</a>
+</li>
+<li class="listsubstep"><a href="#step9_1_5">1.0-4.2(任意): 一覧ページ（webdir/index.html、webdir/index_short.html）にファイル一覧を追加</a>
+</li>
+<li class="listsubstep"><a href="#step9_1_6">従来版(必須): 全一覧ページ（webdir/index.html）の前後リンク追加</a>
+</li>
+<li class="listsubstep"><a href="#step9_1_7">1.0-4.5(任意): 全一覧ページ（webdir/index.html）に前後関係を示すSEO対策メタタグを追加</a>
+</li>
+<li class="listsubstep"><a href="#step9_1_8">1.0-4.8(任意): 一覧ページ（webdir/index.html、webdir/index_short.html, webdir/new.xml）から記事ページへのリンクの変更</a>
+</li>
+<li class="listsubstep"><a href="#step9_1_9">1.0-2.0(任意): RSSの新規利用</a>
+</li>
+<li class="listsubstep"><a href="#step9_1_10">2.0(必須): RSSの形式改善</a>
+</li>
+<li class="listsubstep"><a href="#step9_1_11">1.0-3.1(任意): RSS AutoDiscovery の設定</a>
+</li>
+</ol>
+</li>
+<li class="liststep"><a href="#step10">アップロード</a>
+</li>
+<li class="liststep"><a href="#step11">ライセンス移行 または ライセンスご購入</a>
+<a href="javascript: toggle_sub('sub_step11_11', 'top_step11')" class="togglelink_plus" id ="top_step11">サブメニュー</a>
+<ol class="stepdesc1" id="sub_step11_11" style="display: none;">
+<li class="listsubstep"><a href="#step11_1_12">従来版: 製品交換</a>
+</li>
+<li class="listsubstep"><a href="#step11_1_13">2.x以下: ライセンスご購入</a>
+</li>
+<li class="listsubstep"><a href="#step11_1_14">3.x以上: (手続き不要)</a>
+</li>
+</ol>
+</li>
+<li class="liststep"><a href="#step12">再構築</a>
+</li>
+</ol>
+
+<hr class="contentsbegin">
+
+<ol class="stepdesc">
+<li class="step"><h3><a name="step1">バージョンアップのできる製品</a></h3>
+<p>同じ「製品コード」の製品間でバージョンアップができます。製品コードは管理画面の「ライセンス情報」画面やご購入時のメールに記載されています。異なる製品コードの製品に切り替える場合は「製品の交換」を行って下さい。</p><p>「製品の交換方法」<br><a href="http://sugutsukaeru.jp/cgi/j/52/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/52/</a></p><p>同じ名前の製品の従来版（※）から「大容量版」へのバージョンアップは、バージョンアップ後の製品のバージョンが Ver. 4.7 以上であれば、データや設定の引継ぎが可能です。（ライセンス上は「製品の交換」となります。）</p><p>※ 「エントリー版」または「通常版」と呼んでいる場合もあります。「大容量版」と書いていないものが該当します。</p></li>
+<li class="step"><h3><a name="step2">バージョンアップの費用</a></h3>
+<p>ご購入時のバージョンが大容量版 Ver. 3.x 以上の場合、Ver. 5.0 への無料バージョンアップが可能です。<br>ご購入時のバージョンが従来版（エントリー版、通常版） Ver. 3.x 以上の場合、大容量版 Ver. 5.0 へはライセンス料金差額＋手数料でバージョンアップが可能です。<br>ご購入時のバージョンが従来版（エントリー版、通常版） Ver. 2.x 以下の場合は新たにライセンスをご購入下さい。</p><p>「バージョンアップポリシー」<br><a href="http://sugutsukaeru.jp/cgi/j/39/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/39/</a></p></li>
+<li class="step"><h3><a name="step3">バージョンアップ作業の概要</a></h3>
+<p>バージョンアップは、以下のように新旧データを組み合わせる作業です。<br>以下に作業手順をご案内しますが、お使いの旧バージョンによって作業が異なりますので、一旦ざっと目を通して作業内容を確認してから実際の作業に着手して下さい。</p><p>なお、リニューアルなどで旧データも設定も全て削除してよいという場合は、新たに設置の上「ライセンス情報」部分のみ下記の通りバージョンアップして下さい。</p>
+
+<table border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th scope="col">項目</th>
+    <th scope="col">ファイルの場所</th>
+    <th scope="col">作業</th>
+    <th scope="col">編集が必要な点・備考</th>
+  </tr>
+  <tr>
+    <td scope="row">プログラム</td>
+    <td scope="row">admin/admin.cgi</td>
+    <td>新バージョンで上書き</td>
+    <td>既存の環境変数は旧バージョンのファイルからコピー。<br>
+      新機能の環境変数（オプション設定）は新たに設定。</td>
+  </tr>
+  <tr>
+    <td scope="row">管理画面テンプレート</td>
+    <td scope="row">templates/admin/</td>
+    <td>新バージョンで上書き</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td scope="row">生成ページテンプレート</td>
+    <td scope="row">templates/article/</td>
+    <td>旧バージョンを利用</td>
+    <td>新機能に関わる部分は新バージョンからコピー(詳細後述)。</td>
+  </tr>
+  <tr>
+    <td scope="row">生成ページ・画像・ファイル</td>
+    <td scope="row">webdir/</td>
+    <td>旧バージョンを利用</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td scope="row">CSSとJSファイル</td>
+    <td scope="row">webdir/parts/</td>
+    <td>新規アップロード</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td scope="row">登録済記事データ</td>
+    <td scope="row">data/*.tsv</td>
+    <td>旧バージョンを利用</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td scope="row">ライセンス情報</td>
+    <td scope="row">data/license.dat</td>
+    <td>(バージョンにより対応が異なる)</td>
+    <td>従来版（エントリー版、通常版）からのバージョンアップの場合は、バージョン番号に関わらず新バージョンで上書き。<br>
+      大容量版Ver. 3.0 以上のものは旧バージョンを利用。</td>
+  </tr>
+</table>
+
+</li>
+<li class="step"><h3><a name="step4">ダウンロード</a></h3>
+<p>「すぐ使えるCGI」サイトから最新バージョンをダウンロードして下さい。</p><p>以下のページからダウンロードできます。<br><a href="http://sugutsukaeru.jp/cgi/j/108/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/108/</a></p></li>
+<li class="step"><h3><a name="step5">解凍</a></h3>
+<p>ダウンロードした製品ファイルは圧縮されています。解凍ソフトで解凍して下さい。</p><p>「解凍ソフト」や「解凍」についてよく分からない方は、ダウンロードしたファイルをダブルクリックしてみて下さい。<br>自動的に解凍できる場合があります。</p><p>ダブルクリックしても何も起こらない場合やうまくいかない場合は下記のページを参照して下さい。<br>「解凍ソフト」や「解凍」の方法について解説しています。<br><a href="http://sugutsukaeru.jp/cgi/j/31/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/31/</a></p><p>解凍がうまく行くといくつかのディレクトリ（フォルダ）や <code class="vals">README_win.txt</code> というファイルが現れます。<br>ディレクトリやファイルが現れたら先に進んで下さい。</p></li>
+<li class="step"><h3><a name="step6">バックアップ</a></h3>
+<p>念の為、現在サーバにある関連ファイルとディレクトリを全てダウンロードして保存して下さい。</p><p>ディレクトリ名の変更を行っていなければ、以下のディレクトリが対象です。<br><p>admin/ <br>data/ <br>tempfiles/ <br>templates/ <br>webdir/ </p></li>
+<li class="step"><h3><a name="step7">admin/admin.cgi の入替</a></h3>
+<p>解凍した新バージョンの <code class="vals">admin/admin.cgi</code> に現在お使いの <code class="vals">admin/admin.cgi</code> から環境変数（オプション設定）をコピーして下さい。</p><p>バージョンアップでは環境変数が追加されたり、表示の順番も変更される事がありますので、環境変数をコピーする際は、抜け落ちを避けるため、新しいバージョンの <code class="vals">admin/admin.cgi</code> を見ながら、古い <code class="vals">admin/admin.cgi</code> から該当する値を探してコピーして下さい。<br>古い <code class="vals">admin/admin.cgi</code> に無い値については「<a href="envs.html">オプション設定</a>」をご参照の上、必要に応じて設定をして下さい。</p><p>古い設定を全てコピーしたら、新しいバージョンの <code class="vals">admin/admin.cgi</code> で古いバージョンを上書きして下さい。</p></li>
+<li class="step"><h3><a name="step8">templates/admin/ の入替</a></h3>
+<p>管理画面用テンプレート <code class="vals">templates/admin/</code> は新しいバージョンで古い場所を上書きして下さい。ディレクトリ内にファイルが追加、削除されている事もあります。新しいバージョンに無いファイルは削除してしまって構いません。</p></li>
+<li class="step"><h3><a name="step9">templates/article/ の統合</a></h3>
+<p>生成ページ用テンプレート <code class="vals">templates/article/</code> は古いバージョンのファイルをベースにして、最新バージョンで追加された機能や変更された機能を反映させます。反映が必要な点は以下の通りです。手順は順番に後述します。</p><p>※「(従)」は従来版（エントリー版、通常版）にしか無いバージョンです。</p>
+
+<table border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th scope="col">対象ページ</th>
+    <th scope="col">テンプレートファイル（templates/article/ 配下）</th>
+    <th scope="col">編集なしでも使えるバージョン</th>
+    <th scope="col">旧バージョン別の要変更点<br>
+    （太字は必須、細字は任意）</th>
+  </tr>
+  <tr>
+    <td scope="row">記事ページ</td>
+    <td scope="row">article.html</td>
+    <td>大容量版全バージョン</td>
+    <td>3.1以下: RSS AutoDiscovery の設定<br>
+    4.2以下: 画像の追加(1個)<br>
+    4.7以下: 画像の追加(5個まで)<br>
+    4.5以下: カスタム項目の追加<br>
+    4.2以下: SEO対策(前後ページの&lt;link&gt;)<br>
+    4.8以下: SEO対策(自分のファイル名)<br>
+    従来版: 分割した全一覧（目次）へのリンク</td>
+  </tr>
+  <tr>
+    <td scope="row">&nbsp;</td>
+    <td scope="row">article_file.txt</td>
+    <td>全バージョン</td>
+    <td>(従)1.1以下: リンクテキストの追加 </td>
+  </tr>
+  <tr>
+    <td scope="row">&nbsp;</td>
+    <td scope="row">article_image_1.txt</td>
+    <td>4.8以上</td>
+    <td><strong>4.2以下</strong>: 新規アップロード</td>
+  </tr>
+  <tr>
+    <td scope="row">&nbsp;</td>
+    <td scope="row">article_image_2.txt</td>
+    <td>4.8以上</td>
+    <td><strong>4.2以下</strong>: 新規アップロード</td>
+  </tr>
+  <tr>
+    <td scope="row">&nbsp;</td>
+    <td scope="row">article_image_3.txt</td>
+    <td>4.8以上</td>
+    <td><strong>4.2以下</strong>: 新規アップロード</td>
+  </tr>
+  <tr>
+    <td scope="row">&nbsp;</td>
+    <td scope="row">article_image_4.txt</td>
+    <td>4.8以上</td>
+    <td><strong>4.2以下</strong>: 新規アップロード</td>
+  </tr>
+  <tr>
+    <td scope="row">&nbsp;</td>
+    <td scope="row">article_image_5.txt</td>
+    <td>4.8以上</td>
+    <td><strong>4.2以下</strong>: 新規アップロード</td>
+  </tr>
+  <tr>
+    <td scope="row">全一覧（目次）</td>
+    <td scope="row">article_list.html</td>
+    <td>全バージョン</td>
+    <td>3.1以下: RSS AutoDiscovery の設定<br>
+    4.4以下: SEO対策(前後ページの&lt;link&gt;)<br>
+    <strong>従来版</strong>: 前後ページリンク（&lt;a&gt;）の追加</td>
+  </tr>
+  <tr>
+    <td scope="row">&nbsp;</td>
+    <td scope="row">article_list.txt</td>
+    <td>全バージョン</td>
+    <td>
+    4.2以下: ファイル一覧の追加<br>
+    4.2以下: 画像の追加(1個)<br>
+    4.7以下: 画像の追加(5個まで)<br>
+    4.5以下: カスタム項目の追加<br>
+    4.8以下: ファイル名リンクの変更
+    </td>
+  </tr>
+  <tr>
+    <td scope="row">短い一覧（新着情報）</td>
+    <td scope="row">short_list.html</td>
+    <td>全バージョン</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td scope="row">&nbsp;</td>
+    <td scope="row">short_list.txt</td>
+    <td>全バージョン</td>
+    <td>article_ilst.txt と同じ</td>
+  </tr>
+  <tr>
+    <td scope="row">RSS</td>
+    <td scope="row">rss_list.html</td>
+    <td>2.0以上</td>
+    <td><strong>(従)1.21以下</strong>: 新規アップロード</td>
+  </tr>
+  <tr>
+    <td scope="row">&nbsp;</td>
+    <td scope="row">rss_list.txt</td>
+    <td>3.1以上</td>
+    <td><strong>(従)1.21以下</strong>: 新規アップロード<br>
+        <strong>(従)2.0以下</strong>: &lt;pubDate&gt;形式の変更<br>
+    4.8以下: ファイル名リンクの変更</td>
+  </tr>
+  <tr>
+    <td scope="row">部品ファイル</td>
+    <td scope="row">webdir/parts/*/*</td>
+    <td>(なし)</td>
+    <td><strong>4.8以下</strong>: 新規アップロード</td>
+  </tr>
+</table>
+
+<p>以下に「旧バージョン: 必要な作業」を列挙します。ご自身のケースに該当するバージョンについて、表示順に作業して下さい。<br>
+「(任意)」と記載されているものは、その機能を使用しないのであれば編集不要です。</p><ol class="stepdesc1">
+<li class="step"><h4><a name="step9_1_1">1.0-4.7(任意): 記事ページ（webdir/&#35;.html）にSEO対策タグを追加(前後関係)</a></h4>
+<p><code class="vals">templates/article/article.html</code> の &lt;head&gt; - &lt;/head&gt; の間に以下のコードを追加して下さい。</p>
+<div class="container">
+<blockquote class="code">&lt;link rel=&quot;contents&quot; href=&quot;%_index_filename_%&quot;&gt;<br>
+&lt;link rel=&quot;prev&quot; href=&quot;%_to_prev_%&quot;&gt;<br>
+&lt;link rel=&quot;next&quot; href=&quot;%_to_next_%&quot;&gt;</blockquote>
+</div>
+</li>
+<li class="step"><h4><a name="step9_1_2">4.8(任意): 記事ページ（webdir/&#35;.html）にSEO対策タグを追加(記事のURL)</a></h4>
+<p><code class="vals">templates/article/article.html</code> の &lt;head&gt; - &lt;/head&gt; の間に以下のコードを追加して下さい。<br>
+その際、青字の部分は設置ディレクトリまでのURLに変更して下さい。</p>
+<div class="container">
+<blockquote class="code">&lt;link rel=&quot;canonical&quot; href=&quot;<em class="code_hl_blue">http:://www.example.com/sugu/webdir/</em>%_to_article_%&quot;&gt;</blockquote>
+</div>
+</li>
+<li class="step"><h4><a name="step9_1_3">1.0-4.2(任意): 記事ページ（webdir/&#35;.html）への画像追加</a></h4>
+<p>新たに追加された画像表示機能を使うには、<code class="vals">templates/article/article.html</code> の画像を表示したい位置に「%_article_image_&#35;_%」を追加して下さい。<br>
+挿入される画像タグ内容は templates/article/article_image_&#35;.txt に指定して下さい。<br>
+「&#35;」は 1から5までの数字です。2つ目以降の画像を使う場合は、管理画面の変更も必要です。詳しくは「<a href="design_tutorial.html">デザイン変更チュートリアル</a>」をご覧下さい。</p></li>
+<li class="step"><h4><a name="step9_1_4">1.0-4.2(任意): 一覧ページ（webdir/index.html、webdir/index_short.html）に画像を追加</a></h4>
+<p>新たに追加された画像アップロード機能でアップロードした画像を一覧に表示するには、画像タグをテンプレートファイル（※）に追加して下さい。</p><p>※<br><code class="vals">webdir/index.html</code> に追加する場合 <code class="vals">templates/article/article_list.txt</code> を編集して下さい。<br><code class="vals">webdir/index_short.html</code> に追加する場合 <code class="vals">templates/article/short_list.txt</code> を編集して下さい。</p>
+<div class="container">
+<blockquote class="code">&lt;img src=&quot;%_d_%/%_imagename_escaped_1_%&quot; width=&quot;50&quot; alt=&quot;%_imagetext_1_%&quot;&gt;<br>
+&lt;img src=&quot;%_d_%/%_imagename_escaped_2_%&quot; width=&quot;50&quot; alt=&quot;%_imagetext_2_%&quot;&gt;<br>
+&lt;img src=&quot;%_d_%/%_imagename_escaped_3_%&quot; width=&quot;50&quot; alt=&quot;%_imagetext_3_%&quot;&gt;<br>
+&lt;img src=&quot;%_d_%/%_imagename_escaped_4_%&quot; width=&quot;50&quot; alt=&quot;%_imagetext_4_%&quot;&gt;<br>
+&lt;img src=&quot;%_d_%/%_imagename_escaped_5_%&quot; width=&quot;50&quot; alt=&quot;%_imagetext_4_%&quot;&gt;</blockquote>
+</div>
+<p>ピクセルサイズが縮小されたサムネイルを表示するには、以下のタグを使って下さい（青字部分が上と異なります）。</p>
+<div class="container">
+<blockquote class="code">&lt;img src=&quot;%_d_%/%_<em class="code_hl_blue">thumbnail</em>_escaped_1_%&quot; width=&quot;50&quot; alt=&quot;%_imagetext_1_%&quot;&gt;<br>&lt;img src=&quot;%_d_%/%_<em class="code_hl_blue">thumbnail</em>_escaped_2_%&quot; width=&quot;50&quot; alt=&quot;%_imagetext_2_%&quot;&gt;<br>&lt;img src=&quot;%_d_%/%_<em class="code_hl_blue">thumbnail</em>_escaped_3_%&quot; width=&quot;50&quot; alt=&quot;%_imagetext_3_%&quot;&gt;<br>&lt;img src=&quot;%_d_%/%_<em class="code_hl_blue">thumbnail</em>_escaped_4_%&quot; width=&quot;50&quot; alt=&quot;%_imagetext_4_%&quot;&gt;<br>&lt;img src=&quot;%_d_%/%_<em class="code_hl_blue">thumbnail</em>_escaped_5_%&quot; width=&quot;50&quot; alt=&quot;%_imagetext_5_%&quot;&gt;</blockquote>
+</div>
+</li>
+<li class="step"><h4><a name="step9_1_5">1.0-4.2(任意): 一覧ページ（webdir/index.html、webdir/index_short.html）にファイル一覧を追加</a></h4>
+<p>複数ファイル添付欄のファイル一覧（従来記事ページにしか表示できなかったもの）を、全一覧や短い一覧にも表示するには、一覧用のテンプレート変数（下記）をテンプレートファイル（※）に追加して下さい。表示されるHTMLコードは記事ページに表示されるものと共通（templates/article/article_file.txtで指定）ですので、デザインを変更したい場合は（スタイルシート）CSSで調整して下さい。</p><p>※<br><code class="vals">webdir/index.html</code> に追加する場合 <code class="vals">templates/article/article_list.txt</code> を編集して下さい。<br><code class="vals">webdir/index_short.html</code> に追加する場合 <code class="vals">templates/article/short_list.txt</code> を編集して下さい。</p>
+<div class="container">
+<blockquote class="code">&lt;ul&gt;<br>
+%_file_list_%<br>
+&lt;/ul&gt;</blockquote>
+</div>
+</li>
+<li class="step"><h4><a name="step9_1_6">従来版(必須): 全一覧ページ（webdir/index.html）の前後リンク追加</a></h4>
+<p>大容量版では全一覧を指定件数ごとに分割します。従来版からのバージョンアップの場合は、分割した前後ページにリンクできるように、以下のコードを追加して下さい。</p>
+<div class="container">
+<blockquote class="code">&lt;p&gt;<br>
+%_total_%件中 %_min_%-%_max_% を表示&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<br>
+&lt;a href=&quot;%_page_first_%&quot;&gt;[先頭]&lt;/a&gt;<br>
+&lt;a href=&quot;%_page_prev_%&quot;&gt;[前]&lt;/a&gt;<br>
+&lt;a href=&quot;%_page_next_%&quot;&gt;[次]&lt;/a&gt;<br>
+&lt;a href=&quot;%_page_last_%&quot;&gt;[最後]&lt;/a&gt;<br>
+&lt;/p&gt;</blockquote>
+</div>
+</li>
+<li class="step"><h4><a name="step9_1_7">1.0-4.5(任意): 全一覧ページ（webdir/index.html）に前後関係を示すSEO対策メタタグを追加</a></h4>
+<p>templates/article/article_list.htmlの &lt;head&gt; - &lt;/head&gt; の間に以下のコードを追加して下さい。</p>
+<div class="container">
+<blockquote class="code">&lt;link rel=&quot;start&quot; href=&quot;%_page_first_%&quot;&gt;<br>
+&lt;link rel=&quot;prev&quot; href=&quot;%_page_prev_%&quot;&gt;<br>
+&lt;link rel=&quot;next&quot; href=&quot;%_page_next_%&quot;&gt;</blockquote>
+</div>
+</li>
+<li class="step"><h4><a name="step9_1_8">1.0-4.8(任意): 一覧ページ（webdir/index.html、webdir/index_short.html, webdir/new.xml）から記事ページへのリンクの変更</a></h4>
+<p>Ver. 5.0 では詳細ページのファイル名の形式を環境変数で変更したり、個別の記事の登録時にファイル名設定ができるようになりました。これらの機能を使う場合は、一覧ページ（※）にある詳細ページへのリンクのhref属性のファイル名を「%_d_%.html」から「%_to_article_%」に変更して下さい。</p><p>編集対象ファイルは以下の3ファイルです。</p><p>templates/article/article_list.txt<br>templates/article/short_list.txt<br>templates/article/rss_list.txt</p></li>
+<li class="step"><h4><a name="step9_1_9">1.0-2.0(任意): RSSの新規利用</a></h4>
+<p>以下のテンプレートを新たに編集して下さい。</p><p>templates/article/rss_list.html<br>templates/article/rss_list.txt</p></li>
+<li class="step"><h4><a name="step9_1_10">2.0(必須): RSSの形式改善</a></h4>
+<p><code class="vals">templates/article/rss_list.txt</code> の &lt;pubDate&gt; - &lt;/pubDate&gt; を以下のコードで置き換えて下さい。</p>
+<div class="container">
+<blockquote class="code">&lt;pubDate&gt;%_dd_% %_mon_% %_yyyy_% 00:00:00 +0900&lt;/pubDate&gt;</blockquote>
+</div>
+</li>
+<li class="step"><h4><a name="step9_1_11">1.0-3.1(任意): RSS AutoDiscovery の設定</a></h4>
+<p><code class="vals">templates/article/article_list.html</code> と <code class="vals">templates/article/article.html</code> の &lt;head&gt; - &lt;/head&gt; の間に以下のコードを追加して下さい。<br>
+青字部分は設置したサイトの情報に合わせて変更して下さい。</p>
+<div class="container">
+<blockquote class="code">&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;title=&quot;<em class="code_hl_blue">スタッフのご紹介 更新情報</em>&quot; href=&quot;<em class="code_hl_blue">new.xml</em>&quot;&gt;</blockquote>
+</div>
+</li>
+</ol>
+</li>
+<li class="step"><h3><a name="step10">アップロード</a></h3>
+<p>変更したファイル、および追加されたテンプレートをサーバにアップロードして下さい。</p><p>※1 必ずアップロード<br>※2 上記で編集した場合にアップロード<br>※3 旧バージョンが Ver 2.0 以下（従来版）なら、新バージョンをアップロード<br>※4 旧バージョンが Ver 2.0 以下（従来版）か上記で編集した場合にアップロード<br>※5 旧バージョンが Ver 4.2 以下ならアップロード</p><p><code class="vals">admin/admin.cgi</code> （※1）<br>templates/jcode.pl （※5）<br><code class="vals">templates/admin/</code> 配下全て （※1）<br><code class="vals">templates/article/article.html</code> （※2）<br><code class="vals">templates/article/article_image_1.txt</code> （※5）<br><code class="vals">templates/article/article_image_2.txt</code> （※5）<br><code class="vals">templates/article/article_image_3.txt</code> （※5）<br><code class="vals">templates/article/article_image_4.txt</code> （※5）<br><code class="vals">templates/article/article_image_5.txt</code> （※5）<br><code class="vals">templates/article/article_file.txt</code> （※2）<br><code class="vals">templates/article/article_list.html</code> （※2）<br><code class="vals">templates/article/article_list.txt</code> （※2）<br><code class="vals">templates/article/short_list.txt</code> （※2）<br><code class="vals">templates/article/rss_list.html</code> （※4）<br><code class="vals">templates/article/rss_list.txt</code> （※4）<br><code class="vals">data/license.dat</code> （※3）<br>webdir/parts （※1）</p></li>
+<li class="step"><h3><a name="step11">ライセンス移行 または ライセンスご購入</a></h3>
+<p>旧バージョンによってはライセンス移行またはライセンスご購入のお手続きをお願いします。<br>
+以下に「旧バージョン: 必要なお手続き」をご案内致します。</p><ol class="stepdesc1">
+<li class="step"><h4><a name="step11_1_12">従来版: 製品交換</a></h4>
+<p>従来版から大容量版にバージョンアップする場合は「製品交換」のお手続きをお願いします。</p><p>「製品の交換方法」<br><a href="http://sugutsukaeru.jp/cgi/j/52/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/52/</a></p></li>
+<li class="step"><h4><a name="step11_1_13">2.x以下: ライセンスご購入</a></h4>
+<p>Ver. 2.x 以下 はVer. 5.0 へ無料バージョンアップができませんので、新たにライセンスをご購入の上ライセンスキーを登録して下さい。</p><p>「ライセンスのご購入方法」<br><a href="http://sugutsukaeru.jp/cgi/j/47/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/47/</a></p></li>
+<li class="step"><h4><a name="step11_1_14">3.x以上: (手続き不要)</a></h4>
+<p>旧バージョンが大容量版 Ver. 3.x 以上の場合は、ライセンス関連の追加のお手続きは不要です。</p></li>
+</ol>
+</li>
+<li class="step"><h3><a name="step12">再構築</a></h3>
+<p>管理画面にアクセスして、今までと同じ記事一覧が表示できる事を確認して下さい。<br>
+一覧の下にある「再構築（テンプレート変更反映）」ボタンを押してファイルが期待どおり再生成できる事を確認して下さい。</p>
+<div class="container">
+<div class="onng"><h5>増設の警告が出る場合</h5>
+<p>バージョンアップ後に「管理画面が移設または増設されました」という表示が出てしまう場合、お手数ですが下記 URL のお問合せフォームからダウンロードID を合せてご連絡下さい。<br>
+<a href="http://sugutsukaeru.jp/cgi/j/16/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/16/</a></p></div>
+</div>
+</li>
+</ol>
+
+
+<!-- main contents ends -->
+<div class="footer">
+copyright(c) Sugutsukaeru Inc. All rights reserved.
+</div>
+<div class="bottomnavi">[<a href="index.html">目次ページへ戻る</a>] [<a href="#top">このページのトップへ戻る</a>]</div>
+</body>
+</html>

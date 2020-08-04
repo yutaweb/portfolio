@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta chrset="utf-8">
+    <title>Study abroad to Alabama</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="css/common.css">
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Roboto&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <link rel="icon" href="/favicon.ico/">
+    <link rel="icon" href="myportfolio-images/alabama-newlogo.png">
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+  </head>
+  <body id="memory">
+    <header>
+      <div class="logo" id="pc-only">
+        <a href="index.html"><img src="images/Alabama.png" alt="SNAPPERS"></a>
+      </div>
+      <div class="logo" id="sp-only">
+        <a href="#"><img src="images/Alabama.png" alt="SNAPPERS"></a>
+      </div>
+      <nav>
+        <ul class="global-nav">
+          <li><a href="index.html">Top</a></li>
+          <li><a href="memory.html">Memory</a></li>
+          <li><a href="life.html">Life</a></li>
+          <li><a href="flow.html">Flow</a></li>
+          <li><a href="alabama.html">Alabama</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="wrap">
+      <div class="content">
+        <div class="main-center">
+          <h1>Memory</h1>
+          <p>アラバマ留学での思い出を紹介したページとなっております。週末の旅行や、日々の暮らしをご覧ください。</p>
+          <div class="memory">
+            <div class="memory_text">
+              <h2 class="icon">Photograph</h2>
+              <p>アラバマ大学留学では、１か月間、寮で知らない海外の学生と生活しました。この経験談やアメリカならではの体験、そして週末に行った旅行の思い出を紹介しております。</p>
+            </div>
+            <div class="memory_img img1">
+              <img src="myportfolio-images/univ-alabama.jpg" alt="">
+            </div>
+          </div>
+          <div class="memory">
+            <div class="memory_text">
+              <h2 class="icon">Video</h2>
+              <p>ホームパーティーにいった時やクルーズ船に乗った時、そしてNew Orleansでの出来事を主に撮影して記録した動画となっています！<br>写真よりも留学の雰囲気がつかみやすいと思うので、ご覧ください。</p>
+            </div>
+            <div class="memory_img img2">
+              <img src="myportfolio-images/ezgif.com-optimize.gif" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <small>(C)2020 yuta all rights reserved</small>
+    </footer>
+    <script>
+      $(function(){
+        $("#sp-only").on("click",function(){
+          $(this).next().slideToggle();
+        })
+      });
+    </script>
+  </body>
+</html>

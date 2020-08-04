@@ -1,0 +1,639 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>Step by Step ガイド（初めての方向け）</title>
+<link rel="stylesheet" href="manual.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<div class="topnavi">[<a href="index.html" name="top">目次へ戻る</a>]</div>
+<h1 class="grobaltitle">すぐ使えるCGI 添付ファイル付 ウェブページ更新ツール 大容量版（日本語 UTF-8 版） 説明書</h1>
+<h2 class="pagetitle">Step by Step ガイド（初めての方向け）</h2>
+
+<!-- main contents begins -->
+
+<script type="text/javascript">
+function toggle_sub(myTgt, myTop){
+	var mySublist = document.getElementById(myTgt);
+	var mySelf = document.getElementById(myTop);
+	if (!mySublist.style.display || mySublist.style.display == 'block'){
+		mySublist.style.display = 'none'
+		mySelf.className = 'togglelink_plus';
+	} else {
+		if (mySublist.style.display == 'none'){
+			mySublist.style.display = 'block'
+			mySelf.className = 'togglelink';
+		} 
+	}
+}
+</script>
+
+
+<div class="container">
+<div class="onng"><h5>丁寧すぎると感じたら</h5>
+<p>細かい操作のご説明が不要な方は、「<a href="quick.html">クイックガイド</a>」をご参照下さい。</p></div>
+</div>
+<ol class="indexlink">
+<li class="liststep"><a href="#step1">ダウンロード</a>
+</li>
+<li class="liststep"><a href="#step2">解凍</a>
+</li>
+<li class="liststep"><a href="#step3">サーバ情報の確認</a>
+<a href="javascript: toggle_sub('sub_step3_0', 'top_step3')" class="togglelink_plus" id ="top_step3">サブメニュー</a>
+<ol class="stepdesc1" id="sub_step3_0" style="display: none;">
+<li class="listsubstep"><a href="#step3_1_1">Perl のパス</a>
+</li>
+<li class="listsubstep"><a href="#step3_1_2">CGIのパーミッション</a>
+</li>
+</ol>
+</li>
+<li class="liststep"><a href="#step4">設置場所の決定</a>
+</li>
+<li class="liststep"><a href="#step5">Perl のパスの変更</a>
+<a href="javascript: toggle_sub('sub_step5_2', 'top_step5')" class="togglelink_plus" id ="top_step5">サブメニュー</a>
+<ol class="stepdesc1" id="sub_step5_2" style="display: none;">
+<li class="listsubstep"><a href="#step5_1_3">テキストエディタでファイルを開く</a>
+</li>
+<li class="listsubstep"><a href="#step5_1_4">パスの書き換え</a>
+</li>
+<li class="listsubstep"><a href="#step5_1_5">上書き保存</a>
+</li>
+</ol>
+</li>
+<li class="liststep"><a href="#step6">アップロード</a>
+<a href="javascript: toggle_sub('sub_step6_5', 'top_step6')" class="togglelink_plus" id ="top_step6">サブメニュー</a>
+<ol class="stepdesc1" id="sub_step6_5" style="display: none;">
+<li class="listsubstep"><a href="#step6_1_6">FTPソフトでサーバに接続</a>
+</li>
+<li class="listsubstep"><a href="#step6_1_7">ディレクトリを移動</a>
+</li>
+<li class="listsubstep"><a href="#step6_1_8">設置するディレクトリを作成</a>
+</li>
+<li class="listsubstep"><a href="#step6_1_9">作成したディレクトリに移動</a>
+</li>
+<li class="listsubstep"><a href="#step6_1_10">アップロード</a>
+</li>
+</ol>
+</li>
+<li class="liststep"><a href="#step7">パーミッションの設定</a>
+<a href="javascript: toggle_sub('sub_step7_10', 'top_step7')" class="togglelink_plus" id ="top_step7">サブメニュー</a>
+<ol class="stepdesc1" id="sub_step7_10" style="display: none;">
+<li class="listsubstep"><a href="#step7_1_11">admin/admin.cgi</a>
+</li>
+<li class="listsubstep"><a href="#step7_1_12">data/</a>
+</li>
+<li class="listsubstep"><a href="#step7_1_13">data/license.dat</a>
+</li>
+<li class="listsubstep"><a href="#step7_1_14">webdir/</a>
+</li>
+<li class="listsubstep"><a href="#step7_1_15">tempfiles/</a>
+</li>
+</ol>
+</li>
+<li class="liststep"><a href="#step8">設置完了</a>
+</li>
+<li class="liststep"><a href="#step9">やりたいことができるかの確認</a>
+<a href="javascript: toggle_sub('sub_step9_15', 'top_step9')" class="togglelink_plus" id ="top_step9">サブメニュー</a>
+<ol class="stepdesc1" id="sub_step9_15" style="display: none;">
+<li class="listsubstep"><a href="#step9_1_16">デザインの調整ができるかの確認</a>
+</li>
+<li class="listsubstep"><a href="#step9_1_17">オプション設定（ファイル名、件数、画像のサイズなど）</a>
+</li>
+</ol>
+</li>
+<li class="liststep"><a href="#step10">運用時の設定</a>
+<a href="javascript: toggle_sub('sub_step10_17', 'top_step10')" class="togglelink_plus" id ="top_step10">サブメニュー</a>
+<ol class="stepdesc1" id="sub_step10_17" style="display: none;">
+<li class="listsubstep"><a href="#step10_1_18">公開ディレクトリの設定とデザイン調整</a>
+<a href="javascript: toggle_sub('sub_step10_18', 'sub_step10_1_18')" class="togglelink_plus" id ="sub_step10_1_18">サブメニュー</a>
+<ol class="stepdesc2" id="sub_step10_18" style="display: none;">
+<li class="listsubstep"><a href="#step10_2_19">テストデータの削除</a>
+</li>
+<li class="listsubstep"><a href="#step10_2_20">ディレクトリの作成</a>
+</li>
+<li class="listsubstep"><a href="#step10_2_21">パーミッション設定</a>
+</li>
+<li class="listsubstep"><a href="#step10_2_22">admin/admin.cgi の変更</a>
+</li>
+<li class="listsubstep"><a href="#step10_2_23">admin/admin.cgi のアップロード</a>
+</li>
+<li class="listsubstep"><a href="#step10_2_24">動作確認</a>
+</li>
+<li class="listsubstep"><a href="#step10_2_25">パスの調整</a>
+</li>
+<li class="listsubstep"><a href="#step10_2_26">不要になった webdir/ の削除</a>
+</li>
+</ol>
+</li>
+<li class="listsubstep"><a href="#step10_1_27">管理用ディレクトリ名の変更</a>
+</li>
+<li class="listsubstep"><a href="#step10_1_28">アクセス制限（パスワードの設定）の設定</a>
+</li>
+<li class="listsubstep"><a href="#step10_1_29">ライセンスの購入とライセンスキーの登録</a>
+</li>
+<li class="listsubstep"><a href="#step10_1_30">設置場所の移動（URLの変更、テストサーバから本番サーバへの移動）</a>
+</li>
+</ol>
+</li>
+</ol>
+
+<hr class="contentsbegin">
+
+<ol class="stepdesc">
+<li class="step"><h3><a name="step1">ダウンロード</a></h3>
+<p>すぐ使えるCGI サイトから製品の圧縮ファイルをダウンロードして下さい。（テストは無料です。）<br>※ ダウンロードした後にこのファイルをご覧になっている場合は、再度のダウンロードは不要です。先に進んで下さい。</p><p>以下のページからダウンロードできます。<br><a href="http://sugutsukaeru.jp/cgi/j/108/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/108/</a></p></li>
+<li class="step"><h3><a name="step2">解凍</a></h3>
+<p>ダウンロードした製品ファイルは圧縮されています。解凍ソフトで解凍して下さい。</p><p>「解凍ソフト」や「解凍」についてよく分からない方は、ダウンロードしたファイルをダブルクリックしてみて下さい。<br>自動的に解凍できる場合があります。</p><p>ダブルクリックしても何も起こらない場合やうまくいかない場合は下記のページを参照して下さい。<br>「解凍ソフト」や「解凍」の方法について解説しています。<br><a href="http://sugutsukaeru.jp/cgi/j/31/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/31/</a></p><p>解凍がうまく行くといくつかのディレクトリ（フォルダ）や <code class="vals">README_win.txt</code> というファイルが現れます。<br>ディレクトリやファイルが現れたら先に進んで下さい。</p></li>
+<li class="step"><h3><a name="step3">サーバ情報の確認</a></h3>
+<p>設置するサーバの情報をいくつか確認します。<br>これらの情報は、レンタルサーバ会社やサーバ管理者に問い合わせて下さい。</p><p>必要な情報は以下の2点です。<br>もし分らなければ試しながら行うことにして、先に進んで下さい。</p><ol class="stepdesc1">
+<li class="step"><h4><a name="step3_1_1">Perl のパス</a></h4>
+<p>一般的には、「Perl のパス」や「プログラムのコマンドパス」などの項目で情報が提供されています。<br>
+以下のような情報です。</p>
+<div class="container">
+<blockquote class="code">/usr/bin/perl</blockquote>
+</div>
+
+<div class="container">
+<blockquote class="code">/usr/local/bin/perl</blockquote>
+</div>
+
+<div class="container">
+<blockquote class="code">C:/Perl/bin/perl.exe</blockquote>
+</div>
+</li>
+<li class="step"><h4><a name="step3_1_2">CGIのパーミッション</a></h4>
+<p>※ インストールするサーバの OS が Windows の場合は、この情報は不要です。「設置場所の決定」に進んで下さい。</p><p>CGIファイルに設定するパーミッションを確認して下さい。<br>
+通常は「755」、「700」、「705」などです。</p></li>
+</ol>
+</li>
+<li class="step"><h3><a name="step4">設置場所の決定</a></h3>
+<p>実際の作業に入る前に、ウェブサーバ上の設置場所を決めます。<br>とりあえずはテストしますので、お使いのウェブサーバで、CGIが実行できる場所であればどこでもよいです。</p><p>今の段階では、計画するだけで特に行う作業はありません。<br>この説明書では、「ウェブサイトに既にある <code class="vals">cgi-bin/</code> ディレクトリの下に <code class="vals">sugu/</code> というディレクトリを作り、その中に設置する」と決めたことにします。</p><p>以下のような状態です。</p>
+<div class="container">
+<blockquote class="dirsample">/ (ルートディレクトリ)<br>
+&nbsp;&nbsp;&nbsp;|-- public_html/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- <em class="important">cgi-bin/</em>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_green">←元からあった cgi-bin/ ディレクトリ</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;|-- <em class="important">sugu/</em>&nbsp;&nbsp;<span class="code_green">←新しく作成する予定</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- index.html　など（元からあったファイル）<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;:</blockquote>
+</div>
+</li>
+<li class="step"><h3><a name="step5">Perl のパスの変更</a></h3>
+<p>※ インストールするサーバの OS が Windows でWebサーバが IIS（Internet Information Server） の場合は、この手順は不要です。「<a href="#step6">アップロード</a>」に進んで下さい。</p><ol class="stepdesc1">
+<li class="step"><h4><a name="step5_1_3">テキストエディタでファイルを開く</a></h4>
+<p>先ほど解凍したファイルの中に「admin」という名前のディレクトリ（フォルダ）があり、その中に <code class="vals">admin.cgi</code> という名前のファイルがあります。このファイルをテキストエディタで開いて下さい。</p><p>※今後はディレクトリ内にあるファイルを「admin/admin.cgi」のようにスラッシュで区切って表記します。</p>
+<div class="container">
+<div class="onng"><h5>「テキストエディタ」について</h5>
+<p><code class="vals">admin/admin.cgi</code> を Dreamweaver などのオーサリングツールで編集してしまうとサーバにアップロードした時にエラーが起きる場合があります。また、ファイルを開いた時に文字化けするエディタや警告が表示されるエディタはうまく編集できない場合がありますので、適した「テキストエディタ」を用意して下さい。</p><p>適したテキストエディタが無い場合は下記のオンラインツールを使用して下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/36/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/36/</a></p><p>「テキストエディタ」がよく分からない場合は下記ページを参照して下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/40/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/40/</a></p></div>
+</div>
+</li>
+<li class="step"><h4><a name="step5_1_4">パスの書き換え</a></h4>
+<p><code class="vals">admin/admin.cgi</code> のファイルの1行目に以下のように記載があります。</p>
+<div class="container">
+<blockquote class="code">&#35;!/usr/bin/perl --</blockquote>
+</div>
+<p>「<code class="vals">/usr/bin/perl</code>」の部分を、先ほど調べたサーバの「Perlのパス」に変更して下さい。<br>頭の「&#35;!」と末尾の「 --」は変更せずに残します。「perl」と「--」の間には半角スペースを入れて下さい。</p><p>Perlのパスが分らなかった場合は、（エラーが出てから考えることにして）ひとまずそのまま次に進んで下さい。<br>このままで上手くいく場合もあります。</p></li>
+<li class="step"><h4><a name="step5_1_5">上書き保存</a></h4>
+<p>変更が終わったら上書き保存して下さい。<br>
+保存の際の文字コードは BOMなし UTF-8（または Unicode など） にして下さい。</p></li>
+</ol>
+</li>
+<li class="step"><h3><a name="step6">アップロード</a></h3>
+<p>本来ならもう少し設定を変更する必要がありますが、とりあえずテストですので、このままサーバにアップロードすることにします。</p><p>これから先の作業には、「FTPソフト」を使用します。<br>「FTPソフト」がよく分らない場合は、下記のページを参照して下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/32/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/32/</a></p><ol class="stepdesc1">
+<li class="step"><h4><a name="step6_1_6">FTPソフトでサーバに接続</a></h4>
+<p>FTPソフトで、設置先のサーバに接続して下さい。</p></li>
+<li class="step"><h4><a name="step6_1_7">ディレクトリを移動</a></h4>
+<p>先ほど決めた設置ディレクトリに移動して下さい。<br>
+この例では <code class="vals">cgi-bin/</code> に移動します。</p></li>
+<li class="step"><h4><a name="step6_1_8">設置するディレクトリを作成</a></h4>
+<p>設置するディレクトリを作成して下さい。この例では <code class="vals">sugu/</code> ディレクトリに決めたので、sugu という名前でディレクトリを作成します。</p></li>
+<li class="step"><h4><a name="step6_1_9">作成したディレクトリに移動</a></h4>
+<p>作成した <code class="vals">sugu/</code> ディレクトリに移動して下さい。</p></li>
+<li class="step"><h4><a name="step6_1_10">アップロード</a></h4>
+<p>移動したディレクトリ <code class="vals">sugu/</code> 内に、解凍したファイルに含まれていた以下のディレクトリを中身のファイルごとアップロードして下さい。<br>（この中には、先に編集した <code class="vals">admin/admin.cgi</code> が含まれていることになります。）</p><p>admin/ <br>data/ <br>tempfiles/ <br>templates/ <br>webdir/ </p><div class="container">
+<div class="onng"><h5>ディレクトリが足りない場合</h5>
+<p>上記のディレクトリのいくつかだけが無い場合、解凍ソフトに「空のディレクトリがあったら解凍時に自動的に削除する」という設定がしてある可能性があります。<br>
+不足のディレクトリがあった場合は手動で作成して下さい。</p></div>
+</div>
+</li>
+</ol>
+</li>
+<li class="step"><h3><a name="step7">パーミッションの設定</a></h3>
+<p>CGIを動かす前に、「パーミッションの設定」をします。<br>「パーミッション」についてよく分らない方は、CGIの設定においては「これはプログラム」「これは書き込みファイル」と印を付けていく事だと思って下さい。</p><p>パーミッション設定の操作方法が分らない場合は、下記のページを参照して下さい。（「FTPソフト」を使用します。）<br><a href="http://sugutsukaeru.jp/cgi/j/32/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/32/</a></p>
+<div class="container">
+<div class="onng"><h5>Windows サーバの場合</h5>
+<dl>
+<dt>
+設定方法</dt>
+<dd>
+<p>インストールするサーバの OS が Windows の場合、設定の方法は異なります。サーバのマニュアルを参照するか、管理者に相談して下さい。</p></dd>
+<dt>
+社内イントラネット（Windows ドメイン）内で使用する場合</dt>
+<dd>
+<p>社内イントラネット（Windows ドメイン）内で使用する場合で Web サーバが IIS の場合は、権限設定に注意が必要です。<br>
+下記ページをご参照の上、管理者ともご相談の上設定を決定して下さい。<br>
+<a href="http://sugutsukaeru.jp/cgi/j/43/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/43/</a></p></dd>
+</dl>
+</div>
+</div>
+<ol class="stepdesc1">
+<li class="step"><h4><a name="step7_1_11">admin/admin.cgi</a></h4>
+<p>FTPソフトで <code class="vals">admin/</code> ディレクトリに移動し、<code class="vals">admin/admin.cgi</code> に「実行権限」を付けます。（「プログラムである事」の印です。）<br>
+先ほど調べたCGIのパーミッションを設定して下さい。</p>
+<div class="container">
+<table>
+<thead>
+<tr>
+<th class="th_case">CGIの<br>パーミッション</th>
+<th class="th_switch" colspan="2">755</th>
+<th class="th_switch" colspan="2">705</th>
+<th class="th_switch" colspan="2">750</th>
+<th class="th_switch" colspan="2">700/不明</th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_case">admin/admin.cgi <br>の設定</th>
+<td class="td_pmtn">755</td>
+<td class="td_pmtn">rwxr-xr-x</td>
+<td class="td_pmtn">705</td>
+<td class="td_pmtn">rwx---r-x</td>
+<td class="td_pmtn">750</td>
+<td class="td_pmtn">rwxr-x---</td>
+<td class="td_pmtn">700</td>
+<td class="td_pmtn">rwx------</td>
+
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="step"><h4><a name="step7_1_12">data/</a></h4>
+<p>一つ上のディレクトリ（ <code class="vals">sugu/</code> ）に戻って下さい。<br><code class="vals">data/</code> ディレクトリに「書き込み権限」を付けます。</p><p>CGIに設定したパーミッションによって、以下のように設定して下さい。</p>
+<div class="container">
+<table>
+<thead>
+<tr>
+<th class="th_case">CGIの<br>パーミッション</th>
+<th class="th_switch" colspan="2">755/705</th>
+<th class="th_switch" colspan="2">750</th>
+<th class="th_switch" colspan="2">700/不明</th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_case">data/ <br>の設定</th>
+<td class="td_pmtn">757</td>
+<td class="td_pmtn">rwxr-xrwx</td>
+<td class="td_pmtn">775</td>
+<td class="td_pmtn">rwxrwxr-x</td>
+<td class="td_pmtn" colspan="2">（設定不要）</td>
+
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="step"><h4><a name="step7_1_13">data/license.dat</a></h4>
+<p><code class="vals">data/</code> ディレクトリの中に移動して下さい。<br><code class="vals">data/license.dat</code> に「書き込み権限」を付けます。</p><p>CGIに設定したパーミッションによって、以下のように設定して下さい。</p>
+<div class="container">
+<table>
+<thead>
+<tr>
+<th class="th_case">CGIの<br>パーミッション</th>
+<th class="th_switch" colspan="2">755/705</th>
+<th class="th_switch" colspan="2">750</th>
+<th class="th_switch" colspan="2">700/不明</th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_case">data/license.dat <br>の設定</th>
+<td class="td_pmtn">646</td>
+<td class="td_pmtn">rw-r--rw-</td>
+<td class="td_pmtn">664</td>
+<td class="td_pmtn">rw-rw-r--</td>
+<td class="td_pmtn" colspan="2">（設定不要）</td>
+
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="step"><h4><a name="step7_1_14">webdir/</a></h4>
+<p>一つ上のディレクトリ（ <code class="vals">sugu/</code> ）に戻って下さい。<br><code class="vals">webdir/</code> ディレクトリに「書き込み権限」を付けます。</p><p>CGIに設定したパーミッションによって、以下のように設定して下さい。</p>
+<div class="container">
+<table>
+<thead>
+<tr>
+<th class="th_case">CGIの<br>パーミッション</th>
+<th class="th_switch" colspan="2">755/705</th>
+<th class="th_switch" colspan="2">750</th>
+<th class="th_switch" colspan="2">700/不明</th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_case">webdir/ <br>の設定</th>
+<td class="td_pmtn">757</td>
+<td class="td_pmtn">rwxr-xrwx</td>
+<td class="td_pmtn">775</td>
+<td class="td_pmtn">rwxrwxr-x</td>
+<td class="td_pmtn" colspan="2">（設定不要）</td>
+
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="step"><h4><a name="step7_1_15">tempfiles/</a></h4>
+<p><code class="vals">tempfiles/</code> ディレクトリに「書き込み権限」を付けます。</p><p>CGIに設定したパーミッションによって、以下のように設定して下さい。</p>
+<div class="container">
+<table>
+<thead>
+<tr>
+<th class="th_case">CGIの<br>パーミッション</th>
+<th class="th_switch" colspan="2">755/705</th>
+<th class="th_switch" colspan="2">750</th>
+<th class="th_switch" colspan="2">700/不明</th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="th_case">tempfiles/ <br>の設定</th>
+<td class="td_pmtn">757</td>
+<td class="td_pmtn">rwxr-xrwx</td>
+<td class="td_pmtn">775</td>
+<td class="td_pmtn">rwxrwxr-x</td>
+<td class="td_pmtn" colspan="2">（設定不要）</td>
+
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ol>
+</li>
+<li class="step"><h3><a name="step8">設置完了</a></h3>
+<p>ここまで設定したら、いよいよ実行テストをします。</p><p>サーバにアップロードした <code class="vals">admin/admin.cgi</code> のURLをブラウザからリクエストして下さい。</p><p>この例の場合、設置したウェブサイトのトップページが <code class="vals">http://www.example.co.jp/</code> だとすると、<code class="vals">cgi-bin/</code> の下に <code class="vals">sugu/</code> を作成してその中に <code class="vals">admin/</code> をアップロードしたのですから、その分のパスを足して <code class="vals">http://www.example.co.jp/cgi-bin/sugu/admin/admin.cgi</code> にアクセスします。</p><p>「新規登録」のボタンがある管理画面が表示されれば設置は完了です。登録、編集をお試し下さい。<br>詳しい操作方法は「<a href="manual/index.html" target="_blank">操作マニュアル</a>」を参照して下さい。うまく行ったら次の「<a href="#step9">やりたいことができるかの確認</a>」に進んで下さい。</p><p>管理画面が表示されない場合や編集がうまく行かない場合、下記によくあるエラーとその原因・対応方法をご紹介していますので該当するものが無いか探して下さい。どれにも該当しない場合は、下記ページから最新のサポート情報を検索して下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/14/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/14/</a></p>
+<div class="container">
+<div class="onng"><h5>「新規登録」ボタンが表示されない場合</h5>
+<dl>
+<dt>
+「404 Not Found / 見つかりません」というエラーが出る場合</dt>
+<dd>
+<p>URLのタイプミスなどが考えられます。もう一度URLを確認して下さい。</p></dd>
+<dt>
+「403 Forbidden / 許可されていません」というエラーが出る場合</dt>
+<dd>
+<p><code class="vals">admin/admin.cgi</code> のパーミッションがサーバと適合していない可能性があります。<br>
+サーバの環境が分らずにパーミッションを 700 に設定した方は、755 に変更してみて下さい。<br>
+それ以外の場合と変更してもエラーが解消しない場合は 下記のURLをご覧下さい。<br>
+<a href="http://sugutsukaeru.jp/cgi/j/62/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/62/</a></p></dd>
+<dt>
+「500 Internal Server Error / サーバエラー」というエラーが出る場合</dt>
+<dd>
+<p>Perl のパスが分らずにそのままアップロードした方は、他の Perl のパスを試してみて下さい。<br>一般的な Perl のパスは以下の通りです。</p><p>◆UNIX 系のOS の場合:<br>/usr/bin/perl<br>　または<br>/usr/local/bin/perl</p><p>◆Windows の場合：<br>C:/Perl/bin/perl.exe</p><p>それ以外の場合と変更してもエラーが解消しない場合は 下記のURLをご覧下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/33/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/33/</a></p></dd>
+<dt>
+CGI ファイルの中身が表示されてしまう、またはダウンロードされてしまう場合</dt>
+<dd>
+<p>CGIファイルの中身がそのまま表示されてしまう、またはダウンロードされてしまう場合はサーバ設定を変更する必要があります。詳しくは下記のURLをご覧下さい。<br>
+<a href="http://sugutsukaeru.jp/cgi/j/63/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/63/</a></p></dd>
+<dt>
+「*** で指定したディレクトリ( xxx )がサーバ上にありません。」という表示が出る場合</dt>
+<dd>
+<p>その環境変数 *** で指定したディレクトリがサーバで見つからない場合のエラーです。ディレクトリのアップロードを忘れている可能性と設定を間違えている可能性があります。詳しくは下記のURLをご覧下さい。<br>
+<a href="http://sugutsukaeru.jp/cgi/j/64/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/64/</a></p></dd>
+<dt>
+「*** ( xxx ) のパーミッション設定を変更して下さい。」という表示が出る場合</dt>
+<dd>
+<p>そのディレクトリ（ *** ）のパーミッション設定がサーバと適合していない可能性があります。</p><p>推奨設定が表示されますのでそちらに変更して下さい。</p></dd>
+<dt>
+「OPEN FAILED」という表示が出る場合</dt>
+<dd>
+<p>ディレクトリ <code class="vals">templates/</code> やその中のファイルがサーバ上で見つからない場合に出るエラーです。詳しくは下記ページをご覧下さい。<br>
+<a href="http://sugutsukaeru.jp/cgi/j/65/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/65/</a></p></dd>
+<dt>
+「ロックが取得できませんでした。」という表示が出る場合</dt>
+<dd>
+<p>このエラーは <code class="vals">data/</code> ディレクトリがサーバ上で見つからないか、書込み権限が無い場合に出ます。詳しくは下記ページをご覧下さい。<br>
+<a href="http://sugutsukaeru.jp/cgi/j/66/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/66/</a></p></dd>
+</dl>
+</div>
+</div>
+
+<div class="container">
+<div class="onng"><h5>操作中にエラーが出る場合</h5>
+<dl>
+<dt>
+「処理の途中でエラーが起きました。」という表示が出る場合</dt>
+<dd>
+<p>入力画面までは表示できた後、記事登録時に「エラー　処理の途中でエラーが起きました。」という表示が出てしまう場合、もし画像やファイルの添付をしていたら、一旦画像やファイルなしでの登録を試して下さい。画像もファイルもアップロードしていない時に同じエラーが起きる場合は、ディレクトリの書き込み権限が不足している場合があります。</p><p>下記のページから、エラーメッセージと対応方法をご確認の上設定を修正して下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/55/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/55/</a></p></dd>
+</dl>
+</div>
+</div>
+
+<div class="container">
+<div class="onng"><h5>ファイルアップロード時に特有の問題</h5>
+<dl>
+<dt>
+「リクエスト取得時にエラーが起きました。」という表示が出る場合</dt>
+<dd>
+<p>入力画面からアップロードする添付ファイルを選択した状態で「確認画面へ」または「先にアップロード」ボタンを押して「エラー　リクエスト取得時にエラーが起きました。」という表示が出る場合、ファイルサイズが問題の可能性とサーバ設定の問題の可能性があります。詳しくは下記ページをご覧下さい。<br>
+<a href="http://sugutsukaeru.jp/cgi/j/67/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/67/</a></p></dd>
+<dt>
+アイコンが表示されない場合</dt>
+<dd>
+<p>入力画面から確認画面に進んだ時にファイル名等は表示されるがファイルのアイコンが表示されない場合、<code class="vals">webdir/</code> 内に <code class="vals">icons/</code> ディレクトリがあるか確認して下さい。<br>無ければ <code class="vals">webdir/</code> 内に <code class="vals">icons/</code> ディレクトリをディレクトリごとアップロードして下さい。</p><p><code class="vals">webdir/</code> 内に <code class="vals">icons/</code> ディレクトリがあるのに表示ができない場合は、以下の通りパーミッションを設定して下さい。<br>◆<code class="vals">webdir/</code> -&gt; 「755」<br>◆<code class="vals">webdir/icons/</code> -&gt; 「755」<br>◆<code class="vals">webdir/icons/</code> の中の画像ファイル -&gt; 「644」</p><p>設定を変更したら、「中止（一覧に戻る）」ボタンを押して一覧画面に戻りもう一度入力から行って下さい。</p><p>上記の設定を直してもなおアイコンが表示できない場合、<code class="vals">admin/admin.cgi</code> 内の環境変数 <code class="vals">$conf{relative_web_dir}</code> の設定がサーバと適合していない可能性があります。<br>以下のいずれかに該当する場合は、「<a href="http://sugutsukaeru.jp/cgi/j/53/" target="_blank" class="external">ディレクトリ配置と環境変数の設定例</a>」を参照して <code class="vals">$conf{relative_web_dir}</code> の設定を修正して下さい。</p><p>◆<code class="vals">$conf{relative_web_dir}</code> の設定を変更している<br>◆<code class="vals">$conf{web_dir}</code> を絶対パスで指定している<br>◆CGI用のディレクトリとHTML用のディレクトリが分かれている</p><p>上記に該当しない場合や設定を直してもなおアイコンの表示ができない場合、ディレクトリの構成を変更する必要があります。下記ページの方法で修正して下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/35/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/35/</a></p></dd>
+<dt>
+入力画面に戻ってしまう場合</dt>
+<dd>
+<p>入力画面からアップロードするファイルを選択した状態で「確認画面へ」または「先にアップロード」ボタンを押した時にエラーメッセージが出て入力画面に戻ってしまう場合、指示が出ている場合はそれに沿って修正して下さい。</p><p>「*** の保存に失敗しました。(xxx: ooo)　処理を中断しました。」と表示されている場合、ファイル名と環境の組み合わせ（相性）の問題で添付ファイル保存に失敗しています。日本語（全角文字）が含まれるファイルは環境と製品の文字コードの組み合わせによって利用できない場合があります。<br>通常はファイル名を半角英数字にすることによって問題が解消しますので、ファイル名は半角英数字に変更し、日本語でのリンクが必要な場合はリンクテキストで日本語を指定して下さい。</p><p>なお、お使いの「すぐ使えるCGI」製品が Ver. 3.1 以下でこの問題が出ている場合は Ver. 4.8 以上へのバージョンアップで問題が解消する事があります。該当の場合はバージョンアップして下さい。</p></dd>
+<dt>
+ファイルがダウンロードができない場合</dt>
+<dd>
+<p>生成されたページから、または、管理画面で入力画面から確認画面に進んだ時に、ファイル名等は表示されているのにリンクをクリックしてもファイルがダウンロードできない場合、問題が起きている添付ファイルが日本語ファイル名のものであれば、ファイル名が半角英数字のファイルを添付してみて同じ問題が起きるかをまず試して下さい。</p><p>半角英数字のファイルは問題なくダウンロードできる場合、次の「日本語ファイル名のファイルがダウンロードができない場合」を参照して下さい。<br>半角英数字のファイルでもダウンロードできない場合は、以下の対応を試して下さい。</p><p><code class="vals">tempfiles/</code> のパーミッションの設定を 755 にして下さい。<br>設定を変更したら、「中止（一覧に戻る）」ボタンを押して一覧画面に戻り、もう一度入力から行って下さい。</p><p>上記の設定を直してもなおファイルのダウンロードができない場合、<code class="vals">admin/admin.cgi</code> 内の環境変数 <code class="vals">$conf{relative_file_dir}</code> の設定がサーバと適合していない可能性があります。<br>以下のいずれかに該当する場合は、「<a href="http://sugutsukaeru.jp/cgi/j/53/" target="_blank" class="external">ディレクトリ配置と環境変数の設定例</a>」を参照して <code class="vals">$conf{relative_file_dir}</code> の設定を修正して下さい。</p><p>◆<code class="vals">$conf{relative_file_dir}</code> の設定を変更している<br>◆<code class="vals">$conf{file_dir}</code> を絶対パスで指定している<br>◆CGI用のディレクトリとHTML用のディレクトリが分かれている</p><p>上記の設定を直してもなおファイルのダウンロードができない場合、ディレクトリの構成を変更する必要があります。下記ページの方法で修正して下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/35/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/35/</a></p></dd>
+<dt>
+日本語ファイル名のファイルがダウンロードができない場合</dt>
+<dd>
+<p>生成されたページから、または、管理画面で入力画面から確認画面に進んだ時に、ファイル名等は表示されるのにリンクをクリックしてもファイルがダウンロードできない場合、ご利用の「すぐ使えるCGI」のバージョンが Ver. 4.2 以下 であれば Ver. 4.8 以上へのバージョンアップで問題が解消する場合があります。この場合はバージョンアップをお試し下さい。</p><p>バージョンアップしても問題が続く場合、ファイル名は半角英数字にしてリンクテキストで日本語を指定して下さい。</p></dd>
+<dt>
+一部の日本語ファイル名だけが文字化けする場合</dt>
+<dd>
+<p>一部の日本語ファイル名だけが文字化けする場合、環境によって原因が異なります。<br>以下に該当するものがあれば対応を行って下さい。該当すると思われる環境が無い場合や、対応を行っても問題が解消しない場合、ファイル名は半角英数字にしてリンクテキストで日本語を指定して下さい。</p><p>◆サーバの OS が Windows で Perl のバージョンが 5.6.x の場合<br>Perl のバージョンアップ（5.8.x 以上）をお試し下さい。</p><p>◆ブラウザが Opera、Safari、Netscape の場合<br>別のブラウザをご利用下さい。</p><p>◆サーバの OS が Mac OS X で「すぐ使えるCGI」のバージョンが Ver. 3.1 以下の場合<br>「すぐ使えるCGI」を Ver 4.8 以上にバージョンアップして下さい。</p></dd>
+<dt>
+Office 2007 のファイルのダウンロードがうまく行かない場合</dt>
+<dd>
+<p>Office 2007 のファイル（.docx, .xlsx, .pptx）が ZIP ファイルとしてダウンロードされてしまい対応するアプリケーションで開けない場合、Webサーバの設定を変更する必要があります。</p><p>サーバ管理者に以下の点をご相談下さい。<br>◆拡張子 .docx 、.xlsx 、.pptx の MIME タイプを「application/vnd.openxmlformats」に設定してほしい。</p><p>設定例など詳しい情報は下記ページをご参照下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/48/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/48/</a></p></dd>
+</dl>
+</div>
+</div>
+
+<div class="container">
+<div class="onng"><h5>画像アップロード時に特有の問題</h5>
+<dl>
+<dt>
+「半角英数字で拡張子は .gif, .jpeg, .jpg, .png, .svg, .svgz のみ可。」という表示が出る場合</dt>
+<dd>
+<p>入力画面からアップロードする画像を選択した状態で「確認画面へ」または「先にアップロード」ボタンを押した時に、「半角英数字で拡張子は .gif, .jpeg, .jpg, .png, .svg, .svgz のみ可。」と表示され入力画面に戻ってしまう場合、ファイル名等に関するエラーメッセージで指示が出ている場合はそれに沿って修正して下さい。</p><p>Ver. 4.4 以上で画像ではないファイルを固定画像フィールドにアップロードしたい場合は設定が必要です。下記のページの設定を行って下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/56/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/56/</a></p></dd>
+<dt>
+画像が表示されない場合</dt>
+<dd>
+<p>管理画面で入力画面から確認画面に進んだ時に、エラーメッセージは無く確認画面は表示されるがアップロードした画像が表示されていない場合、<code class="vals">tempfiles/</code> のパーミッションを 755 にして下さい。<br>設定を変更したら、「中止（一覧に戻る）」ボタンを押して一覧画面に戻り、もう一度入力から行って下さい。</p><p>上記の設定を直してもなお画像が表示されない場合、<code class="vals">admin/admin.cgi</code> に設定する環境変数 <code class="vals">$conf{relative_file_dir}</code> の設定がサーバと適合していない可能性があります。<br>以下のいずれかに該当する場合は、「<a href="http://sugutsukaeru.jp/cgi/j/53/" target="_blank" class="external">ディレクトリ配置と環境変数の設定例</a>」を参照して <code class="vals">$conf{relative_file_dir}</code> の設定を修正して下さい。</p><p>◇<code class="vals">$conf{relative_file_dir}</code> の設定を変更している<br>◇<code class="vals">$conf{file_dir}</code> を絶対パスで指定している<br>◇CGI用のディレクトリとHTML用のディレクトリが分かれている</p><p>上記の設定を直してもなお画像が表示されない場合、ディレクトリの構成を変更する必要があります。下記ページの方法で修正して下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/35/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/35/</a></p></dd>
+<dt>
+画像が大きすぎる場合</dt>
+<dd>
+<p>表示される画像が大きすぎる場合、画像のリサイズ機能が有効になっていないか、サーバの対応が無い可能性があります。</p><p>画像のサイズ制限の設定をまだ行っていなければ、<code class="vals">admin/admin.cgi</code> 内の環境変数を変更して下さい。<br>対象変数は以下の4か所です。設定方法について詳しくは、「<a href="envs.html">オプション設定</a>」を参照して下さい（バージョンによっては無い環境変数もあります）。</p><p>- <code class="vals">$conf{max_imagewidth}</code><br>- <code class="vals">$conf{max_imageheight}</code><br>- <code class="vals">$conf{max_multiple_imagewidth}</code><br>- <code class="vals">$conf{max_multiple_imageheight}</code></p><p>（※ 容量制限用の設定 <code class="vals">$conf{max_imagesize}</code> やサムネイルサイズの設定と混同しないように注意して下さい。）</p><p>設定を変更したら、「中止（一覧に戻る）」ボタンを押して一覧画面に戻り、もう一度入力から行って下さい。<br>変更を行ってもリサイズできない場合はサーバの対応がありません。</p></dd>
+<dt>
+画像が小さすぎる場合</dt>
+<dd>
+<p>表示される画像が小さすぎる場合、画像サムネイルのサイズ設定が意図通りでない場合があります。<br>Ver. 4.4 以降では、画像のリサイズと画像のサムネイルのリサイズの設定が別々に行えるようになり、一部のページでは、初期設定で表示されているのはサムネイルです。</p><p>画像サムネイルのサイズ制限の設定をまだ行っていなければ、<code class="vals">admin/admin.cgi</code> 内の環境変数 <code class="vals">$conf{thumbnail_imagewidth}</code> と <code class="vals">$conf{thumbnail_imageheight}</code> を変更して下さい。<br>（※ メイン画像用の設定 <code class="vals">$conf{max_imagewidth}</code>、<code class="vals">$conf{max_imageheight}</code> と混同しないように注意して下さい。）<br>（設定方法について詳しくは、「<a href="envs.html">オプション設定</a>」を参照して下さい。）</p><p>設定を変更したら、「中止（一覧に戻る）」ボタンを押して一覧画面に戻り、もう一度入力から行って下さい。<br>上記の設定を直してもうまく行かない場合、下記ページのチェックポイントを確認して下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/57/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/57/</a></p></dd>
+</dl>
+</div>
+</div>
+</li>
+<li class="step"><h3><a name="step9">やりたいことができるかの確認</a></h3>
+<p>ここまでで、「すぐ使えるCGI」のプログラムがサーバ上で稼働するかを確かめ、テストしました。<br>
+今度は、「すぐ使えるCGI」を使ってご自分の望むページが書き出させるか（デザイン調整、ファイル名の調整等）を確かめて下さい。</p><ol class="stepdesc1">
+<li class="step"><h4><a name="step9_1_16">デザインの調整ができるかの確認</a></h4>
+<p>「すぐ使えるCGI」のページのデザインは全て、HTML形式の「テンプレートファイル」を編集する事で自由に変更できます。<br>まず「テンプレート」の仕組みをご理解いただくために、以下の「テンプレート解説」をご参照下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/1/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/1/</a></p><p>その後「<a href="design_tutorial.html">デザイン変更チュートリアル</a>」をご覧下さい。「<a href="design_tutorial.html">デザイン変更チュートリアル</a>」では実際の編集の手順の例と、項目追加などの調整方法をご紹介しています。</p>
+<div class="container">
+<div class="onng"><h5>実際の制作実務では</h5>
+<p>実際の制作では (1)サンプルページ（モックアップ）を先に完成してから (2)テンプレートファイルにコピー の順で作業するのがお勧めですが、「何ができるのか」が分からないとサンプルページを作るときに迷ってしまいますので、まずはチュートリアルで概要をつかんでいただく事をお勧めしています。</p></div>
+</div>
+</li>
+<li class="step"><h4><a name="step9_1_17">オプション設定（ファイル名、件数、画像のサイズなど）</a></h4>
+<p>ディレクトリの配置やファイル書き出しの有無、ファイル名、表示件数、画像のサイズなどは変更できます。<br>
+何が変更できるかとその方法は「<a href="envs.html">オプション設定</a>」をご覧の上お試し下さい。</p></li>
+</ol>
+</li>
+<li class="step"><h3><a name="step10">運用時の設定</a></h3>
+<p>テストが終わって本番運用を行う場合は大きく分けて以下の設定を行って下さい。</p><p>- 公開ディレクトリの設定とデザイン調整（任意）<br>- 管理画面の場所の設定とパスワード設定<br>- ライセンスの購入と登録<br>- テスト場所からの移動（任意）</p><ol class="stepdesc1">
+<li class="step"><h4><a name="step10_1_18">公開ディレクトリの設定とデザイン調整</a></h4>
+<p>デザインをサイトに適したものに変更するのと同時に、公開ディレクトリとなる <code class="vals">webdir/</code> もご希望の場所、ご希望の名前に変更する事が可能です。<br>
+例えば、ウェブサイトのトップディレクトリの下に <code class="vals">news/</code> というディレクトリを新設してそこに書き出す、などです。</p>
+<div class="container">
+<blockquote class="dirsample"><h5>テスト中のディレクトリ配置</h5>
+/ (ルートディレクトリ)<br>
+&nbsp;&nbsp;&nbsp;|-- public_html/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- cgi-bin/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- sugu/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- admin/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- data/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- tempfiles/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- templates/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- <em class="important">webdir/</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_green">←このディレクトリを移動する</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- icons/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- parts/</blockquote>
+</div>
+
+<div class="container">
+<blockquote class="dirsample"><h5>本番用のディレクトリ配置（例）</h5>
+/ (ルートディレクトリ)<br>
+&nbsp;&nbsp;&nbsp;|-- public_html/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- cgi-bin/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;|-- sugu/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- admin/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- data/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- tempfiles/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- templates/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- <em class="important">news/</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_green">←代わりに作成したディレクトリ</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- icons/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- parts/</blockquote>
+</div>
+<p>デザイン調整が既に完了している場合、ディレクトリの変更は以下の手順で行って下さい。</p>
+<div class="container">
+<div class="onng"><h5>デザイン調整をこれから行う場合</h5>
+<p>ここまでの作業は練習として一旦リセットしてしまう場合や、次に別の場所で使う時にデザイン調整も改めて行う場合は、ディレクトリの設定とデザイン調整を同時進行で行う方法がおすすめです。</p><p>この場合は、下記ページでご案内する手順で作業して下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/42/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/42/</a></p></div>
+</div>
+<ol class="stepdesc2">
+<li class="step"><h5><a name="step10_2_19">テストデータの削除</a></h5>
+<p>ディレクトリ移動の作業の前に、管理画面からテストで登録したデータを全て削除して下さい。</p></li>
+<li class="step"><h5><a name="step10_2_20">ディレクトリの作成</a></h5>
+<p>FTPソフトでサーバに接続し、新しい書き出しディレクトリを作成して下さい。お好きな場所、名前で構いません。<br>
+（上の例の配置だと <code class="vals">public_html/</code> の下に <code class="vals">news/</code> を作成します。）</p></li>
+<li class="step"><h5><a name="step10_2_21">パーミッション設定</a></h5>
+<p>作成したディレクトリ（上記例だと <code class="vals">news/</code> ）に <code class="vals">webdir/</code> と同じパーミッションを設定して下さい。（FTPソフトで行います。）</p></li>
+<li class="step"><h5><a name="step10_2_22">icons/ ディレクトリの再アップロード</a></h5>
+<p>作成したディレクトリ（上記例だと <code class="vals">news/</code> ）に、<code class="vals">webdir/</code> 内にあった <code class="vals">icons/</code> ディレクトリと <code class="vals">parts/</code> ディレクトリをディレクトリごとアップロードして下さい。</p></li>
+<li class="step"><h5><a name="step10_2_23">admin/admin.cgi の変更</a></h5>
+<p>テキストエディタで <code class="vals">admin/admin.cgi</code> を開き、125 行目付近の <code class="vals">$conf{web_dir}</code> と 140 行目付近の <code class="vals">$conf{relative_web_dir}</code> の部分を、新しく作成したディレクトリに合わせて変更して下さい。</p>
+<div class="container">
+<blockquote class="code"><h6>変更前</h6>
+&#35;--------------------------------------------------------[line 125]--<br>&#35; ファイル書き出しウェブディレクトリ<br>&#35;--------------------------------------------------------------------<br>&#35; このディレクトリは、通常 Web コンテンツが格納されているディレクトリ<br>&#35; のどこかになります。<br>&#35; 相対パスでも絶対パスでも指定できます。<br>&#35; Windowsで稼動させる場合、絶対パスでないとアクセスできない場合があり<br>&#35; ます。<br>&#35; 変更した時は $conf{relative_web_dir} の設定も必ず見直して下さい。<br><br>$conf{web_dir} = &#39;<em class="code_hl_blue">../webdir/</em>&#39;;<br><br><br>&#35;--------------------------------------------------------[line 140]--<br>&#35; （$conf{web_dir} を変更したら同時に変更）<br>&#35;--------------------------------------------------------------------<br>&#35; admin/admin.cgi からファイル書き出しウェブディレクトリ<br>&#35; （ $conf{web_dir} ）へのURL 上のパスを指定します。<br>&#35; 相対パスか、ウェブサーバのトップ階層からの絶対パスで指定します。<br><br>$conf{relative_web_dir} = &#39;<em class="code_hl_blue">../webdir/</em>&#39;;</blockquote>
+</div>
+
+<div class="container">
+<blockquote class="code"><h6>変更後（上記例のディレクトリ配置の場合）</h6>
+&#35;--------------------------------------------------------[line 125]--<br>&#35; ファイル書き出しウェブディレクトリ<br>&#35;--------------------------------------------------------------------<br>&#35; このディレクトリは、通常 Web コンテンツが格納されているディレクトリ<br>&#35; のどこかになります。<br>&#35; 相対パスでも絶対パスでも指定できます。<br>&#35; Windowsで稼動させる場合、絶対パスでないとアクセスできない場合があり<br>&#35; ます。<br>&#35; 変更した時は $conf{relative_web_dir} の設定も必ず見直して下さい。<br><br>$conf{web_dir} = &#39;<em class="code_hl_blue">../../../news/</em>&#39;;<br><br><br>&#35;--------------------------------------------------------[line 140]--<br>&#35; （$conf{web_dir} を変更したら同時に変更）<br>&#35;--------------------------------------------------------------------<br>&#35; admin/admin.cgi からファイル書き出しウェブディレクトリ<br>&#35; （ $conf{web_dir} ）へのURL 上のパスを指定します。<br>&#35; 相対パスか、ウェブサーバのトップ階層からの絶対パスで指定します。<br><br>$conf{relative_web_dir} = &#39;<em class="code_hl_blue">/news/</em>&#39;;</blockquote>
+</div>
+</li>
+<li class="step"><h5><a name="step10_2_24">admin/admin.cgi のアップロード</a></h5>
+<p>編集済の <code class="vals">admin/admin.cgi</code> をFTPソフトでサーバの今までと同じ位置にアップロードして下さい。</p></li>
+<li class="step"><h5><a name="step10_2_25">動作確認</a></h5>
+<p>再び新規登録作業を行い、今度は、新しく設定したディレクトリ内にファイルが作成され、ブラウザでも表示できる事を確認して下さい。</p></li>
+<li class="step"><h5><a name="step10_2_26">パスの調整</a></h5>
+<p>書き出しディレクトリの階層を変更した場合は、画像やスタイルシートなどの外部ファイルへのリンクが切れてしまう場合があります。</p><p>ブラウザで表示した時にデザインが崩れてしまったり、他のページへのリンクが切れてしまった場合は <code class="vals">templates/article/</code> 内にある拡張子が .html のファイルを開き、中の src属性や href属性の階層変更を行って下さい。スラッシュから始まるサーバルートからの絶対パスで記載しておくのがお勧めです。</p><p>テンプレートファイルを変更したらサーバに上書きアップロードし、「再構築（テンプレート変更反映）」を行って下さい。</p></li>
+<li class="step"><h5><a name="step10_2_27">不要になった webdir/ の削除</a></h5>
+<p>もとの <code class="vals">webdir/</code> と中のファイルは不要になりますので、FTPソフトで削除して下さい。</p></li>
+</ol>
+</li>
+<li class="step"><h4><a name="step10_1_28">管理用ディレクトリ名の変更</a></h4>
+<p>最初にテスト用ディレクトリに決めた <code class="vals">sugu/</code> はこのままでも運用できますが、<code class="vals">admintool/</code> や <code class="vals">manage/</code> 等に名前を変更すると、運用の時に誤解を生じにくくなります。<br>
+必要に応じて、ディレクトリ名をFTPソフトで変更して下さい。</p>
+<div class="container">
+<blockquote class="dirsample"><h5>テスト中のディレクトリ名</h5>
+/ (ルートディレクトリ)<br>
+&nbsp;&nbsp;&nbsp;|-- public_html/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- cgi-bin/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;|-- <em class="important">sugu/</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_green">←テスト中のディレクトリ名</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- admin/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- data/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- tempfiles/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- templates/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- news/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- icons/</blockquote>
+</div>
+
+<div class="container">
+<blockquote class="dirsample"><h5>本番用のディレクトリ名（例）</h5>
+/ (ルートディレクトリ)<br>
+&nbsp;&nbsp;&nbsp;|-- public_html/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- cgi-bin/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;|-- <em class="important">admintool/</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_green">←本番運用らしいディレクトリ名</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- admin/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- data/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- tempfiles/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- templates/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- news/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-- icons/</blockquote>
+</div>
+</li>
+<li class="step"><h4><a name="step10_1_29">アクセス制限（パスワードの設定）の設定</a></h4>
+<p>管理画面はむやみと一般の方にアクセスされないようにアクセス制限の設定をします。</p><p><code class="vals">admin/admin.cgi</code> 495 行目付近の <code class="vals">$conf{admin_name}</code> と <code class="vals">$conf{admin_pass}</code> を設定して下さい。<br>詳しい設定方法は「<a href="envs.html">オプション設定</a>」の「管理画面パスワード」を参照して下さい。</p><p>設定を行ったら、必ずログイン機能が有効になった事を確認して下さい。</p></li>
+<li class="step"><h4><a name="step10_1_30">ライセンスの購入とライセンスキーの登録</a></h4>
+<p>本番運用を行う場合、ライセンスをご購入の上発行されるライセンスキーを製品に登録して下さい。<br>設置した管理画面から下記の手順でライセンスご購入ページにアクセスできます。</p><p>管理画面のフッタの「ライセンス情報・ライセンスキー登録」<br>　→「ライセンス情報」画面<br>　　→ページの上方にある「ライセンス購入」ボタン</p><p>詳しいご購入手順や最新のお支払方法については下記のページをご参照下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/47/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/47/</a></p></li>
+<li class="step"><h4><a name="step10_1_31">設置場所の移動（URLの変更、テストサーバから本番サーバへの移動）</a></h4>
+<p>ライセンスキー登録後に設置場所を移動する場合（下記のようなケース）は、ファイルの移動後「ライセンス移動」のお手続きをお願い致します。</p><p>・テストサイトで稼働確認とライセンスキー登録を行った後に本番サーバに移行する<br>・1箇所での使用を止めて別の場所に設置する<br>・ライセンスキー登録後にURLを変更する（ディレクトリの変更、DNS設定変更によるホスト名変更など）</p><p>詳しい方法は下記URLをご参照下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/50/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/50/</a></p></li>
+</ol>
+</li>
+</ol>
+
+
+<!-- main contents ends -->
+<div class="footer">
+copyright(c) Sugutsukaeru Inc. All rights reserved.
+</div>
+<div class="bottomnavi">[<a href="index.html">目次ページへ戻る</a>] [<a href="#top">このページのトップへ戻る</a>]</div>
+</body>
+</html>

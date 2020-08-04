@@ -1,0 +1,361 @@
+@charset "utf-8";
+
+/*============================================
+                  product css
+===============================================*/
+.container{
+  max-width:1200px;
+  margin:0 auto;
+}
+
+
+.product h3{
+  margin:50px 0;
+  font-size:var(--h3);
+  text-align:center;
+  position:relative;
+  font-weight:bold;
+}
+
+.product h3::after{
+  position:absolute;
+  top:40px;
+  content:"";
+  width:30px;
+  height:3px;
+  background: #000;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:10px;
+}
+
+.product_item{
+  padding:10px;
+  margin-bottom:100px;
+  display:flex;
+  justify-content: space-between;
+  align-items:flex-end;
+}
+
+.product_item.reverse{
+  flex-direction:row-reverse;
+}
+
+.product_img{
+  width:50%;
+  height:400px;
+  position:relative;
+  overflow:hidden;
+  transition:all 0.5s;
+  cursor:pointer;
+}
+
+.product_img:hover{
+  transform:scale(1.05);
+  opacity:0.9;
+}
+
+.product_img:after{
+  position:absolute;
+  content:"";
+  bottom:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(255,255,255,0.3);
+}
+
+.product_img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+
+.product_text{
+  width:50%;
+  position:relative;
+}
+
+.product_text::after{
+  position:absolute;
+  content:"reform";
+  -webkit-text-stroke: 1px #000;
+  top:-90px;
+  right:50%;
+  transform:translateX(50%);
+  color:rgba(0,0,0,0.1);
+  font-size:5rem;
+  font-family: 'Roboto Slab', serif;
+}
+
+.product_bg{
+  width:100%;
+  position:relative;
+  padding:20px;
+  box-sizing:border-box;
+}
+
+.product_bg::after{
+  position:absolute;
+  content:"";
+  background:rgb(255, 255, 237);
+  top:-15%;
+  right:0;
+  width:120%;
+  height:130%;
+  z-index:-1;
+}
+
+.product_item.reverse .product_text .product_bg::after{
+  left:0;
+}
+
+.product_text .product_bg h4{
+  font-size:var(--h4);
+  font-weight:bold;
+  margin-bottom:20px;
+  text-align:center;
+}
+
+.product_text .product_bg p{
+  line-height:1.4rem;
+}
+@media screen and (max-width:767px){
+.product_item_wrapper{
+  display:flex;
+  flex-wrap:wrap;
+}
+ 
+.product_item{
+  flex:1 1 300px;
+  margin:10px;
+  padding:0;
+  margin-bottom:30px;
+  display:block;
+  justify-content: space-between;
+  align-items:center;
+  border-radius:5px;
+  box-shadow:5px 5px 10px #ddd;
+  transition:all 0.5s;
+}
+
+.product_item:last-child{
+  margin-bottom:0;
+}
+
+.product_item:hover{
+  opacity:0.8;
+  cursor:pointer;
+  transform:scale(0.9);
+}
+
+.product_img{
+  width:100%;
+  height:200px;
+  overflow:hidden;
+  transition:none;
+  border-radius:5px 5px 0 0;
+}
+
+.product_img img{
+  display:inline-block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.product_img:hover{
+  transform:scale(1);
+  opacity:1;
+}
+
+
+.product_img:after{
+  position:absolute;
+  content:"";
+  bottom:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(255,255,255,0.3);
+}
+
+.product_img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+
+.product_text{
+  width:100%;
+  position:static;
+}
+
+.product_text::after{
+  position:static;
+  content:"";
+}
+
+.product_bg{
+  position:static;
+}
+
+.product_bg::after{
+  position:static;
+  background:none;
+}
+}
+
+
+/*============================================
+                  product css
+===============================================*/
+
+
+/*============================================
+                  modal css
+===============================================*/
+.modal{
+  display: none;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index:10;
+}
+.modal_bg{
+  background: rgba(0,0,0,0.8);
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+}
+.modal_content{
+  background: #fff;
+  left: 50%;
+  padding:20px 40px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 50%;
+}
+
+/* .modal_img_wrap{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+} */
+
+.modal_img{
+  /* width:32%;
+  margin-bottom:15px; */
+  position:relative;
+}
+
+.modal_content h4,.modal_content p{
+  text-align:center;
+}
+
+.modal_content h4{
+  margin-bottom:50px;
+  font-size:var(--h4);
+  font-weight:bold;
+  position:relative;
+}
+
+.modal_content h4::after{
+  position:absolute;
+  content:"";
+  top:140%;
+  left:50%;
+  width:20px;
+  height:2px;
+  background: #000;
+  transform:translateX(-50%);
+}
+
+.modal_content p{
+  margin-bottom:20px;
+}
+
+.modal_img::after{
+  position:absolute;
+  /*注意⇒10文字以内*/
+  content:"テキストが入ります。";
+  line-height:50px;
+  text-align:center;
+  color:#fff;
+  font-weight:bold;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:50px;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal_img img{
+  width:100%;
+  vertical-align:bottom;
+}
+
+.modal_close_btn{
+  display:block;
+  text-align:right!important;
+}
+
+.modal_close_btn a{
+  display:inline-block;
+  color:#333;
+  margin:20px 0;
+}
+
+.center .slick-next { right: 20px; z-index: 99;}
+.center .slick-prev { left: 15px; z-index: 100;} 
+
+@media screen and (max-width:1099px){
+  
+  /* .modal_img_wrap{
+    height:450px;
+    overflow-y:auto;
+  }
+
+  .modal_img{
+    width:48%;
+    margin-bottom:15px;
+    position:relative;
+  } */
+
+  .modal_content{
+    background: #fff;
+    left: 50%;
+    padding: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 70%;
+  }
+
+}
+
+@media screen and (max-width:425px){
+  .modal_content{
+    background: #fff;
+    left: 50%;
+    padding: 20px 10px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+  }
+
+  
+.modal_close_btn a{
+  display:inline-block;
+  color:#333;
+  margin:0;
+}
+}
+/*============================================
+                  modal css
+===============================================*/

@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>クイックガイド</title>
+<link rel="stylesheet" href="manual.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<div class="topnavi">[<a href="index.html" name="top">目次へ戻る</a>]</div>
+<h1 class="grobaltitle">すぐ使えるCGI 添付ファイル付 ウェブページ更新ツール 大容量版（日本語 UTF-8 版） 説明書</h1>
+<h2 class="pagetitle">クイックガイド</h2>
+
+<!-- main contents begins -->
+
+<script type="text/javascript">
+function toggle_sub(myTgt, myTop){
+	var mySublist = document.getElementById(myTgt);
+	var mySelf = document.getElementById(myTop);
+	if (!mySublist.style.display || mySublist.style.display == 'block'){
+		mySublist.style.display = 'none'
+		mySelf.className = 'togglelink_plus';
+	} else {
+		if (mySublist.style.display == 'none'){
+			mySublist.style.display = 'block'
+			mySelf.className = 'togglelink';
+		} 
+	}
+}
+</script>
+
+<ol class="indexlink">
+<li class="liststep"><a href="#step1">設置方法</a>
+<a href="javascript: toggle_sub('sub_step1_0', 'top_step1')" class="togglelink_plus" id ="top_step1">サブメニュー</a>
+<ol class="stepdesc1" id="sub_step1_0" style="display: none;">
+<li class="listsubstep"><a href="#step1_1_1">Perl パスの変更</a>
+</li>
+<li class="listsubstep"><a href="#step1_1_2">アップロード</a>
+</li>
+<li class="listsubstep"><a href="#step1_1_3">パーミッションの設定</a>
+</li>
+<li class="listsubstep"><a href="#step1_1_4">管理画面にアクセス</a>
+</li>
+</ol>
+</li>
+<li class="liststep"><a href="#step2">運用時の設定</a>
+<a href="javascript: toggle_sub('sub_step2_4', 'top_step2')" class="togglelink_plus" id ="top_step2">サブメニュー</a>
+<ol class="stepdesc1" id="sub_step2_4" style="display: none;">
+<li class="listsubstep"><a href="#step2_1_5">デザインの変更</a>
+</li>
+<li class="listsubstep"><a href="#step2_1_6">ファイル名の設定</a>
+</li>
+<li class="listsubstep"><a href="#step2_1_7">アクセス制限の設定</a>
+</li>
+<li class="listsubstep"><a href="#step2_1_8">ライセンスの購入とライセンスキーの登録</a>
+</li>
+</ol>
+</li>
+</ol>
+
+<hr class="contentsbegin">
+
+<ol class="stepdesc">
+<li class="step"><h3><a name="step1">設置方法</a></h3>
+<ol class="stepdesc1">
+<li class="step"><h4><a name="step1_1_1">Perl パスの変更</a></h4>
+<p><code class="vals">admin/admin.cgi</code> の1行目の Perl のパスを環境に合わせて変更して下さい。</p>
+<div class="container">
+<div class="onng"><h5>よく分からない場合</h5>
+<p>上記がよく分からない場合は「<a href="stepbystep.html">ステップ by ステップガイド</a>」をご参照下さい。より詳しくご説明しています。</p></div>
+</div>
+</li>
+<li class="step"><h4><a name="step1_1_2">アップロード</a></h4>
+<p>以下のディレクトリを中身のファイルごとアップロードして下さい。</p><p>admin/ <br>data/ <br>tempfiles/ <br>templates/ <br>webdir/ </p></li>
+<li class="step"><h4><a name="step1_1_3">パーミッションの設定</a></h4>
+<p>下記ディレクトリとファイルにパーミッション 755（実行権限）を設定して下さい（2箇所）。</p><p><code class="vals">admin/</code> ディレクトリ<br>admin/admin.cgi</p></li>
+<li class="step"><h4><a name="step1_1_4">管理画面にアクセス</a></h4>
+<p>以上で設定は終了です。アップロードした <code class="vals">admin/admin.cgi</code> にブラウザからアクセスして下さい。このURLが管理画面になります。</p></li>
+</ol>
+</li>
+<li class="step"><h3><a name="step2">運用時の設定</a></h3>
+<ol class="stepdesc1">
+<li class="step"><h4><a name="step2_1_5">デザインの変更</a></h4>
+<p>組み込むサイトのデザインに合わせてテンプレートを編集して下さい。<br>テンプレート編集が初めての方は、「<a href="design_tutorial.html">デザイン変更チュートリアル</a>」をご一読下さい。</p><p>最新のサポート情報は「すぐ使えるCGI」ウェブサイトを参照して下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/182/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/182/</a></p></li>
+<li class="step"><h4><a name="step2_1_6">ファイル名の設定</a></h4>
+<p>ファイル名やディレクトリ名は変更できます。不要なファイルは削除できます。<br>必要であれば設定を行って下さい。</p><p>設定方法は、「<a href="envs.html">オプション設定</a>」を参照して下さい。</p></li>
+<li class="step"><h4><a name="step2_1_7">アクセス制限の設定</a></h4>
+<p>管理画面はアクセス制限をして下さい。</p><p>詳しい設定方法は下記URLをご参照下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/51/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/51/</a></p></li>
+<li class="step"><h4><a name="step2_1_8">ライセンスの購入とライセンスキーの登録</a></h4>
+<p>ライセンスをご購入の上、発行されるライセンスキーを製品に登録して下さい。</p><p>詳しい操作方法は下記URLをご参照下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/47/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/47/</a></p></li>
+</ol>
+</li>
+</ol>
+
+
+<!-- main contents ends -->
+<div class="footer">
+copyright(c) Sugutsukaeru Inc. All rights reserved.
+</div>
+<div class="bottomnavi">[<a href="index.html">目次ページへ戻る</a>] [<a href="#top">このページのトップへ戻る</a>]</div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Webサイト管理ツール</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="stylesheet" href="//lcns2.sugutsukaeru.jp/c803d429b782f84/4.9/a4b94adbcbff24406a11ec647abba536/css/font-awesome-4_5_0-min.css">
+<link rel="stylesheet" href="//lcns2.sugutsukaeru.jp/c803d429b782f84/4.9/a4b94adbcbff24406a11ec647abba536/css/pure-min.css">
+<!--[if lte IE 8]>
+	<link rel="stylesheet" href="//lcns2.sugutsukaeru.jp/c803d429b782f84/4.9/a4b94adbcbff24406a11ec647abba536/css/pure-grids-responsive-old-ie-min.css">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+	<link rel="stylesheet" href="//lcns2.sugutsukaeru.jp/c803d429b782f84/4.9/a4b94adbcbff24406a11ec647abba536/css/pure-grids-responsive-min.css">
+<!--<![endif]-->
+
+<link rel="stylesheet" href="%_relative_web_dir_%parts/css/sugu-admin.css">
+<!--[if lte IE 8]>
+	<link rel="stylesheet" href="%_relative_web_dir_%parts/css/sugu-admin-old-ie.css">
+<![endif]-->
+</head>
+
+<body onunload="close_subwin();">
+<div class="pure-g">
+<div class="pure-u-1 sugu-container">
+<form class="pure-form" action="%_myname_%" method="post">
+<h1><a href="%_myname_%?n=%_n_%&amp;i=%_i_%" title="一覧を最新に更新" class="sugu-icon-link"><span class="fa fa-refresh"></span></a> Webサイト管理ツール <a href="%_myname_%?n=%_n_%" title="ログアウト" class="sugu-icon-link sugu-icon-active-red sugu-pull-right"><span class="fa fa-sign-out"></span></a></h1>
+
+<input type="hidden" name="s" value="">
+<input type="hidden" name="m" value="">
+<input type="hidden" name="d" value="">
+<input type="hidden" name="cd" value="">
+<input type="hidden" name="n" value="">
+<input type="hidden" name="i" value="%_i_%">
+
+<button type="submit" class="pure-button pure-button-primary" onclick="set_param('',0,2,0)">新規登録</button>
+
+<div class="pure-menu sugu-check-menu">
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item pure-menu-has-children pure-button">
+            <a href="#" class="pure-menu-link">チェック</a>
+            <ul class="pure-menu-children">
+				<li class="pure-menu-item"><a href="%_relative_web_dir_%%_this_filename_%" class="pure-menu-link" target="check">全一覧このページ</a></li>
+				<li class="pure-menu-item"><a href="%_relative_web_dir_%%_index_filename_%" class="pure-menu-link" target="check">全一覧トップ</a></li>
+				<li class="pure-menu-item"><a href="%_relative_web_dir_%%_short_list_filename_%" class="pure-menu-link" target="check">短い一覧</a></li>
+				<li class="pure-menu-item"><a href="%_relative_web_dir_%%_top_filename_%" class="pure-menu-link" target="check">最新</a></li>
+				<li class="pure-menu-item"><a href="%_relative_web_dir_%%_rss_list_filename_%" class="pure-menu-link" target="check">RSS</a></li>
+				<li class="pure-menu-item"><a href="#" class="pure-menu-link sugu-text-right" title="閉じる"><span class="fa fa-times"></span></a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<noscript><p class="msg_error">JavaScriptを有効にして下さい。</p></noscript>
+<div id="sugu-if-js-linked"><p class="msg_link_check">この文字が見える場合、CSS や Javascript ファイルへのリンクが切れています。ソースから、&lt;script&gt; タグや &lt;link&gt; タグのスタイルシートのファイルにアクセスできるかを確認して下さい。（設定が問題なく完了したらこのメッセージは &lt;div&gt; タグごと削除して下さい。）</p></div>
+
+<p>%_msg_instruct_%</p>
+
+<div class="sugu-pagination">
+	<p>%_total_%件中 %_min_%-%_max_% を表示</p>
+	<ul>
+	<li><a href="%_page_first_%" id="sugu-t-first">先頭</a></li>
+	<li><a href="%_page_prev_%" id="sugu-t-prev">前</a></li>
+	<li><a href="%_page_next_%" id="sugu-t-next">次</a></li>
+	<li><a href="%_page_last_%" id="sugu-t-last">最後</a></li>
+	</ul>
+	<ul>
+	%_page_list_%
+	</ul>
+	<div class="sugu-clearfix"></div>
+</div>
+
+<table class="pure-table pure-table-horizontal sugu-table-condensed sugu-table-responsive">
+<thead class="sugu-hidden-phone sugu-table-header">
+<tr>
+<th>日付</th>
+<th class="sugu-keep-width">タイトル</th>
+<th class="sugu-text-center">編集</th>
+<th class="sugu-text-center">削除</th>
+<th colspan="2" class="sugu-text-center">順番</th>
+<th class="sugu-text-center sugu-nowrap">チェック</th>
+</tr>
+</thead>
+
+<tbody>
+<!-- article list : generate from 1.txt -->
+%_article_list_%
+</tbody>
+
+</table>
+
+<div class="sugu-pagination">
+	<ul>
+	%_page_list_%
+	</ul>
+	<ul>
+	<li><a href="%_page_first_%">先頭</a></li>
+	<li><a href="%_page_prev_%">前</a></li>
+	<li><a href="%_page_next_%">次</a></li>
+	<li><a href="%_page_last_%">最後</a></li>
+	</ul>
+	<div class="sugu-clearfix"></div>
+</div>
+
+<button type="submit" class="pure-button"  onclick="return set_param('',9,4,0)">再構築（テンプレート変更反映）</button>
+
+</form>
+
+</div><!-- /pure-u -->
+</div><!-- /pure-g -->
+
+<script src="//lcns2.sugutsukaeru.jp/c803d429b782f84/4.9/a4b94adbcbff24406a11ec647abba536/js/jquery-1_11_3-min.js" type="text/javascript"></script>
+<script type="text/javascript" src="%_relative_web_dir_%parts/js/sugu-admin.js" charset="utf-8"></script>
+<script type="text/javascript">
+function show_wait(){
+	mysubwin = window.open('','subwin','scrollbars=no,resizable=no,width=300,height=200');
+	mysubwin.document.open("text/html;charset=UTF-8");
+	mysubwin.document.write('<'+'body style="background-color: white;"'+'><'+'h1>');
+	mysubwin.document.write('書き出し中です...</');
+	mysubwin.document.write('h1><'+'p>このウィンドウが閉じるまでお待ち下さい。</');
+	mysubwin.document.write('p></'+'body>');
+	mysubwin.document.close();
+	mysubwin.focus();
+}
+function do_conf(){
+	if (confirm("現在の設定とテンプレートを反映して全てのページを書き出します。\n数分がかかる場合があります。\nよろしいですか？")){
+		show_wait();
+		return true;
+	} else {
+		return false;
+	}
+}
+$(document).ready(function(){
+	//Check menu pull down
+    $('li.pure-menu-item.pure-menu-has-children').click(function(){
+       $(".pure-menu-children", this).toggle(300);
+    });
+});
+</script>
+<!-- disable reload -->
+<script type="text/javascript">
+var if_ctrl = 0;
+var if_r = 0;
+document.onkeydown = catchkeydown;
+document.onkeyup = catchkeyup;
+</script>
+<!-- /disable reload -->
+</body>
+</html>

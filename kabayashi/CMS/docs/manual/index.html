@@ -1,0 +1,331 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>操作マニュアル</title>
+<link rel="stylesheet" href="../manual.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<div class="topnavi">[<a href="../index.html" name="top">目次へ戻る</a>]</div>
+<h1 class="grobaltitle">すぐ使えるCGI 添付ファイル付 ウェブページ更新ツール 大容量版（日本語 UTF-8 版） 説明書</h1>
+<h2 class="pagetitle">操作マニュアル</h2>
+
+<!-- main contents begins -->
+
+<script type="text/javascript">
+function toggle_sub(myTgt, myTop){
+	var mySublist = document.getElementById(myTgt);
+	var mySelf = document.getElementById(myTop);
+	if (!mySublist.style.display || mySublist.style.display == 'block'){
+		mySublist.style.display = 'none'
+		mySelf.className = 'togglelink_plus';
+	} else {
+		if (mySublist.style.display == 'none'){
+			mySublist.style.display = 'block'
+			mySelf.className = 'togglelink';
+		} 
+	}
+}
+</script>
+
+
+
+<div style="color: #666666; font-size: 0.9em; background: #ffffcc; border: solid 1px #999999; padding: 8px;">
+ウェブ制作業者様へ<br>
+このファイルは自由に加工してお客様にご提供いただけます。
+</div>
+
+<ul>
+<li><a href="#list">一覧</a>
+<li><a href="#add">新規登録</a></li>
+<li><a href="#edit">変更</a></li>
+<li><a href="#del">削除</a><br>
+<li><a href="#order">順番の変更</a><br>
+<br>
+</li>
+<li><a href="#files">添付ファイルの管理</a><br>
+<br>
+</li>
+<li><a href="#formats">HTMLタグ入力の方法</a></li>
+<li><a href="#insert_images">文章中への画像やファイルの挿入</a></li>
+<li><a href="#return_code">改行の扱い</a></li>
+<li><a href="#header_conv">ヘッダ変換規則</a><br><br></li>
+</ul>
+
+<hr>
+
+<h3 class="header"><a name="list"></a>一覧</h3>
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/list01.gif" width="450" height="235">設置されたCGIにブラウザからアクセスすると、管理画面に現在登録されている内容が一覧表示されます。</p>
+<p>最初にアクセスした時は空の一覧です。</p>
+<br clear="all">
+<h3 class="header">
+<a name="add"></a>新規登録</h3>
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/add01.gif" width="450" height="235">記事を新規登録するには、一覧画面に表示されている「新規登録」ボタンを押して下さい。</p>
+<br clear="all">
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/add02.gif" width="450" height="609">新規登録入力用画面が表示されます。<br>
+日付は作業日現在の日付が自動入力されますが、過去・未来のいずれの日付にも変更できます。</p>
+<p>《参考》<br>
+記事は、日付にかかわらず後に登録されたものが上に追加されます。</p>
+<br clear="all">
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/add03.gif" width="450" height="609">「タイトル」欄と「記事内容」欄に、内容を入力して下さい。</p>
+<p>画像やファイルを添付しない場合は、ここで「確認画面へ」ボタンを押して下さい。</p>
+<br clear="all">
+
+<p><img align="left" hspace="8" vspace="8" src="snap/add04.gif" width="450" height="609" alt="" border="1">ファイルを添付する場合は、「添付ファイル」欄の「参照」ボタンを押して下さい。画像を添付する場合は、「画像」欄の「参照」ボタンを押して下さい。（ご使用の環境によっては、他のボタン名の場合もあります。）<br clear="all">
+</p>
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/file01.gif" width="450" height="263">ファイル選択用の小ウィンドウが表示されます。<br>
+添付するファイルを選択して、「開く」ボタンを押して下さい。（ご使用の環境によっては、他のボタン名の場合もあります。）</p>
+<br clear="all">
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/add05.gif" width="450" height="609">ブラウザの画面に戻ると、今選択したファイルの情報が画面に表示されます。<br clear="all">
+</p>
+<p><img align="left" hspace="8" vspace="8" src="snap/add15.gif" width="450" height="609" alt="" border="1">ファイルをテキストからリンクさせたい場合、「リンクテキスト」欄に入力して下さい。「リンクテキスト」欄を空欄にした場合、ファイル名からのリンクとなります。</p>
+<p>複数のファイルを添付したい場合は、下の欄で同じ操作を繰り返して下さい。</p>
+<br clear="all">
+<p><img align="left" hspace="8" vspace="8" src="snap/add15-2.gif" width="450" height="609" alt="" border="1">画像をアップロードした時は、「画像の説明」欄に画像の説明を入力して下さい（未入力可）。</p>
+<p>「先にアップロード」ボタンを押すと画像がアップロードされ、編集中に表示を確認できます。大きな画像の自動リサイズをする場合は「先にアップロード」をして下さい。
+</p>
+<br clear="all">
+
+<p><img align="left" hspace="8" vspace="8" src="snap/add06.gif" width="450" height="609" alt="" border="1">ファイル・画像の選択が終わったら、「確認画面へ」ボタンを押して下さい。<br clear="all">
+</p>
+
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/add07.gif" width="450" height="379">入力した内容の確認画面が表示されます。修正したい場合は、「修正する」ボタンを押すと入力画面に戻ります。</p>
+<br clear="all">
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/add08.gif" width="450" height="731">「修正する」ボタンで入力画面に戻ると、最初に入力した内容が表示されます。全ての項目が変更可能です。</p>
+
+<p>画像やファイルを削除する場合は、「削除」のラジオボタンを選択して下さい。</p>
+<p>ファイルの変更も可能です。「画像」欄で別のファイルを選択した場合、自動的に元のファイルは削除されます。</p>
+<p>ファイルと画像の編集について詳しくは「<a href="#files">添付ファイルの管理</a>」と「<a href="#insert_images">文章中への画像やファイルの挿入</a>」を参照して下さい。</p>
+
+<br clear="all">
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/add09.gif" width="450" height="731">内容を変更したら「確認画面へ」ボタンを押して下さい。</p>
+<br clear="all">
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/add10.gif" width="450" height="386">変更した内容の確認画面が表示されます。</p>
+
+<p>「確定」ボタンで保存されます。</p>
+<br clear="all">
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/add11.gif" width="450" height="242">登録が完了すると一覧画面に戻ります。今行なった登録が一覧に追加されています。<br clear="all">
+</p>
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/add12.gif" width="450" height="242">該当記事の「チェック」のリンクからWebサイト内にも記事が書き出されているのを確認して下さい。<br clear="all">
+</p>
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/add13.gif" width="450" height="242">ページ上方にある「チェック」のボタンを押すと、一覧画面への移動ボタンが表示されます。[全一覧] と [短い一覧] 、[最新]のリンクからそれぞれWebサイトのページが更新されているのを確認して下さい。<br clear="all">
+</p>
+<h4 class="header"><a name="edit"></a>変更</h4>
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/edit09.gif" width="450" height="456">移動リンクを使って変更したい記事を一覧に表示させて下さい。</p>
+<br clear="all">
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/edit01.gif" width="450" height="456">変更したい記事の「編集」ボタンを押して下さい。</p>
+<br clear="all">
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/edit02.gif" width="450" height="722">編集用の入力画面が表示されます。入力欄には現在の登録内容が表示されます。</p>
+<br clear="all">
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/edit03.gif" width="450" height="722">内容を変更して下さい。全ての項目が変更できます。</p>
+
+<p>画像やファイルを削除する場合は、「削除」のラジオボタンを選択して下さい。</p>
+<p>ファイルの変更も可能です。「画像」欄で別のファイルを選択した場合、自動的に元のファイルは削除されます。</p>
+<p>ファイルと画像の編集について詳しくは「<a href="#files">添付ファイルの管理</a>」と「<a href="#insert_images">文章中への画像やファイルの挿入</a>」を参照して下さい。</p>
+<br clear="all">
+
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/edit04.gif" width="450" height="722">変更が終わったら、「確認画面へ」ボタンを押して下さい。</p>
+<br clear="all">
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/edit05.gif" width="450" height="409">確認画面に入力した内容が表示されます。修正したい場合は、「修正する」ボタンを押すと入力画面に戻ります。</p>
+<p>確定する場合「確定」ボタンを押して下さい。</p>
+<br clear="all">
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/edit06.gif" width="450" height="475">変更が完了すると一覧画面に戻ります。<br clear="all">
+</p>
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/edit07.gif" width="450" height="475">該当記事の「チェック」のリンクから、Web サイトのページも更新されているのを確認して下さい。<br clear="all">
+</p>
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/edit08.gif" width="450" height="475">ページ上方にある「チェック」のボタンを押すと、一覧画面への移動ボタンが表示されます。[全一覧] と [短い一覧] 、[最新]のリンクからそれぞれWebサイトのページが更新されているのを確認して下さい。<br clear="all">
+</p>
+<h4 class="header"><a name="del"></a>削除</h4>
+<p>間違いの登録や表示が不要となった記事は削除できます。</p>
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/edit09.gif" width="450" height="456">移動リンクを使って削除したい記事を一覧に表示させて下さい。</p>
+<br clear="all">
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/del01.gif" width="450" height="456">削除したい記事の「削除」ボタンを押して下さい。</p>
+<br clear="all">
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/del02.gif" width="450" height="447">確認の画面が表示されます。</p>
+<p>削除を取りやめたい時は「中止（一覧に戻る）」ボタンを押して下さい。「確定」ボタンを押すと記事が削除されます。</p>
+<br clear="all">
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/del03.gif" width="450" height="475">削除が完了すると一覧画面に戻ります。</p>
+<p>一覧から削除した記事の表示が無くなっていることを確認して下さい。<br clear="all">
+</p>
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/del04.gif" width="450" height="475">ページ上方にある「チェック」のボタンを押すと、一覧画面への移動ボタンが表示されます。[全一覧] と [短い一覧] 、[最新]のリンクから、Web サイトのページが更新されているのを確認して下さい。<br clear="all">
+</p>
+
+<h3 class="header"><a name="order"></a>順番の変更</h3>
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/order01.gif" width="450" height="456">登録後の記事は順番の入れ替えが可能です。</p>
+<p>「上へ」ボタンを押すと記事の順番が一つ上のものと入れ替わります。</p>
+<p>「下へ」ボタンを押すと記事の順番が一つ下のものと入れ替わります。</p>
+<p>一番上の記事の「上へ」ボタンと一番下の記事の「下へ」ボタンは、押しても順番変更はされません。</p>
+<br clear="all">
+
+<h4 class="header"><a name="files"></a>添付ファイルの管理</h4>
+<p>入力画面（新規・編集）では、添付ファイルの追加、削除、順番の入れ替え、およびリンクテキストの指定が可能です。</p>
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/file02.gif" width="450" height="359">添付済みのファイルを削除する場合は「削除」のラジオボタンを選択して下さい。</p>
+<p>添付ファイルを追加する場合は、表示されているファイル選択フィールドの「参照」ボタンからファイルを選択して下さい。（ご使用の環境によっては、他のボタン名の場合もあります。）</p>
+<p>「上へ」ボタンと「下へ」ボタンは、それぞれ一つ上のファイルまたは一つ下のファイルと表示の順番を入れ替えます。<br>
+（一番上のファイルの「上へ」ボタンと一番下のファイルの「下へ」ボタンは押しても何も変化しません。）</p>
+<p>ファイルを入れ替えたい場合は、右の3つの作業を行って下さい：(a)元のファイルの「削除」をチェック (b)新しいファイルを選択 (c) 新いファイルを元のファイルのすぐ上か下に移動。</p>
+<p>添付したファイルの「リンクテキスト」欄を入力しなかった場合、自動的にファイル名が設定されます。</p>
+<p>新規ファイル添付フィールドは、3つ分表示されます。一度に4ファイル以上添付したい場合は、一旦「先にアップロード」ボタンを押して下さい。新たに3つ分のファイル添付フィールドが表示されます。</p>
+<p>画像を変更したい場合は「参照」ボタンから新しい画像を選んで下さい。元の画像は自動的に削除されます。</p>
+<br clear="all">
+
+
+<h3 class="header"><a name="formats"></a>HTMLタグ入力の方法</h3>
+
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/format01.gif" width="450" height="263">通常はHTMLタグ入力は無効で、入力したHTMLタグがそのまま表示されます。</p>
+<p>文中にリンクを挿入したり書式設定を行うためのHTMLタグは、右クリックメニュー（コンテクストメニュー）から入力する事ができます。
+入力欄でタグ付けしたいテキストを選択して、右クリックメニューを開いて下さい。
+</p>
+<br clear="all">
+
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/format02.gif" width="450" height="263">一覧からタグを選ぶと指定したタグが入力されます。
+</p>
+<br clear="all">
+
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/format03.gif" width="450" height="175">右クリックメニューが使えない場合は、「よく使うタグ」のリンクをクリックすると同じ内容が表示されますので、入力欄にコピー&amp;ペーストして編集して下さい。
+</p>
+<br clear="all">
+
+<h3 class="header"><a name="insert_images"></a>文章中への画像やファイルの挿入</h3>
+
+<p>※このセクションは、画像やファイルを文章中に挿入するようにデザインテンプレートを設定してある場合のご説明です。</p>
+
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/insert01.gif" width="450" height="609">画像を本文内に配置したりファイルのリンクを文章中に含めたい場合は、入力画面でファイルを選択したら「先にアップロード」ボタンを押して下さい。
+</p>
+<br clear="all">
+
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/insert02.gif" width="450" height="741">アップロード済みの画像やファイルがある場合は、入力欄で右クリックすると、右クリックメニューに「画像とファイル」という追加の選択肢が表示されます。</p>
+<br clear="all">
+
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/insert03.gif" width="450" height="706">「画像とファイル」を選択すると、メニューがさらに開かれ、アップロードした画像（またはファイル）の一覧が表示されますので、そこから表示対象を選んで下さい。
+</p>
+<br clear="all">
+
+<p><img alt="" border="1" align="left" hspace="8" vspace="8" src="snap/insert04.gif" width="450" height="588">「確認画面へ」ボタンを押すと確認画面に進みますが、この時、同じ画像またはファイルのリンクが2箇所に表示されていることを確認して下さい。一つは文章中の指定した位置に、もう1か所はそれぞれ該当する画像/ファイル欄に表示されます。</p>
+<p>
+【重要】<br>
+画像/ファイル欄に表示されていない画像やファイルは、保存確定時に削除されて表示ができなくなります。文章中に表示するファイルも、画像/ファイル欄から削除しないで下さい。
+</p>
+
+<br clear="all">
+
+<h4 class="header">手動でのHTMLタグの入力</h4>
+
+<p>
+右クリックメニューで用意された形式以外にも、自由にHTMLタグを入力する事ができます。<br>
+{{{ と }}}（中カッコ3つずつ）で囲うとその間はHTMLタグが有効になりますので、この間にタグを打ち込んで下さい。
+</p>
+<p>手動でHTMLタグ入力をする場合は、1組の {{{ と }}} の内部でHTMLタグが完結する（＝開始タグと終了タグが両方ある）ように入力して下さい。画像など終了タグの無いHTMLタグは単独で構いません。
+</p>
+<!-- code example htmltag -->
+<table border="1" cellspacing="0" cellpadding="4">
+<tr>
+<th>○よい例</th>
+<th>×悪い例</th>
+</tr>
+<tr valign="top">
+<td>
+<form action="">
+<textarea name="textarea7" cols="40" rows="12">{{{
+&lt;div style=&quot;font-weight: bold;&quot;&gt;
+&lt;p&gt;長い文章を書きます。&lt;br&gt;
+これは入力例です。
+&lt;/p&gt;
+&lt;/div&gt;
+}}}
+
+画像を{{{&lt;img src=&quot;icon.png&quot;&gt;}}}文中に表示。
+</textarea>
+</form>
+</td>
+<td>
+<form action="">
+<textarea name="textarea7" cols="40" rows="9">{{{&lt;div style=&quot;font-weight: bold;&quot;&gt;}}}
+長い文章を書きます。
+これは入力例です。
+{{{&lt;/div&gt;}}}
+</textarea>
+</form>
+</td>
+</tr>
+</table>
+<!-- //code example htmltag -->
+
+
+<h3 class="header"><a name="return_code"></a>改行の扱い</h3>
+<p>
+改行は入力した通りに表示されます。ウィンドウの幅で折り返せばよい場合は、改行を入力しないで下さい。文章を空行で区切ると、区切られたブロックはパラグラフとして&lt;p&gt;タグで囲まれます。
+</p>
+<p>
+入力中に全く空行が無い場合は、入力内容が &lt;p&gt; や &lt;div&gt; で囲われることはありません。もし短い入力内容を &lt;p&gt; タグで囲いたいときは、入力内容全体を選択した上、右クリックから「&lt;p&gt;で囲う」を選択して下さい。
+</p>
+
+<h3 class="header"><a name="header_conv"></a>ヘッダ変換</h3>
+<p>「記事内容」は簡単な入力規則でセクションタイトルなどのためのヘッダタグ（&lt;h2&gt;、&lt;h3&gt;、&lt;h4&gt;）を指定できるようになっています。<br>
+変換規則は以下の通りです。
+</p>
+<!-- code example header -->
+<table border="1" cellspacing="0" cellpadding="4">
+<tr>
+<th>規則<br>
+（以下のカッコで囲う）<br>
+（いずれも半角）</th>
+<th>変換先<br>
+タグ</th>
+</tr>
+<tr>
+<td>{ } （中カッコ）</td>
+<td align="center">h2</td>
+</tr>
+<tr>
+<td>[ ] （角カッコ）</td>
+<td align="center">h3</td>
+</tr>
+<tr>
+<td>( ) （丸カッコ）</td>
+<td align="center">h4</td>
+</tr>
+</table>
+
+<br>
+
+<table border="1" cellspacing="0" cellpadding="4">
+<tr>
+<th>入力例</th>
+<th>ページでの表示</th>
+</tr>
+<tr valign="top">
+<td>
+<form action="">
+<textarea name="textarea3" cols="55" rows="10">{中カッコは2番ヘッダに変換}
+このパラグラフの内容を書きます。
+
+[角カッコは3番ヘッダに変換]
+このパラグラフの内容を書きます。
+
+(丸カッコは4番ヘッダに変換)
+このパラグラフの内容を書きます。</textarea>
+</form>
+</td>
+<td>
+<h2>中カッコは2番ヘッダに変換</h2>
+<p>このパラグラフの内容を書きます。</p><h3>角カッコは3番ヘッダに変換</h3>
+<p>このパラグラフの内容を書きます。</p><h4>丸カッコは4番ヘッダに変換</h4>
+<p>このパラグラフの内容を書きます。</p>
+</td>
+</tr>
+</table>
+<!-- //code example header -->
+
+
+
+
+<!-- main contents ends -->
+<div class="footer">
+copyright(c) Sugutsukaeru Inc. All rights reserved.
+</div>
+<div class="bottomnavi">[<a href="../index.html">目次ページへ戻る</a>] [<a href="#top">このページのトップへ戻る</a>]</div>
+</body>
+</html>

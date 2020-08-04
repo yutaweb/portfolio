@@ -1,0 +1,349 @@
+@charset "UTF-8";
+@import "fonts.css";
+
+body {
+	/*\*/
+    letter-spacing: 0.7pt;
+	/**/
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", SimSun, "Helvetica", "Arial", sans-serif !important;;
+}
+br {
+　letter-spacing: normal; /* IE6、IE7 */
+}
+
+p {
+    line-height: 180%;
+}
+
+div.topnavi {
+	line-height: 100%;
+	margin: 0px;
+	padding: 0px;
+	font-size: 0.9em;
+}
+
+div.bottomnavi {
+	line-height: 100%;
+	margin: 0.3em 0px 0px 0px;
+	padding: 0px;
+	font-size: 0.9em;
+}
+
+h1.grobaltitle {
+	font-size: 0.9em;
+	margin: 8px 0px 5px 0px;
+	padding: 0px;
+}
+
+h1.pagetitle {
+	margin: 5px 0px 0px 0px;
+	padding: 3px 3px 3px 85px;
+	background-color: #6699cc;
+	color: #ffffff;
+	font-size: 24pt;
+	background-image: url(img/sugu_logo.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+h2.pagetitle {
+	margin: 0px 0px 5px 0px;
+	padding: 3px 3px 3px 3px;
+	background-color: #6699cc;
+	color: #ffffff;
+	font-size: 22pt;
+}
+
+hr.contentsbegin {
+	color: #ccccfe;
+	background: #ccccfe;
+	border: 0px;
+	height: 1px;
+	margin: 15px;
+}
+
+div.footer {
+	font-size: 0.9em;
+	background-color: #dfdffe;
+	margin-top: 15px;
+	padding: 4px;
+}
+
+.footer hr {
+	color: #dfdffe;
+	background: #dfdffe;
+	border: 0px;
+	height: 1px;
+}
+
+ul#topindex, ul#topindex ul {
+	list-style-type: none;
+}
+
+ul#topindex li.group {
+	margin: 10px 0px;
+	padding-left: 20px;
+	background: url(./img/index_blue.gif) no-repeat top left;
+}
+
+ul#topindex li.manual {
+	padding-left: 22px;
+	background: url(./img/icon_general.gif) no-repeat center left;
+}
+
+/*目次*/
+.indexlink {
+	line-height: 150%;
+}
+
+/*第1階層*/
+ol.indexlink li.liststep,
+ol.stepdesc li.step {
+	list-style-type: decimal;
+}
+
+/*
+ol.stepdesc li.step p {
+	margin: 0px;
+	padding: 10px 10px 10px 20px;
+	border-left: 16px #ccccfe solid;
+}
+*/
+
+ol.stepdesc ol.stepdesc1 {
+	margin: 5px 0 10px 0;
+	padding: 0 0 0 40px;
+	border-left: 16px #ccccfe solid;
+}
+
+/*第2階層*/
+ol.indexlink li.liststep ol.stepdesc1 li.listsubstep,
+ol.stepdesc ol.stepdesc1 li.step {
+	list-style-type: lower-roman;
+	margin: 8px 0px 4px 0px;
+}
+
+ol.stepdesc ol.stepdesc1 ol.stepdesc2 {
+	margin: 5px 0 10px 0;
+	padding: 0 0 0 40px;
+	border-left: 8px #6699cc solid;
+ 	border-bottom: 1px #ffffff solid;
+
+}
+
+ol.stepdesc ol.stepdesc1 li.step p,
+ol.stepdesc ol.stepdesc1 li.step div.container
+ {
+	margin: 0px;
+	padding: 10px 10px 10px 20px;
+	border-left: 8px #6699cc solid;
+ 	border-bottom: 1px #ffffff solid;
+}
+
+/*第3階層*/
+ol.indexlink li.liststep ol.stepdesc2 li.listsubstep,
+ol.stepdesc ol.stepdesc1 ol.stepdesc2 li.step {
+	list-style-type: lower-alpha;
+	margin: 8px 0px 4px 0px;
+}
+
+ol.stepdesc ol.stepdesc1 ol.stepdesc2 li.step p,
+ol.stepdesc ol.stepdesc1 ol.stepdesc2 li.step div.container
+ {
+	margin: 0px;
+	padding: 10px 10px 10px 20px;
+	border-left: 2px #336699 dotted;
+ 	border-bottom: 1px #ffffff solid;
+}
+
+ol.stepdesc div.container div.onng dd p,
+ol.stepdesc ol.stepdesc1 li.step div.container dd p
+ {
+	margin: 0px;
+	padding: 10px;
+	border-left: 4px #cc9999 solid;
+ 	border-bottom: 1px #ffffff solid;
+}
+
+ol.stepdesc div.container div.onng dt,
+ol.stepdesc ol.stepdesc1 li.step div.container dt
+ {
+	margin-top: 8px;
+	font-weight: bold;
+}
+
+
+/*共通要素*/
+li H2,H3,H4,H5,H6{
+	margin: 3px 0px 4px 0px;
+	background-color: #ffffff;
+}
+
+H3 {
+	font-size: 1.2em;
+}
+H4 {
+	font-size: 1.1em;
+}
+H5 {
+	font-size: 1em;
+}
+H6 {
+	font-size: 1em;
+}
+
+h3.sec { 
+	height: 1.5em;
+	line-height: 1.5em;
+	font-weight: bold;
+	color: #333333;
+	text-indent: 0.5em;
+	margin-top: 1.5em;
+	margin-right: 0px;
+	margin-bottom: 1.5em;
+	margin-left: 0px;
+	border-bottom-width: 1px;
+	border-left-width: 5px;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top: none;
+	border-bottom-color: #336699;
+	border-left-color: #336699;
+	background-color: #f0f0fd;
+
+}
+
+
+div.onng {
+	margin: 8px 0px 8px 8px;
+	border: 1px dashed #666666;
+	padding: 5px;
+	background-color: #fdeeee;
+}
+
+div.onng H2,
+div.onng H3,
+div.onng H4,
+div.onng H5,
+div.onng H6
+{
+	margin: 2px 2px 10px 2px;
+	padding: 5px;
+	border: #cccccc solid 1px;
+}
+
+blockquote.code {
+	margin: 4px 0px 4px 8px;
+	border: 1px solid #666666;
+	padding: 5px;
+	white-space: nowrap;
+	font-family: "Consolas","Monaco","Bitstream Vera Sans Mono","Courier New",Courier,"メイリオ", Meiryo, "ＭＳ ゴシック", "MS Gothic",monospace !important;
+	font-size: 1.1em;
+	line-height: 160%;
+	background-color: #ffffcc;
+}
+
+blockquote.dirsample {
+	margin: 8px 0px 8px 8px;
+	border: 1px solid #336699;
+	background-color: #efefef;
+	padding: 5px;
+	white-space: nowrap;
+	font-family: "Consolas","Monaco","Bitstream Vera Sans Mono","Courier New",Courier,"メイリオ", Meiryo, "ＭＳ ゴシック", "MS Gothic",monospace !important;
+	font-size: 1.1em;
+	line-height: 160%;
+}
+
+blockquote H2,
+blockquote H3,
+blockquote H4,
+blockquote H5,
+blockquote H6
+{
+	margin: 2px 2px 10px 2px;
+	padding: 5px;
+	border: #cccccc solid 1px;
+}
+
+div.onng ol.caselist li.case{
+	list-style-type: upper-alpha;
+	margin: 0px;
+	padding: 0px 0px 20px 0px;
+	border-left: 0px #ffffff solid;
+}
+div.onng ol.caselist li.case p{
+	margin: 0px;
+	padding: 0px;
+	border-left: 0px #ffffff solid;
+}
+ol.stepdesc ol.stepdesc1 div.onng p,
+ol.stepdesc ol.stepdesc1 ol.stepdesc2 li.step div.onng p{
+	margin: 0px;
+	padding: 6px;
+	border-left: 0px #ffffff solid;
+}
+
+table.permission {
+	margin: 8px 0px 8px 8px;
+	border-collapse: collapse;
+	border: 1px solid #999999;
+}
+table.templatelist {
+	border-collapse: collapse;
+	border: 1px solid #999999;
+	width: 98%;
+	margin: 8px;
+}
+table.templatelist1 {
+	border-collapse: collapse;
+	border: 1px solid #999999;
+}
+th.th_case,th.th_switch{
+	background-color: #dfdfdf;
+	padding: 3px;
+	border: 1px solid #999999;
+}
+th.th_set{
+	background-color: #ffffcc;
+	padding: 3px;
+	border: 1px solid #999999;
+}
+td.td_pmtn{
+	padding: 3px;
+	border: 1px solid #999999;
+	font-family: monospace;
+}
+td.td_file{
+	padding: 3px;
+	border-top: 1px solid #999999;
+	font-family: monospace;
+	white-space: nowrap;
+}
+td.td_normal{
+	padding: 3px;
+	border: 1px solid #999999;
+}
+table.templatelist td.td_file{
+	padding: 3px;
+	border: 1px solid #999999;
+	font-family: monospace;
+}
+
+a.external {
+	padding-right: 20px;
+	background: transparent url(./img/icon_link.gif) no-repeat center right;
+}
+
+
+a.togglelink{
+	height: 1em;
+	background: transparent url(./img/toggle_minus.png) no-repeat center left;
+	color: white;
+	padding-left: 16px;
+}
+
+a.togglelink_plus{
+	height: 1em;
+	background: transparent url(./img/toggle_plus.png) no-repeat center left;
+	color: white;
+	padding-left: 16px;
+}

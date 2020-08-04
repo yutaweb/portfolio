@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ページ %_mode_title_%確認</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="stylesheet" href="//lcns2.sugutsukaeru.jp/c803d429b782f84/4.9/a4b94adbcbff24406a11ec647abba536/css/font-awesome-4_5_0-min.css">
+<link rel="stylesheet" href="//lcns2.sugutsukaeru.jp/c803d429b782f84/4.9/a4b94adbcbff24406a11ec647abba536/css/pure-min.css">
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="//lcns2.sugutsukaeru.jp/c803d429b782f84/4.9/a4b94adbcbff24406a11ec647abba536/css/pure-grids-responsive-old-ie-min.css">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="//lcns2.sugutsukaeru.jp/c803d429b782f84/4.9/a4b94adbcbff24406a11ec647abba536/css/pure-grids-responsive-min.css">
+<!--<![endif]-->
+<link rel="stylesheet" href="%_relative_web_dir_%parts/css/sugu-admin.css">
+<!--[if lte IE 8]>
+	<link rel="stylesheet" href="%_relative_web_dir_%parts/css/sugu-admin-old-ie.css">
+<![endif]-->
+</head>
+
+<body>
+<div class="pure-g">
+<div class="pure-u-1 sugu-container">
+<h1>Webサイト管理ツール</h1>
+<h2>%_mode_title_%</h2>
+<form class="pure-form" id="dammy4style">
+<p>
+%_msg_instruct_%
+</p>
+
+<ol class="sugu-progress">
+	<li class="sugu-step">%_mode01_%</li>
+	<li class="sugu-step sugu-step-active">%_mode_confirm_%</li>
+	<li class="sugu-step">%_mode_complete_%</li>
+</ol>
+
+<!-- basic items -->
+<fieldset>
+<legend>基本項目</legend>
+
+	<!-- 日付 -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">日付</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span id="sugu-t-date">%_yyyy_html_%
+			年 
+			%_mm_html_%
+			月 
+			%_dd_html_%
+			日
+			(%_dayname_html_%)</span>
+		</div>
+	</div>
+
+	<!-- タイトル -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">タイトル</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span id="sugu-t-subject">%_subject_html_%</span>
+		</div>
+	</div>
+
+
+	<!-- サマリー -->
+	<div class="pure-g sugu-control-group" style="display: none;">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">サマリー</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span id="sugu-t-summary">%_summary_html_%</span>
+		</div>
+	</div>
+
+
+	<!-- 記事内容 -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">記事内容</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span id="sugu-t-body">%_body_html_%</span>
+		</div>
+	</div>
+
+</fieldset>
+
+<!-- files and images -->
+<fieldset>
+<legend>ファイルと画像</legend>
+
+	<!-- 添付ファイル -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">添付ファイル</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<!-- new file list : generate from 3_new_file_list.txt -->
+			%_new_file_list_%
+		</div>
+	</div>
+
+
+	<!-- 画像/ファイル1 -->
+	<div class="pure-g sugu-control-group" id="sugu-t-image1">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">画像1</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			%_imagename1_%
+		</div>
+	</div>
+
+
+
+	<!-- 画像/ファイル2 -->
+	<div class="pure-g sugu-control-group" style="display: none;" id="sugu-t-image2">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">画像2</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			%_imagename2_%
+		</div>
+	</div>
+
+
+	<!-- 画像/ファイル3 -->
+	<div class="pure-g sugu-control-group" style="display: none;" id="sugu-t-image3">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">画像3</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			%_imagename3_%
+		</div>
+	</div>
+
+
+	<!-- 画像/ファイル4 -->
+	<div class="pure-g sugu-control-group" style="display: none;" id="sugu-t-image4">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">画像4</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			%_imagename4_%
+		</div>
+	</div>
+
+
+	<!-- 画像/ファイル5 -->
+	<div class="pure-g sugu-control-group" style="display: none;" id="sugu-t-image5">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">画像5</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			%_imagename5_%
+		</div>
+	</div>
+
+
+</fieldset>
+
+<!-- custom fields -->
+<fieldset>
+<legend>カスタム項目</legend>
+
+	<!-- 1行項目名-1 -->
+	<div class="pure-g sugu-control-group" style="display: none;">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">1行項目名-1</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span id="sugu-t-linetext1">%_linetext1_html_%</span>
+		</div>
+	</div>
+
+	<!-- 1行項目名-2 -->
+	<div class="pure-g sugu-control-group" style="display: none;">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">1行項目名-2</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span id="sugu-t-linetext2">%_linetext2_html_%</span>
+		</div>
+	</div>
+
+	<!-- 1行項目名-3 -->
+	<div class="pure-g sugu-control-group" style="display: none;">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">1行項目名-3</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span id="sugu-t-linetext3">%_linetext3_html_%</span>
+		</div>
+	</div>
+
+	<!-- 1行項目名-4 -->
+	<div class="pure-g sugu-control-group" style="display: none;">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">1行項目名-4</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span id="sugu-t-linetext4">%_linetext4_html_%</span>
+		</div>
+	</div>
+
+	<!-- 1行項目名-5 -->
+	<div class="pure-g sugu-control-group" style="display: none;">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">1行項目名-5</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span id="sugu-t-linetext5">%_linetext5_html_%</span>
+		</div>
+	</div>
+
+
+	<!-- 複数行項目名-1 -->
+	<div class="pure-g sugu-control-group" style="display: none;">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">複数行項目名-1</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span id="sugu-t-blocktext1">%_blocktext1_html_%</span>
+		</div>
+	</div>
+
+	<!-- 複数行項目名-2 -->
+	<div class="pure-g sugu-control-group" style="display: none;">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">複数行項目名-2</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span id="sugu-t-blocktext2">%_blocktext2_html_%</span>
+		</div>
+	</div>
+
+	<!-- 複数行項目名-3 -->
+	<div class="pure-g sugu-control-group" style="display: none;">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">複数行項目名-3</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span id="sugu-t-blocktext3">%_blocktext3_html_%</span>
+		</div>
+	</div>
+
+	<!-- 複数行項目名-4 -->
+	<div class="pure-g sugu-control-group" style="display: none;">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">複数行項目名-4</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span id="sugu-t-blocktext4">%_blocktext4_html_%</span>
+		</div>
+	</div>
+
+	<!-- 複数行項目名-5 -->
+	<div class="pure-g sugu-control-group" style="display: none;">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">複数行項目名-5</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span id="sugu-t-blocktext5">%_blocktext5_html_%</span>
+		</div>
+	</div>
+
+</fieldset>
+
+<!-- admin option -->
+<fieldset>
+<legend>記事ページファイル名の設定</legend>
+
+	<!-- 記事ページファイル名 -->
+	<div class="pure-g sugu-control-group" id="sugu-t-article_filename" style="display: none;">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">ファイル名</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<span id="sugu-t-article_filename_parsed">%_article_filename_parsed_html_% <span id="article_filename-holder">(%_article_filename_html_%)</span></span>
+		</div>
+	</div>
+
+</fieldset>
+</form><!-- //dammy4style -->
+
+<div>
+
+	<div style="display: inline-block;">
+		<form class="pure-form" action="%_myname_%" method="post">
+			<input type="hidden" name="s" value="4">
+			<input type="hidden" name="m" value="%_m_%">
+			<input type="hidden" name="d" value="%_d_%">
+			<input type="hidden" name="cd" value="%_cd_%">
+			<input type="hidden" name="n" value="%_n_%">
+			<input type="hidden" name="i" value="%_i_%">
+			<input type="hidden" name="tempdir" value="%_tempdir_%">
+			<button type="submit" class="pure-button pure-button-primary" style="margin-top: 0px;">%_mode_complete_%</button>
+		</form>
+	</div>
+
+	<div style="display: inline-block;">
+		<form class="pure-form" action="%_myname_%" method="post">
+			<input type="hidden" name="s" value="2">
+			<input type="hidden" name="m" value="%_m_%">
+			<input type="hidden" name="d" value="%_d_%">
+			<input type="hidden" name="cd" value="%_cd_%">
+			<input type="hidden" name="n" value="%_n_%">
+			<input type="hidden" name="i" value="%_i_%">
+			<input type="hidden" name="tempdir" value="%_tempdir_%">
+			<button type="submit" class="pure-button %_bkbtn_switch_%" style="margin-top: 0px;">修正する</button>
+		</form>
+	</div>
+
+	<div style="display: inline-block;" class="sugu-pull-right sugu-form-wrapper">
+		<form class="pure-form" action="%_myname_%" method="post">
+			<button type="button" class="pure-button sugu-button-link" onclick="window.location='%_myname_%?n=%_n_%&amp;i=%_i_%'" style="margin-top: 0px;">中止（一覧に戻る）</button>
+		</form>
+	</div>
+
+</div>
+
+</div><!-- /pure-u -->
+</div><!-- /pure-g -->
+
+<script src="//lcns2.sugutsukaeru.jp/c803d429b782f84/4.9/a4b94adbcbff24406a11ec647abba536/js/jquery-1_11_3-min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//プログレスバーの表示調整
+ 	if ($(".sugu-progress li:first-child").html() == "") {
+ 		$(".sugu-progress li:first-child").remove();
+ 		$(".sugu-progress > li").css("width", "50%");
+ 	}
+ 	//ファイル名部分の表示調整
+ 	if ($("#article_filename-holder").html() == "()") {
+ 		$("#article_filename-holder").remove();
+ 	}
+});
+</script>
+</body>
+</html>

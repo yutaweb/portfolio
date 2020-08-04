@@ -1,0 +1,534 @@
+@charset "utf-8";
+
+/*==============================================
+                      重要
+  ⇒index.htmlではcommon.cssを読み込んでいない
+  【理由】
+  ・headerでposition:absoluteを使いたくないため
+  ・position:absoluteを使うと、pc表示でかっこ悪い
+
+===============================================*/
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+/*============================================
+                  reset css
+===============================================*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*============================================
+                  reset css
+===============================================*/
+
+/*============================================
+                  all css
+===============================================*/
+
+body{
+  font-family: 'Sawarabi Mincho', sans-serif;
+}
+
+:root{
+  --h2:2.5rem;
+  --h3:1.8rem;
+  --h4:1.4rem;
+}
+
+.container{
+  max-width:1200px;
+  margin:0 auto;
+}
+
+/*============================================
+                  all css
+===============================================*/
+
+
+/*============================================
+                  header css
+===============================================*/
+header{
+  z-index:1;
+  position:absolute;
+  width:100%;
+}
+
+
+.header_wrapper{
+  display:flex;
+  max-width:1200px;
+  margin:0 auto;
+  justify-content: space-between;
+  align-items:center;
+  /* background: rgba(0,0,0,0.5); */
+  font-weight:bold;
+}
+
+.header_wrapper h1.pc{
+  flex:0 0 450px;
+  height:100px;
+  line-height:100px;
+  font-size:3.5vw;
+  padding-left:10px;
+  cursor:pointer;
+}
+
+.header_wrapper h1 img{
+  width:100%;
+  height:100%;
+}
+
+.header_wrapper h1:hover{
+  opacity:0.7;
+}
+
+.header_wrapper ul{
+  display: flex;
+  flex:1;
+}
+
+.header_wrapper ul li{
+  height:100px;
+  line-height:100px;
+  height:100px;
+  line-height:100px;
+  box-sizing: border-box;
+  text-align:center;
+}
+
+.header_wrapper ul li a{
+  width:100px;
+  display:block;
+  text-decoration:none;
+  padding:0 10px;
+  transition:all 0.5s;
+  color:black;
+}
+
+.header_wrapper ul li a:hover{
+  background:rgba(0,0,0,0.2);
+}
+
+/*===================重要=======================*/
+/*toggleを開いたままpc画面にすると、sp表示が残ってしまうので、無理やり消した。*/
+@media screen and (min-width:1100px){ 
+  .sp{
+    display:none!important;
+  }
+}
+
+/*===================重要=======================*/
+
+@media screen and (max-width:1099px){
+  .pc{
+    display:none;
+  }
+
+  .sp{
+    display:block;
+  }
+
+  
+  header{
+    width:100%;
+    position:absolute;
+    background:none;
+    z-index:5;
+    top:0;
+    left:0;
+  }
+
+  .header_wrapper{
+    display:block;
+  }
+
+  .header_wrapper h1{
+    text-align:center;
+    font-size:2.5rem;
+    width:350px;
+    margin:0 auto;
+    height:auto;
+  }
+
+  .header_wrapper h1 img{
+    width:100%;
+    height:100%;
+  }
+
+  #toggle_nav{
+    display:none;
+  }
+
+  .header_wrapper nav ul{
+    display:block;
+    text-align:center;
+  }
+
+  .header_wrapper nav ul li{
+    background: rgba(0,0,0,0.1);
+    border-bottom:1px solid #ddd;
+    width:100%;
+    height:60px;
+    line-height:60px;
+  }
+
+  
+  .header_wrapper ul li a:hover{
+    background:rgba(0,0,0,0.4);
+  }
+
+
+
+  .header_wrapper nav ul li:first-child{
+    border-top:1px solid #ddd;
+  }
+
+  .header_wrapper nav ul li a{
+    display:inline-block;
+    width:100%;
+    padding:0;
+    color:white;
+  }
+
+}
+
+@media screen and (max-width:767px){
+
+.header_wrapper h1{
+  text-align:center;
+  font-size:2.5rem;
+  width:320px;
+  margin:0 auto;
+}
+
+}
+
+@media screen and (max-width:424px){
+  .header_wrapper h1{
+    width:300px;
+  }
+}
+
+/*============================================
+                  header css
+===============================================*/
+
+
+/*============================================
+                  subvisual css
+===============================================*/
+
+.sub_image_wrapper{
+  background: rgba(0,0,0,0.3);
+  background-image: url("../images/monodukuri.jpg");
+  background-repeat:no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.subvisual h2{
+  text-align:center;
+  font-weight:bold;
+  color:white;
+  font-size:var(--h2);
+  padding:200px 0;
+  text-shadow:5px 5px 10px black;
+  letter-spacing: 0.6rem;
+}
+
+.subvisual{
+  width:100%;
+  position:relative;
+}
+
+.subvisual::after{
+  position:absolute;
+  content:"";
+  background:rgba(255,255,255,0.4);
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+}
+
+@media screen and (max-width:1050px){
+  .sub_image_wrapper{
+    background: rgba(0,0,0,0.3);
+    background-image: url("../images/monodukuri.jpg");
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .subvisual h2{
+    text-align:center;
+    font-weight:bold;
+    color:white;
+    font-size:var(--h2);
+    line-height:400px;
+    padding:0;
+  }
+  
+  .subvisual img{
+    width:100%;
+  }
+  
+}
+
+/*============================================
+                  subvisual css
+===============================================*/
+
+
+
+/*============================================
+                  page_top css
+===============================================*/
+
+#page_top{
+  position:fixed;
+  bottom:30px;
+  right:20px;
+}
+
+#page_top a{
+  background-color:rgba(0,0,0,0.1);
+  color:white;
+  text-align:center;
+  text-decoration:none;
+  padding:20px;
+}
+
+#page_top a:hover{
+  background: rgba(0,0,0,0.2);
+  text-decoration:none;
+}
+
+/*============================================
+                  page_top css
+===============================================*/
+
+
+
+
+/*============================================
+                  footer css
+===============================================*/
+
+footer{
+  margin-top:300px;
+  color:#fff;
+  background-color:rgba(45, 87, 104,0.9);
+}
+
+footer .container{
+  padding:40px 20px;
+  display:flex;
+  flex-wrap:wrap;
+}
+
+/* footA */
+
+.footA{
+  flex:0 0 35%;
+}
+
+.footA h3{
+  margin-top:0;
+  margin-bottom:10px;
+  font-size:var(--h3);
+  width:200px;
+  height:auto;
+}
+
+.footA img{
+  width:100%;
+}
+
+.footA p{
+  margin-top:0;
+  margin-bottom:0;
+  font-size:14px;
+  line-height:1.4;
+}
+
+.footA a{
+  text-decoration:none;
+  color:inherit;
+}
+
+/* footA */
+
+/* footB */
+.footB{
+  display:flex;
+  flex:0 0 65%;
+}
+
+.footB div{
+  margin-bottom:30px;
+  flex:1;
+}
+
+.footB div:not(:first-child){
+  margin-left:30px;
+}
+
+.footB h4{
+  margin-top:0;
+  margin-bottom:10px;
+  border-bottom:1px solid white;
+  font-size:14px;
+}
+
+.footB a{
+  display:block;
+  padding:5px;
+  color:inherit;
+  font-size:12px;
+  text-decoration: none;
+}
+
+.footB a:hover{
+  background-color: rgba(0,0,0,0.3);
+}
+
+/* footB */
+
+/* footC */
+
+.footC{
+  font-size:12px;
+  text-align:center;
+  flex:0 0 100%;
+}
+
+.footD{
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+.footD ul{
+  display:flex;
+}
+
+.footD a{
+  display:block;
+  margin-right:8px;
+  padding:0;
+  font-size:16px;
+  border:1px solid white;
+  width:2rem;
+  border-radius:50%;
+  line-height:2rem;
+  text-align: center;
+}
+
+.footD a:hover{
+  background-color: rgba(0,0,0,0.3);
+}
+
+/* footC */
+
+@media screen and (max-width:767px){
+  footer{
+    margin-top:150px;
+  }
+
+  footer .container{
+    display:block;
+  }
+
+  .footB{
+    display:block;
+  }
+    
+  .footB div{
+    margin-bottom:30px;
+  }
+
+  .footB div:not(:first-child){
+    margin-left:0;
+  }
+
+  .footB h4{
+    margin-top:0;
+    margin-bottom:10px;
+    border-bottom:1px solid white;
+    font-size:14px;
+  }
+
+  .footB a{
+    display:block;
+    padding:5px;
+    color:inherit;
+    font-size:12px;
+    text-decoration: none;
+  }
+
+  .footB a:hover{
+    background-color: rgba(0,0,0,0.3);
+  }
+
+}
+
+/*============================================
+                  footer css
+===============================================*/
+
+/*============================================
+       全体の右側にできた謎の余白を消す
+===============================================*/
+
+.wrap{
+  overflow:hidden;
+}
+
+/*============================================
+       全体の右側にできた謎の余白を消す
+===============================================*/

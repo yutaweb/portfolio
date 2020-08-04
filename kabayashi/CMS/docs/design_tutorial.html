@@ -1,0 +1,508 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>デザイン変更チュートリアル</title>
+<link rel="stylesheet" href="manual.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<div class="topnavi">[<a href="index.html" name="top">目次へ戻る</a>]</div>
+<h1 class="grobaltitle">すぐ使えるCGI 添付ファイル付 ウェブページ更新ツール 大容量版（日本語 UTF-8 版） 説明書</h1>
+<h2 class="pagetitle">デザイン変更チュートリアル</h2>
+
+<!-- main contents begins -->
+
+<script type="text/javascript">
+function toggle_sub(myTgt, myTop){
+	var mySublist = document.getElementById(myTgt);
+	var mySelf = document.getElementById(myTop);
+	if (!mySublist.style.display || mySublist.style.display == 'block'){
+		mySublist.style.display = 'none'
+		mySelf.className = 'togglelink_plus';
+	} else {
+		if (mySublist.style.display == 'none'){
+			mySublist.style.display = 'block'
+			mySelf.className = 'togglelink';
+		} 
+	}
+}
+</script>
+
+<p>基本的な動作を確認したら、テンプレートを編集してデザイン変更を行ってみましょう。<br>
+設置がまだ済んでいない場合は「<a href="stepbystep.html">ステップ by ステップガイド</a>」から初めて下さい。</p>
+<div class="container">
+<div class="onng"><h5>実際の制作の際は</h5>
+<p>このページでは、テンプレートファイルの変更がどのようにホームページのデザインに反映されるかや、管理画面テンプレートを編集する事による機能追加の方法についてご説明しています。</p><p>実際の制作でWebサイトにCMSを設置する際は (1)サンプルページ（モックアップ）を先に完成してから (2)テンプレートファイルにコピー の順で作業するのがお勧めですが、「何ができるのか」が分からないとサンプルページを作るときに迷ってしまいますので、まずはこのチュートリアルで概要をつかんで下さい。</p></div>
+</div>
+
+<div class="container">
+<div class="onng"><h5>初期設定の違い</h5>
+<p>ダウンロードした製品によっては、テンプレートが既に特定の目的のために加工されていて、初期設定のコードがこのページでご説明するものと違う場合があります。加工済製品の場合は、<code class="vals">templates.default/</code> というディレクトリが製品に含まれており、このページで説明するテンプレートファイルはその中に入っています。</p></div>
+</div>
+<ol class="indexlink">
+<li class="liststep"><a href="#step1">テンプレートの仕組み</a>
+<a href="javascript: toggle_sub('sub_step1_0', 'top_step1')" class="togglelink_plus" id ="top_step1">サブメニュー</a>
+<ol class="stepdesc1" id="sub_step1_0" style="display: none;">
+<li class="listsubstep"><a href="#step1_1_1">テキストエディタでファイルを開く</a>
+</li>
+<li class="listsubstep"><a href="#step1_1_2">ファイルの修正</a>
+</li>
+<li class="listsubstep"><a href="#step1_1_3">上書き保存</a>
+</li>
+<li class="listsubstep"><a href="#step1_1_4">アップロード</a>
+</li>
+<li class="listsubstep"><a href="#step1_1_5">テンプレート修正後のテスト</a>
+</li>
+<li class="listsubstep"><a href="#step1_1_6">ページとテンプレートファイルの対応</a>
+</li>
+</ol>
+</li>
+<li class="liststep"><a href="#step2">HTMLタグの変更</a>
+<a href="javascript: toggle_sub('sub_step2_6', 'top_step2')" class="togglelink_plus" id ="top_step2">サブメニュー</a>
+<ol class="stepdesc1" id="sub_step2_6" style="display: none;">
+<li class="listsubstep"><a href="#step2_1_7">テキストエディタでファイルを開く</a>
+</li>
+<li class="listsubstep"><a href="#step2_1_8">ファイルの修正</a>
+</li>
+<li class="listsubstep"><a href="#step2_1_9">上書き保存</a>
+</li>
+<li class="listsubstep"><a href="#step2_1_10">アップロード</a>
+</li>
+<li class="listsubstep"><a href="#step2_1_11">テンプレート修正後のテスト</a>
+</li>
+<li class="listsubstep"><a href="#step2_1_12">記号（テンプレート変数）と表示要素の対応</a>
+</li>
+</ol>
+</li>
+<li class="liststep"><a href="#step3">CSSファイルの変更</a>
+<a href="javascript: toggle_sub('sub_step3_12', 'top_step3')" class="togglelink_plus" id ="top_step3">サブメニュー</a>
+<ol class="stepdesc1" id="sub_step3_12" style="display: none;">
+<li class="listsubstep"><a href="#step3_1_13">テキストエディタでファイルを開く</a>
+</li>
+<li class="listsubstep"><a href="#step3_1_14">CSSファイルの修正</a>
+</li>
+<li class="listsubstep"><a href="#step3_1_15">上書き保存</a>
+</li>
+<li class="listsubstep"><a href="#step3_1_16">アップロード</a>
+</li>
+<li class="listsubstep"><a href="#step3_1_17">CSS修正後のテスト</a>
+</li>
+<li class="listsubstep"><a href="#step3_1_18">読み込まれているファイル</a>
+</li>
+</ol>
+</li>
+<li class="liststep"><a href="#step4">テンプレートの組み合わせ（HTMLファイルとTXTファイル）</a>
+<a href="javascript: toggle_sub('sub_step4_18', 'top_step4')" class="togglelink_plus" id ="top_step4">サブメニュー</a>
+<ol class="stepdesc1" id="sub_step4_18" style="display: none;">
+<li class="listsubstep"><a href="#step4_1_19">ページと表示要素、テンプレートファイルの対応</a>
+</li>
+</ol>
+</li>
+<li class="liststep"><a href="#step5">画像の表示変更と追加・削除</a>
+<a href="javascript: toggle_sub('sub_step5_19', 'top_step5')" class="togglelink_plus" id ="top_step5">サブメニュー</a>
+<ol class="stepdesc1" id="sub_step5_19" style="display: none;">
+<li class="listsubstep"><a href="#step5_1_20">画像の表示変更</a>
+</li>
+<li class="listsubstep"><a href="#step5_1_21">画像の追加</a>
+<a href="javascript: toggle_sub('sub_step5_21', 'sub_step5_1_21')" class="togglelink_plus" id ="sub_step5_1_21">サブメニュー</a>
+<ol class="stepdesc2" id="sub_step5_21" style="display: none;">
+<li class="listsubstep"><a href="#step5_2_22">管理画面の編集</a>
+</li>
+<li class="listsubstep"><a href="#step5_2_23">上書き保存とアップロード</a>
+</li>
+</ol>
+</li>
+<li class="listsubstep"><a href="#step5_1_24">画像の削除</a>
+<a href="javascript: toggle_sub('sub_step5_24', 'sub_step5_1_24')" class="togglelink_plus" id ="sub_step5_1_24">サブメニュー</a>
+<ol class="stepdesc2" id="sub_step5_24" style="display: none;">
+<li class="listsubstep"><a href="#step5_2_25">管理画面からの画像の削除</a>
+</li>
+<li class="listsubstep"><a href="#step5_2_26">記事ページからの画像の削除</a>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li class="liststep"><a href="#step6">テキスト項目の追加</a>
+<a href="javascript: toggle_sub('sub_step6_26', 'top_step6')" class="togglelink_plus" id ="top_step6">サブメニュー</a>
+<ol class="stepdesc1" id="sub_step6_26" style="display: none;">
+<li class="listsubstep"><a href="#step6_1_27">管理画面の編集</a>
+</li>
+<li class="listsubstep"><a href="#step6_1_28">上書き保存とアップロード</a>
+</li>
+</ol>
+</li>
+<li class="liststep"><a href="#step7">詳細ページの有無を調整する</a>
+<a href="javascript: toggle_sub('sub_step7_28', 'top_step7')" class="togglelink_plus" id ="top_step7">サブメニュー</a>
+<ol class="stepdesc1" id="sub_step7_28" style="display: none;">
+<li class="listsubstep"><a href="#step7_1_29">管理画面の編集</a>
+</li>
+<li class="listsubstep"><a href="#step7_1_30">上書き保存とアップロード</a>
+</li>
+</ol>
+</li>
+<li class="liststep"><a href="#step8">短い一覧（新着情報）に画像やファイルを表示する</a>
+</li>
+<li class="liststep"><a href="#step9">アイコンファイルの入れ替え</a>
+</li>
+<li class="liststep"><a href="#step10">短い一覧の利用方法</a>
+</li>
+<li class="liststep"><a href="#step11">短い一覧（新着情報）のホームページへの表示</a>
+<a href="javascript: toggle_sub('sub_step11_30', 'top_step11')" class="togglelink_plus" id ="top_step11">サブメニュー</a>
+<ol class="stepdesc1" id="sub_step11_30" style="display: none;">
+<li class="listsubstep"><a href="#step11_1_31">&lt;IFRAME&gt; タグの設定</a>
+</li>
+<li class="listsubstep"><a href="#step11_1_32">表示件数の設定</a>
+</li>
+</ol>
+</li>
+<li class="liststep"><a href="#step12">RSSファイルの設定</a>
+<a href="javascript: toggle_sub('sub_step12_32', 'top_step12')" class="togglelink_plus" id ="top_step12">サブメニュー</a>
+<ol class="stepdesc1" id="sub_step12_32" style="display: none;">
+<li class="listsubstep"><a href="#step12_1_33">RSSとは？</a>
+</li>
+<li class="listsubstep"><a href="#step12_1_34">サイトの情報を設定</a>
+</li>
+<li class="listsubstep"><a href="#step12_1_35">表示件数の設定</a>
+</li>
+<li class="listsubstep"><a href="#step12_1_36">RSSファイルの公開（リンク）</a>
+</li>
+<li class="listsubstep"><a href="#step12_1_37">RSSファイルの公開（ AutoDiscovery の設定、トップページ）</a>
+</li>
+<li class="listsubstep"><a href="#step12_1_38">RSSファイルの公開（ AutoDiscovery の設定、記事ページ）</a>
+</li>
+</ol>
+</li>
+</ol>
+
+<hr class="contentsbegin">
+
+<ol class="stepdesc">
+<li class="step"><h3><a name="step1">テンプレートの仕組み</a></h3>
+<p>「すぐ使えるCGI」ではページのデザインを「テンプレート」で管理します。「テンプレート」とは、プログラムとは分けてデザインを指定するためのファイルで、形式は、HTMLファイルまたはHTMLコードを含むテキストファイルです。初期設定では <code class="vals">templates/</code> ディレクトリの中にこれらのファイルが含まれています。</p><p>まずは全一覧（目次）を例に挙げてデザイン変更を行ってみます。</p><ol class="stepdesc1">
+<li class="step"><h4><a name="step1_1_1">テキストエディタでファイルを開く</a></h4>
+<p>解凍したファイルの中の <code class="vals">templates/article/article_list.html</code> をテキストエディタで開いて下さい。</p><p>「テキストエディタ」が無い場合は、下記のオンラインツールを使用して下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/36/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/36/</a></p></li>
+<li class="step"><h4><a name="step1_1_2">ファイルの修正</a></h4>
+<p>ページのタイトルとして「記事一覧」と書いてある部分があるので、これを試しに変更してみます。「○○株式会社 お知らせ」等、お好きなように変更して下さい。</p>
+<div class="container">
+<blockquote class="code"><h5>変更前 (templates/article/article_list.html)</h5>
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;<BR>&lt;html lang=&quot;ja&quot;&gt;<BR>&lt;head&gt;<BR>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=UTF-8&quot;&gt;<BR>&lt;title&gt;<em class="code_hl_blue">記事一覧</em>&lt;/title&gt;<BR>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;<BR>&lt;meta name=&quot;robots&quot; content=&quot;index, follow&quot;&gt;<BR>&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;記事一覧&quot; href=&quot;new.xml&quot;&gt;<BR>&lt;link rel=&quot;start&quot; href=&quot;&#37;_page_first_&#37;&quot;&gt;<BR>&lt;link rel=&quot;prev&quot; href=&quot;&#37;_page_prev_&#37;&quot;&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">:</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">: （13行省略）</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">:</span><BR>&lt;/head&gt;<BR>&lt;body&gt;<BR>&lt;div class=&quot;pure-g sugu-window&quot;&gt;<BR>&lt;div class=&quot;pure-u-1 sugu-container&quot;&gt;<BR><BR>&lt;h1&gt;<em class="code_hl_blue">記事一覧 </em>&lt;small&gt;&#37;_total_&#37;件中 &#37;_min_&#37;-&#37;_max_&#37; を表示&lt;/small&gt;&lt;/h1&gt;<BR><BR>&lt;!-- ページネーション(JavaScriptで構成) --&gt;<BR>&lt;ul class=&quot;sugu-pagination&quot;&gt;<BR>&lt;/ul&gt;<BR>&lt;div class=&quot;sugu-clearfix-old-ie&quot;&gt;&lt;/div&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">:</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">: （53行省略）</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">:</span><BR><BR>&lt;/script&gt;<BR><BR>&lt;/body&gt;<BR>&lt;/html&gt;<BR></blockquote>
+</div>
+</li>
+<li class="step"><h4><a name="step1_1_3">上書き保存</a></h4>
+<p>変更が終わったらファイルを保存して下さい。<br>
+保存の際の文字コードは BOMなし UTF-8（または Unicode など） にして下さい。</p></li>
+<li class="step"><h4><a name="step1_1_4">アップロード</a></h4>
+<p>保存したファイルを、サーバにもう一度アップロードします。<br>
+FTPソフトでサーバの <code class="vals">templates/article/</code> ディレクトリに移動して、 編集後の <code class="vals">article_list.html</code> をアップロードして下さい。</p></li>
+<li class="step"><h4><a name="step1_1_5">テンプレート修正後のテスト</a></h4>
+<p><code class="vals">article_list.html</code> をアップロードしたら、管理画面一覧の下にある「再構築（テンプレート変更反映）」ボタンを押して下さい。</p><p>再構築が終わったら、もう一度「編集結果をチェック： [一覧]」のリンクからページを表示して下さい。<br>表示内容が変わらないようであればブラウザのキャッシュをクリアしてからページの再読み込みをして下さい。</p><p>今度はタイトルが、「○○株式会社 お知らせ」と表示されますか？</p></li>
+<li class="step"><h4><a name="step1_1_6">ページとテンプレートファイルの対応</a></h4>
+<p>上記 <code class="vals">templates/article/article_list.html</code> は全一覧（目次、webdir/index.html）のデザインに反映されましたが、この他の画面とテンプレートファイルの対応は下記URLの「テンプレート対応図」をご覧下さい。<br>
+<a href="http://sugutsukaeru.jp/cgi/j/181/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/181/</a></p></li>
+</ol>
+</li>
+<li class="step"><h3><a name="step2">HTMLタグの変更</a></h3>
+<p>このように、テンプレートに指定した内容はそのままWebページ（ホームページ）に書き出されます。変更内容は、上の例のようなテキストの他、HTMLタグも変更できます。通常のWeb編集と同じように編集して下さい。ここで、HTMLタグを編集する例を一つ取り上げてみます。</p><ol class="stepdesc1">
+<li class="step"><h4><a name="step2_1_7">テキストエディタでファイルを開く</a></h4>
+<p>解凍したファイルの中の <code class="vals">templates/article/article.html</code> をテキストエディタで開いて下さい。このファイルは詳細ページのデザインテンプレートです。</p><p>「テキストエディタ」が無い場合は、下記のオンラインツールを使用して下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/36/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/36/</a></p></li>
+<li class="step"><h4><a name="step2_1_8">ファイルの修正</a></h4>
+<p>初期設定で記事のタイトルは &lt;h1&gt; と &lt;/h1&gt; に囲まれています。ここを、&lt;h1&gt; にはページのシリーズ名を入れる事にして、タイトルは &lt;h2&gt; での表示に変更しましょう。</p>
+<div class="container">
+<blockquote class="code"><h5>変更前 (templates/article/article.html)</h5>
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;<BR>&lt;html lang=&quot;ja&quot;&gt;<BR>&lt;head&gt;<BR>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=UTF-8&quot;&gt;<BR>&lt;title&gt;&#37;_subject_&#37; (&#37;_yyyy_&#37;-&#37;_mm_&#37;-&#37;_dd_&#37;)&lt;/title&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">:</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">: （31行省略）</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">:</span><BR>&lt;li class=&quot;sugu-previous&quot;&gt;&lt;a href=&quot;&#37;_to_prev_&#37;&quot; tabindex=&quot;-1&quot;&gt;前&lt;/a&gt;&lt;/li&gt;<BR>&lt;li class=&quot;sugu-next&quot;&gt;&lt;a href=&quot;&#37;_to_next_&#37;&quot; tabindex=&quot;-1&quot;&gt;次&lt;/a&gt;&lt;/li&gt;<BR>&lt;/ul&gt;<BR>&lt;div class=&quot;sugu-clearfix-old-ie&quot;&gt;&lt;/div&gt;<BR><BR>&lt;h1&gt;<em class="code_hl_blue">&#37;_subject_&#37;</em>&lt;/h1&gt;<BR>&lt;p class=&quot;sugu-pull-right&quot;&gt;&#37;_yyyy_&#37;/&#37;_mm_&#37;/&#37;_dd_&#37; (&#37;_dayname_&#37;)&lt;/p&gt;<BR>&lt;div class=&quot;sugu-clearfix&quot;&gt;&lt;/div&gt;<BR><BR>&lt;div class=&quot;pure-g sugu-article&quot;&gt;<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">:</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">: （74行省略）</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">:</span><BR>});<BR>&lt;/script&gt;<BR><BR>&lt;/body&gt;<BR>&lt;/html&gt;<BR></blockquote>
+</div>
+
+<div class="container">
+<blockquote class="code"><h5>変更後 (templates/article/article.html)</h5>
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;<BR>&lt;html lang=&quot;ja&quot;&gt;<BR>&lt;head&gt;<BR>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=UTF-8&quot;&gt;<BR>&lt;title&gt;&#37;_subject_&#37; (&#37;_yyyy_&#37;-&#37;_mm_&#37;-&#37;_dd_&#37;)&lt;/title&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">:</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">: （31行省略）</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">:</span><BR>&lt;li class=&quot;sugu-previous&quot;&gt;&lt;a href=&quot;&#37;_to_prev_&#37;&quot; tabindex=&quot;-1&quot;&gt;前&lt;/a&gt;&lt;/li&gt;<BR>&lt;li class=&quot;sugu-next&quot;&gt;&lt;a href=&quot;&#37;_to_next_&#37;&quot; tabindex=&quot;-1&quot;&gt;次&lt;/a&gt;&lt;/li&gt;<BR>&lt;/ul&gt;<BR>&lt;div class=&quot;sugu-clearfix-old-ie&quot;&gt;&lt;/div&gt;<BR><BR>&lt;h1&gt;<em class="code_hl_blue">○○株式会社 お知らせ</em>&lt;/h1&gt;<BR><em class="code_hl_red">&lt;h2&gt;</em><em class="code_hl_red">&#37;_subject_&#37;</em><em class="code_hl_red">&lt;/</em><em class="code_hl_red">h2&gt;</em><BR>&lt;p class=&quot;sugu-pull-right&quot;&gt;&#37;_yyyy_&#37;/&#37;_mm_&#37;/&#37;_dd_&#37; (&#37;_dayname_&#37;)&lt;/p&gt;<BR>&lt;div class=&quot;sugu-clearfix&quot;&gt;&lt;/div&gt;<BR><BR>&lt;div class=&quot;pure-g sugu-article&quot;&gt;<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">:</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">: （74行省略）</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">:</span><BR>});<BR>&lt;/script&gt;<BR><BR>&lt;/body&gt;<BR>&lt;/html&gt;<BR></blockquote>
+</div>
+</li>
+<li class="step"><h4><a name="step2_1_9">上書き保存</a></h4>
+<p>変更が終わったらファイルを保存して下さい。<br>
+保存の際の文字コードは BOMなし UTF-8（または Unicode など） にして下さい。</p></li>
+<li class="step"><h4><a name="step2_1_10">アップロード</a></h4>
+<p>保存したファイルを、サーバにもう一度アップロードします。<br>
+FTPソフトでサーバの <code class="vals">templates/article/</code> ディレクトリに移動して、 編集後の <code class="vals">article.html</code> をアップロードして下さい。</p></li>
+<li class="step"><h4><a name="step2_1_11">テンプレート修正後のテスト</a></h4>
+<p><code class="vals">article.html</code> をアップロードしたら、管理画面一覧の下にある「再構築（テンプレート変更反映）」ボタンを押して下さい。</p><p>再構築が終わったら、記事一覧の「チェック」のリンクからページを表示して下さい。<br>表示内容が変わらないようであればブラウザのキャッシュをクリアしてからページの再読み込みをして下さい。</p><p>タイトル部分に「○○株式会社 お知らせ」が追加された事が確認できます。</p></li>
+<li class="step"><h4><a name="step2_1_12">記号（テンプレート変数）と表示要素の対応</a></h4>
+<p>デザインテンプレートファイル中にある「%_subject_%」などの記号は、入力した内容に置き換えられます。例えば今見たように、「%_subject_%」は記事のタイトルに置き換えられます。この記号の事を「テンプレート変数」と呼んでいます。どのテンプレート変数がどの項目に対応するかは「<a href="template_vals.html">テンプレート変数一覧</a>」をご覧下さい。</p><p>不要な表示項目は、テンプレート変数をデザインテンプレートファイルから削除して下さい。</p></li>
+</ol>
+</li>
+<li class="step"><h3><a name="step3">CSSファイルの変更</a></h3>
+<p>これまでに、HTMLテンプレートファイルの編集で表示要素の追加や変更、削除、HTMLタグの編集ができる事が分かりました。デザイン変更は、この他に、読み込まれているCSSファイルの編集でも行えます。初期設定で使用している CSS ファイルは <code class="vals">webdir/parts/</code> 内にありますので、これらのファイルも自由に編集して下さい。</p><p>ここでは、公開ページ側のテンプレートファイル webdir/parts/css/sugu-site.css を編集してページのデザインを変更してみましょう。</p><ol class="stepdesc1">
+<li class="step"><h4><a name="step3_1_13">テキストエディタでファイルを開く</a></h4>
+<p>解凍したファイルの中の webdir/parts/css/sugu-site.css をテキストエディタで開いて下さい。</p><p>「テキストエディタ」が無い場合は、下記のオンラインツールを使用して下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/36/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/36/</a></p></li>
+<li class="step"><h4><a name="step3_1_14">CSSファイルの修正</a></h4>
+<p>先ほど詳細ページの記事のタイトル部分に &lt;h1&gt; でシリーズ名を入ましたが、シリーズ名の表示は &lt;h2&gt; で表示した記事のタイトルより小さくていいかもしれません。CSS を編集してそれぞれのタグに指定されているフォントサイズを変更してみましょう。</p>
+<div class="container">
+<blockquote class="code"><h5>変更前</h5>
+h1 {<br>
+&nbsp;&nbsp;font-size: 31.5px;<br>
+}<br>
+h2 {<br>
+&nbsp;&nbsp;font-size: 24.5px;<br>
+}</blockquote>
+</div>
+
+<div class="container">
+<blockquote class="code"><h5>変更後</h5>
+h1 {<br>&nbsp;&nbsp;font-size: <em class="code_hl_blue">18.5px</em>;<br>}<br>h2 {<br>&nbsp;&nbsp;font-size: 24.5px;<br>}</blockquote>
+</div>
+</li>
+<li class="step"><h4><a name="step3_1_15">上書き保存</a></h4>
+<p>変更が終わったらファイルを保存して下さい。</p></li>
+<li class="step"><h4><a name="step3_1_16">アップロード</a></h4>
+<p>保存したファイルを、サーバにもう一度アップロードします。<br>
+FTPソフトでサーバの webdir/parts/css ディレクトリに移動して、 編集後の sugu-site.css をアップロードして下さい。</p></li>
+<li class="step"><h4><a name="step3_1_17">CSS修正後のテスト</a></h4>
+<p>CSSファイルを編集した場合は「再構築」の必要はありません。</p><p>ただし、読み込まれるCSSファイルはブラウザの単純な再読み込みでは更新されない場合がありますので、ブラウザのキャッシュを確実にクリアしてからページの再読み込みをして下さい。</p><p>文字サイズが変更された事が確認できます。</p></li>
+<li class="step"><h4><a name="step3_1_18">読み込まれているファイル</a></h4>
+<p>表示のために初期設定で読み込まれているファイルの一覧は、「<a href="output.html">ファイル一覧</a>」をご覧下さい。</p></li>
+</ol>
+</li>
+<li class="step"><h3><a name="step4">テンプレートの組み合わせ（HTMLファイルとTXTファイル）</a></h3>
+<p>一つの記事ページ（ホームページ）のデザインテンプレートは、2つ以上のファイルの組み合わせで構成されています。これは例えば、目次のように一つ一つの記事で同じパターンが繰り返される場合に、繰り返し部分と、それ以外の部分を別のテンプレートファイルに分けて設定しているためです。繰り返し部分は .txt ファイル、それ以外の親となる部分は .html ファイルです。</p><p>ここではその一つの例として、記事ページの添付ファイルの表示部分を示します。</p><p>記事ファイル用テンプレート <code class="vals">templates/article/article.html</code> の %_file_list_% は、添付ファイルリストの挿入位置を示しています。<br>挿入されるHTMLタグは <code class="vals">templates/article/article_file.txt</code> に指定します。</p>
+<div class="container">
+<blockquote class="code"><h4>添付ファイル表示用の HTMLコードが挿入される位置（青字） (templates/article/article.html)</h4>
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;<BR>&lt;html lang=&quot;ja&quot;&gt;<BR>&lt;head&gt;<BR>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=UTF-8&quot;&gt;<BR>&lt;title&gt;&#37;_subject_&#37; (&#37;_yyyy_&#37;-&#37;_mm_&#37;-&#37;_dd_&#37;)&lt;/title&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">:</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">: （48行省略）</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">:</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- ファイルの表示 --&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul class=&quot;sugu-file-list&quot;&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- attached files : generate from article_file.txt --&gt;<BR><em class="code_hl_blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#37;_file_list_&#37;</em><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;&lt;!-- /pure-u-md-2-3 pure-u-lg-3-4 --&gt;<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;pure-u pure-u-1 pure-u-md-1-3 pure-u-lg-1-4 sugu-article-right&quot;&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">:</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">: （57行省略）</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">:</span><BR>});<BR>&lt;/script&gt;<BR><BR>&lt;/body&gt;<BR>&lt;/html&gt;<BR></blockquote>
+</div>
+
+<div class="container">
+<blockquote class="code"><h4>挿入される添付ファイル表示用 HTMLコード（1ファイル分） (templates/article/article_file.txt)</h4>
+&lt;!-- BOMなし UTF-8（または Unicode など） で保存して下さい --&gt;<br>
+&lt;li&gt;<br>
+&lt;a href=&quot;%_d_%/%_filename_escaped_%&quot; target=&quot;_blank&quot; class=&quot;filelink %_icon_class_%&quot; title=&quot;ファイル名: %_filename_%&quot;&gt;%_filetext_%&lt;/a&gt;<br>
+&lt;/li&gt;</blockquote>
+</div>
+<p><code class="vals">templates/article/article_file.txt</code> での指定は添付したファイルの数に応じて繰り返されて挿入されます。試しに管理画面から複数のファイルをアップロードしてみて、書き出される記事ページに <code class="vals">templates/article/article_file.txt</code> で指定したコードが繰り返し現れる事を確認して下さい。HTMLソースはブラウザの右クリックメニューなどから表示できます。</p><ol class="stepdesc1">
+<li class="step"><h4><a name="step4_1_19">ページと表示要素、テンプレートファイルの対応</a></h4>
+<p>書き出されるページのどの部分がどのテンプレートファイルに対応しているかは下記URLの「テンプレート対応図」をご覧下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/181/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/181/</a></p><p>また、HTML形式のテンプレートファイル内にも、以下のようなコメントがあり、青字が繰り返される側のテンプレートファイル名を示しています。赤字が繰り返して挿入される位置を示しています。挿入される内容によって、記号やファイル名は異なります。</p>
+<div class="container">
+<blockquote class="code"><h5>ファイルが組み合わされることを示すコメントの例（templates/article/article.html）</h5>
+&lt;!-- attached files : generate from <em class="code_hl_blue">article_file.txt</em> --&gt;<br><em class="code_hl_red">%_file_list_%</em></blockquote>
+</div>
+</li>
+</ol>
+</li>
+<li class="step"><h3><a name="step5">画像の表示変更と追加・削除</a></h3>
+<ol class="stepdesc1">
+<li class="step"><h4><a name="step5_1_20">画像の表示変更</a></h4>
+<p>詳細ページに表示される画像は、2つのファイルの組み合わせで表示調整されています。</p><p>記事ファイル用テンプレート <code class="vals">templates/article/article.html</code> にある %_article_image_1_% は画像の位置を指定しています。<br>実際に挿入されるタグは、<code class="vals">templates/article/article_image_1.txt</code> に指定します。</p>
+<div class="container">
+<blockquote class="code"><h5>画像（またはファイルの）タグが挿入される位置（青字） (templates/article/article.html)</h5>
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;<BR>&lt;html lang=&quot;ja&quot;&gt;<BR>&lt;head&gt;<BR>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=UTF-8&quot;&gt;<BR>&lt;title&gt;&#37;_subject_&#37; (&#37;_yyyy_&#37;-&#37;_mm_&#37;-&#37;_dd_&#37;)&lt;/title&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">:</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">: （39行省略）</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">:</span><BR><BR>&lt;div class=&quot;pure-g sugu-article&quot;&gt;<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;pure-u pure-u-1 pure-u-md-2-3 pure-u-lg-3-4 sugu-article-left&quot;&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- アップロードされた時に、対応する article_image_&#35;.txt から生成 --&gt;<BR><em class="code_hl_blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#37;_article_image_1_&#37;</em><BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#37;_body_&#37;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">:</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">: （66行省略）</span><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_hl_gray">:</span><BR>});<BR>&lt;/script&gt;<BR><BR>&lt;/body&gt;<BR>&lt;/html&gt;<BR></blockquote>
+</div>
+
+<div class="container">
+<blockquote class="code"><h5>挿入されるHTMLタグ（画像1） (templates/article/article_image_1.txt)</h5>
+&lt;!-- 画像1の表示指定。article.html の %_article_image_1_% 部分に挿入されます。 --&gt;<br>
+&lt;div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src=&quot;%_d_%/%_filename_escaped_%&quot; alt=&quot;%_imagetext_%&quot; class=&quot;pure-img&quot;&gt;<br>
+&lt;/div&gt;</blockquote>
+</div>
+<p>画像の表示位置を変更するには <code class="vals">templates/article/article.html</code> を編集して「%_article_image_1_%」の位置を変更して下さい。<br>
+画像部分のHTMLコードを変更する場合は（例えば新しいclass属性を追加したり、画像からのリンクを追加したりする場合）、 <code class="vals">templates/article/article_image_1.txt</code> を変更して下さい。</p></li>
+<li class="step"><h4><a name="step5_1_21">画像の追加</a></h4>
+<p>初期設定では画像は1つしかアップロードできません。画像を追加する場合は、管理画面のテンプレートを修正して下さい。<br>
+Ver. 5.0 からは、初期設定のテンプレートに2から5までの画像のアップロード欄が含まれています。これらはスタイル設定で隠されていますので、style属性内の設定を削除して画面に表示させます。</p>
+<div class="container">
+<div class="onng"><h5>同様の表示が見つからない場合</h5>
+<p>管理画面のテンプレートに入力欄のHTMLコードが見つからない場合、Ver. 4.8 以下のバージョン用に編集された製品をお使いです。この場合は下記ページでご案内する方法で編集して下さい。<br>
+<a href="http://sugutsukaeru.jp/cgi/j/61/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/61/</a></p></div>
+</div>
+<ol class="stepdesc2">
+<li class="step"><h5><a name="step5_2_22">管理画面の編集</a></h5>
+<p><code class="vals">templates/admin/2.html</code> と <code class="vals">templates/admin/3.html</code> を開いて、それぞれのファイルにある追加の画像欄のコードから下記青字部分を削除して下さい。下記例は2番画像のコードですが、3から5番画像までも必要に応じて同様に編集して下さい。</p>
+<div class="container">
+<blockquote class="code"><h6>templates/admin/2.html の削除箇所（2番画像の例）</h6>
+&lt;!-- 画像/ファイル2 --&gt;<br>&lt;div class=&quot;pure-g sugu-control-group&quot; style=&quot;<del class="code_hl_blue">display: none;</del>&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;label class=&quot;pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right&quot; for=&quot;imagename2&quot;&gt;画像2&lt;/label&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;sugu-form-wrapper&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%_imagename2_%<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;sugu-form-wrapper&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;b&gt;（新規・変更）&lt;/b&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type=&quot;file&quot; name=&quot;imagename2&quot; id=&quot;imagename2&quot; class=&quot;sugu-input-image&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;sugu-form-wrapper&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for=&quot;imagetext2&quot;&gt;画像の説明&lt;/label&gt; &lt;input type=&quot;text&quot; name=&quot;imagetext2&quot; id=&quot;imagetext2&quot; value=&quot;%_imagetext2_%&quot; maxlength=&quot;100&quot; class=&quot;imeauto pure-input-1-2&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&lt;/div&gt;</blockquote>
+</div>
+
+<div class="container">
+<blockquote class="code"><h6>templates/admin/3.html の削除箇所（2番画像の例）</h6>
+&lt;!-- 画像/ファイル2 --&gt;<br>&lt;div class=&quot;pure-g sugu-control-group&quot; style=&quot;<del class="code_hl_blue">display: none;</del>&quot; id=&quot;sugu-t-image2&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;label class=&quot;pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right&quot;&gt;画像2&lt;/label&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%_imagename2_%<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&lt;/div&gt;</blockquote>
+</div>
+</li>
+<li class="step"><h5><a name="step5_2_23">上書き保存とアップロード</a></h5>
+<p>変更が終わったらファイルを保存してサーバに上書きアップロードして下さい。管理画面にアクセスすると、画像欄が表示されます。</p></li>
+</ol>
+</li>
+<li class="step"><h4><a name="step5_1_24">画像の削除</a></h4>
+<ol class="stepdesc2">
+<li class="step"><h5><a name="step5_2_25">管理画面からの画像の削除</a></h5>
+<p>画像のアップロードが一つも必要ない場合は、追加する場合と逆に、画像1の欄のHTMLタグに「style=&quot;display: none;&quot;」の表記を足して画像のアップロード欄を隠して下さい。</p></li>
+<li class="step"><h5><a name="step5_2_26">記事ページからの画像の削除</a></h5>
+<p>画像を特定のページにのみ表示してそれ以外は削除したい場合は、管理画面からの削除は必要ありません。この場合は、画像を削除する記事ページ側のテンプレートから画像の表示部分のHTMLコードを削除して下さい。</p><p>ページとテンプレートの対応や、ファイル内のどの部分が画像に対応するかは下記URLの「テンプレート対応図」をご覧下さい。<br><a href="http://sugutsukaeru.jp/cgi/j/181/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/181/</a></p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li class="step"><h3><a name="step6">テキスト項目の追加</a></h3>
+<p>初期設定のテキスト項目（日付、タイトル、記事内容）の他にも、1行テキスト項目を5つ、複数行テキスト項目を5つまで追加できます。項目を追加する場合は、管理画面のテンプレートを修正して下さい。<br>
+Ver. 5.0 からは、初期設定のテンプレートにこれらの項目の入力欄が含まれています。これらはスタイル設定で隠されていますので、style属性内の設定を削除して画面に表示させます。</p>
+<div class="container">
+<div class="onng"><h5>同様の表示が見つからない場合</h5>
+<p>管理画面のテンプレートに追加のテキスト項目の入力欄が見つからない場合、Ver. 4.8 以下のバージョン用に編集された製品をお使いです。この場合は下記ページでご案内する方法で編集して下さい。<br>
+<a href="http://sugutsukaeru.jp/cgi/j/69/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/69/</a></p></div>
+</div>
+<ol class="stepdesc1">
+<li class="step"><h4><a name="step6_1_27">管理画面の編集</a></h4>
+<p><code class="vals">templates/admin/2.html</code> と <code class="vals">templates/admin/3.html</code> を開いて、それぞれのファイルにある追加のテキスト欄の下記青字部分を削除して下さい。赤字部分は使用する項目名に置き換えて下さい。下記例は1行テキスト項目の例ですが、他の項目についても必要に応じて同様に編集して下さい。</p>
+<div class="container">
+<blockquote class="code"><h5>templates/admin/2.html の削除箇所（1行項目-1の例）</h5>
+&lt;!-- 1行項目名-1 --&gt;<br>&lt;div class=&quot;pure-g sugu-control-group&quot; style=&quot;<del class="code_hl_blue">display: none;</del>&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;label class=&quot;pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right&quot; for=&quot;linetext1&quot;&gt;<em class="code_hl_red">1行項目名-1</em>&lt;/label&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type=&quot;text&quot; name=&quot;linetext1&quot; id=&quot;linetext1&quot; value=&quot;%_linetext1_%&quot; class=&quot;imeauto pure-input-1&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&lt;/div&gt;</blockquote>
+</div>
+
+<div class="container">
+<blockquote class="code"><h5>templates/admin/3.html の削除箇所（1行項目-1の例）</h5>
+&lt;!-- 1行項目名-1 --&gt;<br>&lt;div class=&quot;pure-g sugu-control-group&quot; style=&quot;<del class="code_hl_blue">display: none;</del>&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;label class=&quot;pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right&quot;&gt;<em class="code_hl_red">1行項目名-1</em>&lt;/label&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span id=&quot;sugu-t-linetext1&quot;&gt;%_linetext1_html_%&lt;/span&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&lt;/div&gt;</blockquote>
+</div>
+</li>
+<li class="step"><h4><a name="step6_1_28">上書き保存とアップロード</a></h4>
+<p>変更が終わったらファイルを保存してサーバに上書きアップロードして下さい。管理画面にアクセスすると、追加項目欄が表示されます。</p></li>
+</ol>
+</li>
+<li class="step"><h3><a name="step7">詳細ページの有無を調整する</a></h3>
+<p>Ver. 5.0 からは、各記事を登録する時に、詳細ページを作るか作らないかを指定できるようになりました。この機能は初期設定では無効になっていますが、有効にするには管理画面のテンプレートを修正して下さい。初期設定のテンプレートに必要な入力欄が含まれていますが、これらはスタイル設定で隠されていますので、style属性内の設定を削除して画面に表示させます。</p>
+<div class="container">
+<div class="onng"><h5>詳細ページを一切書き出さない場合</h5>
+<p>全ての記事で詳細ページが不要な場合は、ここで説明する方法ではなくオプション設定（環境変数）で調整します。方法は「<a href="envs.html">オプション設定</a>」をご覧下さい。</p></div>
+</div>
+
+<div class="container">
+<div class="onng"><h5>ファイル名変更機能</h5>
+<p>この機能を有効にすると、同時に、各記事ごとに個別にファイル名を指定する事もできるようになります。個別に指定するのではなく、一括してファイル名の規則を変更したい場合（例えば、拡張子を変更したい場合）は、ここで説明する方法ではなくオプション設定（環境変数）で調整します。方法は「<a href="envs.html">オプション設定</a>」をご覧下さい。</p></div>
+</div>
+<ol class="stepdesc1">
+<li class="step"><h4><a name="step7_1_29">管理画面の編集</a></h4>
+<p><code class="vals">templates/admin/2.html</code> と <code class="vals">templates/admin/3.html</code> を開いて、それぞれのファイルにある追加のテキスト欄の下記青字部分を削除して下さい。</p>
+<div class="container">
+<blockquote class="code"><h5>templates/admin/2.html の削除箇所</h5>
+&lt;!-- admin option --&gt;<br>&lt;fieldset&gt;<br>&lt;legend&gt;記事ページファイル名の設定&lt;/legend&gt;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- 記事ページファイル名 --&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;pure-g sugu-control-group&quot; id=&quot;sugu-t-article_filename&quot; style=&quot;<del class="code_hl_blue">display: none;</del>&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label class=&quot;pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right&quot; for=&quot;article_filename&quot;&gt;ファイル名&lt;/label&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type=&quot;text&quot; name=&quot;article_filename&quot; id=&quot;article_filename&quot; value=&quot;%_article_filename_%&quot; class=&quot;imeauto pure-input-1&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：（省略）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&lt;/fieldset&gt;</blockquote>
+</div>
+
+<div class="container">
+<blockquote class="code"><h5>templates/admin/3.html の削除箇所</h5>
+&lt;!-- admin option --&gt;<br>&lt;fieldset&gt;<br>&lt;legend&gt;記事ページファイル名の設定&lt;/legend&gt;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- 記事ページファイル名 --&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;pure-g sugu-control-group&quot; id=&quot;sugu-t-article_filename&quot; style=&quot;<del class="code_hl_blue">display: none;</del>&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label class=&quot;pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right&quot;&gt;ファイル名&lt;/label&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span id=&quot;sugu-t-article_filename_parsed&quot;&gt;%_article_filename_parsed_html_% &lt;span id=&quot;article_filename-holder&quot;&gt;(%_article_filename_html_%)&lt;/span&gt;&lt;/span&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&lt;/fieldset&gt;</blockquote>
+</div>
+</li>
+<li class="step"><h4><a name="step7_1_30">上書き保存とアップロード</a></h4>
+<p>変更が終わったらファイルを保存してサーバに上書きアップロードして下さい。管理画面にアクセスすると、詳細ページの設定欄が表示されます。</p></li>
+</ol>
+</li>
+<li class="step"><h3><a name="step8">短い一覧（新着情報）に画像やファイルを表示する</a></h3>
+<p>短い一覧（新着情報）にも、全一覧（目次）と同様に画像やファイルを表示する事ができます。短い一覧と全一覧の違いは表示件数が違う事、また、それに伴い、短い一覧にはページ移動のリンクが無い点だけです。</p><p>全一覧（目次）用の初期設定のテンプレートファイル <code class="vals">templates/article/article_list.txt</code> にある項目は全て短い一覧（新着情報）のテンプレートファイル&nbsp;&nbsp;<code class="vals">templates/article/short_list.txt</code> で使えますので、適宜コピーして使って下さい。例えば、画像1を短い一覧に表示するには以下のタグを <code class="vals">templates/article/short_list.txt</code> に追加して下さい。</p>
+<div class="container">
+<blockquote class="code"><h4>画像1の表示用タグ（一覧用）</h4>
+&lt;img src=&quot;%_d_%/%_thumbnail_escaped_1_%&quot; alt=&quot;%_imagetext_1_%&quot;&gt;</blockquote>
+</div>
+
+<div class="container">
+<div class="onng"><h5>初期設定のテンプレートに項目が見つからない場合</h5>
+<p>初期設定のテンプレートに追加の項目が見つからない場合、既に加工済の製品をダウンロードしている場合があります。この場合は <code class="vals">templates.default/article/article_list.txt</code> というファイルの中を探して下さい。</p></div>
+</div>
+</li>
+<li class="step"><h3><a name="step9">アイコンファイルの入れ替え</a></h3>
+<p><code class="vals">webdir/icons/</code> 配下にあるアイコン画像ファイルも、サイトのデザインに合せて変更して下さい。そのままのご利用も可能です。画像ファイルを置き換えてもよいですし、スタイルシート上で別のファイル名の画像を指定しても構いません（下記青字部分）。ディレクトリの移動も可能です。</p>
+<div class="container">
+<blockquote class="code"><h4>アイコンの入れ替え（記事ページのスタイルシートの例）（webdir/parts/css/sugu-site.css）</h4>
+.doc {<br>&nbsp;&nbsp;&nbsp;&nbsp;background-image: url(<em class="code_hl_blue">../../icons/doc.gif</em>)<br>}<br>.pdf {<br>&nbsp;&nbsp;&nbsp;&nbsp;background-image: url(<em class="code_hl_blue">../../icons/pdf.gif</em>)<br>}<br>&nbsp;&nbsp;:<br>&nbsp;&nbsp;:<br>&nbsp;&nbsp;:<br>.zip {<br>&nbsp;&nbsp;&nbsp;&nbsp;background-image: url(<em class="code_hl_blue">../../icons/zip.gif</em>)<br>}</blockquote>
+</div>
+<p>画像のピクセルサイズを変更した場合は、表示設定も変更して下さい。スタイルシートで下記のように背景画像として設定されていますので、青字部分を変更して下さい。使用するアイコンのピクセルサイズは全て揃えて下さい。</p>
+<div class="container">
+<blockquote class="code"><h4>アイコンのサイズ変更</h4>
+.filelink {<br>&nbsp;&nbsp;&nbsp;&nbsp;padding-left: <em class="code_hl_blue">22px</em>;<br>&nbsp;&nbsp;&nbsp;&nbsp;margin-right: 10px;<br>&nbsp;&nbsp;&nbsp;&nbsp;background-repeat: no-repeat;<br>&nbsp;&nbsp;&nbsp;&nbsp;background-position: 0.06em 50%;<br>&nbsp;&nbsp;&nbsp;&nbsp;background-image: url(../../icons/general.gif);<br>}</blockquote>
+</div>
+</li>
+<li class="step"><h3><a name="step10">短い一覧の利用方法</a></h3>
+<p>「短い一覧」（ <code class="vals">webdir/index_short.html</code> ）は新着情報としてトップページなどに組み込んで使用する想定になっています。</p><p>その他、最新1件分の内容をトップページに表示したり、記事ページの中に新着一覧として組み込むといった使い方もできます。「短い一覧」の使い方について詳しくは、「すぐ使えるCGI」ウェブサイトの「<a href="http://sugutsukaeru.jp/cgi/j/2/" target="_blank" class="external">テンプレート解説 No. 3 『短い一覧』の利用方法</a>」を参照して下さい。</p></li>
+<li class="step"><h3><a name="step11">短い一覧（新着情報）のホームページへの表示</a></h3>
+<p>短い一覧を「新着情報」としてホームページ（トップページ）などに表示するには、以下のような方法が使えます。</p><p>- &lt;IFRAME&gt; タグ<br>- SSI（Server Side Include）<br>- PHPの readfile 関数</p><p>ここでは、一番簡単な &lt;IFRAME&gt; タグでの組み込みを試してみましょう。</p>
+<div class="container">
+<div class="onng"><h5>&lt;IFRAME&gt; 以外の方法</h5>
+<p>SSI（Server Side Include） や PHP を使った組み込み方法については、サイト上のサポート情報をご覧下さい。<br>
+<a href="http://sugutsukaeru.jp/cgi/j/60/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/60/</a></p></div>
+</div>
+<ol class="stepdesc1">
+<li class="step"><h4><a name="step11_1_31">&lt;IFRAME&gt; タグの設定</a></h4>
+<p>組み込み先ホームページに以下のコードを挿入して下さい。<br>
+青字の部分は組み込み先ページから書き出しディレクトリまでのパスを設定して下さい。</p>
+<div class="container">
+<blockquote class="code"><h5>&lt;IFRAME&gt; タグ設定例</h5>
+&lt;iframe<br>&nbsp;&nbsp;&nbsp;&nbsp;style=&quot;width: 270px; height: 300px; border-width: 0px; padding: 0; margin: 0 auto; overflow: auto;&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;src=&quot;<em class="code_hl_blue">webdir/</em>index_short.html&quot;<br>&gt;(IFRAME 機能を有効にして下さい)&lt;/iframe&gt;</blockquote>
+</div>
+<p>これでページ内に新着情報（短い一覧）が表示されます。</p>
+<div class="container">
+<div class="onng"><h5>表示の設定</h5>
+<dl>
+<dt>
+スクロールバーの調整</dt>
+<dd>
+<p>登録した内容が長い場合も &lt;IFRAME&gt; のスクロールバーを出さないようにする方法は下記ページをご参照下さい。<br>
+<a href="http://sugutsukaeru.jp/cgi/j/44/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/44/</a></p></dd>
+<dt>
+ &lt;IFRAME&gt; ページへの直接アクセスを回避する</dt>
+<dd>
+<p>検索エンジンなどから &lt;IFRAME&gt; 内のページに直接アクセスされてしまった場合にメインのページにジャンプする方法は下記ページをご参照下さい。<br>
+<a href="http://sugutsukaeru.jp/cgi/j/45/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/45/</a></p></dd>
+</dl>
+</div>
+</div>
+</li>
+<li class="step"><h4><a name="step11_1_32">表示件数の設定</a></h4>
+<p>短い一覧の書き出し件数は変更可能です。（初期設定では最新3件を表示。）<br>
+設定方法は「<a href="envs.html">オプション設定</a>」を参照して下さい。</p></li>
+</ol>
+</li>
+<li class="step"><h3><a name="step12">RSSファイルの設定</a></h3>
+<ol class="stepdesc1">
+<li class="step"><h4><a name="step12_1_33">RSSとは？</a></h4>
+<p>RSSは、サイト閲覧者が効率的にサイトの更新情報をチェックできる仕組みです。<br>RSSファイルをウェブサイトに公開することにより、メールなどを送信しなくてもサイト閲覧者の方に効率よく情報配信できます。<br>またRSSファイルがあれば、そこから自動的に Twitter など他のサイトに情報を反映してくれる外部サービスなどを利用する事もできます。</p><p>「すぐ使えるCGI」から登録した情報は自動的にRSSファイル（ webdir/new.xml ）に書き出されます。<br>不要であればRSSファイルの書き出しを抑えることもできます。<br>設定方法は「<a href="envs.html">オプション設定</a>」を参照して下さい。</p></li>
+<li class="step"><h4><a name="step12_1_34">サイトの情報を設定</a></h4>
+<p>RSSファイル用の初期設定のテンプレートには、ダミーのサイト情報が記載されていますので、設置するサイトの情報に書き換えて下さい。</p><p>RSSファイル用テンプレートファイルは <code class="vals">templates/article/rss_list.html</code> と <code class="vals">templates/article/rss_list.txt</code> です。</p>
+<div class="container">
+<blockquote class="code"><h5>サイト情報の更新箇所（青字） (templates/article/rss_list.html)</h5>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;Shift_JIS&quot;?&gt;<BR>&lt;rss version=&quot;2.0&quot;&gt;<BR><BR>&lt;channel&gt;<BR>&lt;title&gt;<em class="code_hl_blue">ここにサイト名やコーナーの名前を入力</em>&lt;/title&gt;<BR>&lt;!-- link タグの中身はサイトのURLに変更して下さい --&gt;<BR>&lt;link&gt;http://<em class="code_hl_blue">www.example.com/</em>&lt;/link&gt;<BR>&lt;description&gt;<em class="code_hl_blue">ここにサイト名やコーナーの説明を入力</em>&lt;/description&gt;<BR>&lt;language&gt;ja&lt;/language&gt;<BR><BR>&lt;!-- image タグ（以下10行）は任意要素です。不要なら削除して下さい。 --&gt;<BR>&lt;image&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;<em class="code_hl_blue">ここにサイト名やコーナーの名前を入力</em>&lt;/title&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- url タグの中身はサイトのロゴのURLに変更して下さい --&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;url&gt;http://<em class="code_hl_blue">www.example.com/</em><em class="code_hl_blue">your_site_logo.gif</em>&lt;/url&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- link タグの中身はサイトのURLに変更して下さい --&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;link&gt;http://<em class="code_hl_blue">www.example.com/</em>&lt;/link&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;width&gt;<em class="code_hl_blue">150</em>&lt;/width&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;height&gt;<em class="code_hl_blue">150</em>&lt;/height&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;description&gt;<em class="code_hl_blue">ここにサイト名やコーナーの説明を入力</em>&lt;/description&gt;<BR>&lt;/image&gt;<BR><BR>&#37;_article_list_&#37;<BR><BR>&lt;/channel&gt;<BR>&lt;/rss&gt;<BR></blockquote>
+</div>
+
+<div class="container">
+<blockquote class="code"><h5>サイト情報の更新箇所（青字） (templates/article/rss_list.txt)</h5>
+&lt;item&gt;<BR>&lt;title&gt;&#37;_subject_&#37;&lt;/title&gt;<BR>&lt;!-- link タグおよび guid タグ内の http から webdir/ までは、<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;書き出しディレクトリまでのURLに変更して下さい。 --&gt;<BR>&lt;link&gt;http://<em class="code_hl_blue">www.example.com/</em><em class="code_hl_blue">sugu/</em><em class="code_hl_blue">webdir/</em>&#37;_to_article_&#37;&lt;/link&gt;<BR>&lt;guid isPermaLink=&quot;true&quot;&gt;http://<em class="code_hl_blue">www.example.com/</em><em class="code_hl_blue">sugu/</em><em class="code_hl_blue">webdir/</em>&#37;_to_article_&#37;&lt;/guid&gt;<BR>&lt;pubDate&gt;&#37;_dd_&#37; &#37;_mon_&#37; &#37;_yyyy_&#37; 00:00:00 <em class="code_hl_blue">+0900</em>&lt;/pubDate&gt;<BR>&lt;description&gt;&#37;_summary_&#37;&lt;/description&gt;<BR>&lt;/item&gt;<BR></blockquote>
+</div>
+<p>必要があれば &lt;pubDate&gt; タグ内末尾のタイムゾーン（「+0900」の部分）も変更して下さい。「+0900」は日付が日本（東京）の標準時に基づくものであることを表しますが、例えばアルゼンチンであれば「-0300」となります。なお、時刻は 0時0分の固定表示になります。</p><p>&lt;!-- と --&gt; で挟まれているコメントは設置用の説明ですので、編集が終わったら削除して下さい。。</p></li>
+<li class="step"><h4><a name="step12_1_35">表示件数の設定</a></h4>
+<p>RSSファイルへの書き出し件数は変更可能です。（初期設定では最新10件を表示。）<br>
+設定方法は「<a href="envs.html">オプション設定</a>」を参照して下さい。</p></li>
+<li class="step"><h4><a name="step12_1_36">RSSファイルの公開（リンク）</a></h4>
+<p>RSSファイル（RSSフィード）で効率よく情報を配信するには、閲覧者の方に「購読」して頂く必要があります。<br>「購読」とは、URLをブックマークするのと同様の作業です。</p><p>閲覧者の方にRSSファイルがある事が分かるように、サイト内のページからRSSファイル（ webdir/new.xml ）にリンクして下さい。オレンジ色の地に白抜きの扇形のマークか、文字で「RSS」と表示した小さいアイコンでリンクするのが一般的です。アイコンのサンプルは下記URLからダウンロードできます。</p><p><a href="http://sugutsukaeru.jp/cgi/j/70/" target="ref" class="external">http://sugutsukaeru.jp/cgi/j/70/</a></p></li>
+<li class="step"><h4><a name="step12_1_37">RSSファイルの公開（ AutoDiscovery の設定、トップページ）</a></h4>
+<p>リンクによるRSSファイルの公開に加えて、&lt;head&gt; タグ内に以下のコードを記載すると対応しているブラウザでのRSS購読が簡単になります。<br>Webサイトのトップページなどにこのコードを追加して下さい。</p><p>同じサイトに複数の製品を設置してRSSファイルが複数ある場合、この &lt;link&gt; タグも複数記載できます。</p>
+<div class="container">
+<blockquote class="code"><h5>Webサイトのトップページの &lt;head&gt; タグ内に記載（青字はサイトに合わせて変更）</h5>
+&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;title=&quot;<em class="code_hl_blue">○○株式会社 お知らせ 更新情報</em>&quot; href=&quot;<em class="code_hl_blue">/webdir/new.xml</em>&quot;&gt;</blockquote>
+</div>
+</li>
+<li class="step"><h4><a name="step12_1_38">RSSファイルの公開（ AutoDiscovery の設定、記事ページ）</a></h4>
+<p>記事ページのテンプレートには予め &lt;head&gt; タグ内に AutoDiscovery 用の &lt;link&gt; タグが設定してあります。<br>
+使用する場合は title 属性（青字）をサイトに合わせて変更して下さい。</p>
+<div class="container">
+<blockquote class="code"><h5>テンプレートに指定のある AutoDiscovery タグ（ templates/article/xxx.html ）</h5>
+&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;title=&quot;<em class="code_hl_blue">○○株式会社 お知らせ 更新情報</em>&quot; href=&quot;<em class="code_hl_blue">new.xml</em>&quot;&gt;</blockquote>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<!-- main contents ends -->
+<div class="footer">
+copyright(c) Sugutsukaeru Inc. All rights reserved.
+</div>
+<div class="bottomnavi">[<a href="index.html">目次ページへ戻る</a>] [<a href="#top">このページのトップへ戻る</a>]</div>
+</body>
+</html>

@@ -1,0 +1,688 @@
+@charset "utf-8";
+/* 「すぐ使えるCGI」管理画面テンプレート CSS */
+/* Sugutsukaeru CGI Admin pages CSS (English below) */
+/*
+■スタイルの分類
+
+「すぐ使えるCGI」の管理画面で使っているクラス名は、以下の3つに分類できます。
+
+A. Pure
+pure-* というクラス名のスタイル設定は、フレームワーク pure を使用しているものです。レスポンシブWebの仕組みの実装と、ボタンのスタイルのために利用しています。また、フォーム要素に関し、項目の間の空間量の初期値が設定されています。
+Pure 関連のCSSファイルは製品には同梱せず、インターネットから読み込んでいます。
+
+B. 「すぐ使えるCGI」で定義したスタイル
+sugu-* というクラス名のスタイル設定は、「すぐ使えるCGI」で定義し、表示調整のみに使用しているものです。フォーム要素のスタイル調整や細かいレイアウト調整に利用しています。
+
+C. システム用のスタイル
+上記2つに当てはまらないクラス名（例："msg_error" ）は、「すぐ使えるCGI」で定義し、フォームの機能と絡めて使用しています。例えば、エラーがあるときは赤字で表示するために使っています。
+
+これらのクラスは、表示上不要であれば削除、変更して構いません。
+タグからクラス名を削除するか、<link>タグを削除してスタイルシートのファイルの読み込み自体を停止する事で、これらのスタイルは適用されなくなります。
+
+このファイル（admin-sugu.css）には、B（「すぐ使えるCGI」表面用）, C（システム動作用） の定義と、pure-* の付いたクラスの微調整が定義されています。このファイルを編集してスタイル設定や、色味の変更が可能です。
+
+*/
+/* 
+■フレームワーク pure による、レスポンシブWebデザインの設定方法
+参考（英語）: http://purecss.io/
+
+1.
+pure-u-* という名前が付いたスタイルは、その要素の幅を定義しています。
+例えば、pure-u-1-4 というクラスを付けると、その要素は親要素全体 4分の1 の幅で表示されます。pure-u-1-3 なら 3分の1です。
+このように幅を調整する時は、親要素には pure-g、当該要素に pure-u というクラス名を付けておいて下さい。
+
+2.
+この幅指定は、デバイスによって変える事ができます。例えば、「タブレットでは 50%の幅にしたいけど、PCでは3分の1の幅で表示する」などです。
+この時は、デバイス指定が追加されたクラスを重複して指定します。
+例えば、以下のように指定します。
+
+<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">...</div>
+
+この指定は、以下を表します。
+- 基本的には 100%幅
+- sm: デバイスが小さいうちは 100%幅
+- md: デバイスが中くらいだったら（タブレット位）3分の2幅
+- lg: デバイスが大きかったら（PC）4分の3の幅
+- xl: デバイスが特別大きかったら（デザイナのディスプレイ？） 5分の3の幅
+
+3.
+上記の4つのサイズ区分は、Pure の内部で以下のように、em を使って定義されています。
+----------------------------------------------------------------------------------------
+大きさ    メディアクエリー                     おおよそのサイズ   クラス名
+----------------------------------------------------------------------------------------
+どれでも  (なし)                              (サイズに関わらず)  .pure-u-*
+小さい    @media screen and (min-width: 35.5em)  568px 以上       .pure-u-sm-*
+中くらい  @media screen and (min-width: 48em)    768px 以上       .pure-u-md-*
+大きい    @media screen and (min-width: 64em)    1024px 以上      .pure-u-lg-*
+特大      @media screen and (min-width: 80em)    1280px 以上      .pure-u-xl-*
+----------------------------------------------------------------------------------------
+
+■Pure を使ってデバイスにより 表示の ON/OFF をする方法
+Pure 内部と同様のメディアクエリーを独自に設定することにより、「PC以上で表示する」などの調整が可能です。
+
+例）
+
+// 小さなデバイスでの基本設定
+.pc-only {
+	display: none;
+}
+@media screen and (min-width: 48em) {
+	// タブレット横程度以上
+	.pc-only {
+		display: block;
+	}
+}
+
+■Pure クラスの入れ子の構造
+pure-g > pure-u の構造は入れ子にすることが可能です。
+
+<div class="pure-g">
+	<div class="pure-u pure-u-1 pure-md-1-2 pure-g">
+	<!-- 上の pure-u-* は親要素に対する割合を表す。さらに、pure-g を指定する事により、子要素の親(100%)となる。 -->
+		<div class="pure-u pure-u-1-2">
+			中くらいまでは 50%（100%の50%）、それ以上は 25%（50%の50%）
+		</div>
+		<div class="pure-u pure-u-1-2">
+			（同上）
+		</div>
+	</div>
+	<div class="pure-u pure-u-1 pure-md-1-2">
+		中くらい以上で 50%（上も）
+	</div>
+</div>
+
+*/
+/* 以上が説明 */
+/*
+■Type of Styles
+
+This product use tree types of class name and each has different prefix.
+
+A. pure-
+Classes with name "pure-*" are of a CSS-Framework Pure. See the Pure site ( http://purecss.io/ ) for more detail about this framework.
+By default, CSS files are loaded from Sugutsukaeru site. If you want to reset this rule-set, you can delete <link> tag for css from template files.
+
+B. sugu-
+Classes with name "sugu-*" are of the rule-set of Sugutsukaeru CGI. CSS files are in webdir/parts/css . You can change and delete rules or just you can delete <link> tag for css from template files if you want to reset this rule-set.
+
+C. others
+Other classes like "msg_error" is related to the form functions. For example, they make the error message red. CSS files are same as B .
+
+/* End of doc */
+/* ここからCSS設定 */
+/* CSS setting */
+/* 
+■背景色 Background */
+body {
+  background-color: white;
+}
+/* 
+■フレームワーク pure をベースにした、表示調整のためのスタイル  Pure-based layout adjustment */
+/*
+【重要】レスポンシブWebレイアウトのための基本設定 */
+/*
+Pure は、指定したクラス pure-u-* に従ってレスポンシブに要素の幅を変更してくれます。
+この時、内部的な指定には width を使っていますが、要素に border が指定されているかどうかを考慮しません。このことは、スペースを取るために pure-u-* にマージンを指定したり、border を指定すると期待したレイアウトからあふれてしまう事を意味します。
+
+対策としては以下の2つが考えられますが、「すぐ使えるCGI」では B を採用して下記の様に設定しています。
+
+A. pure-u-* を指定する要素にはマージンを指定せず、直下に空間量を設定するための <div> を配置する。
+B. pure-u-* を指定する要素に box-sizing: border-box（border と padding を加算して幅と解釈する）を指定した上で空間を空けるために padding を指定する。
+*/
+.pure-form .pure-g > label,
+.pure-form .pure-g > input,
+.pure-form .pure-g > select,
+.pure-g > div {
+  /* マージンまで含んだ幅がボックスのサイズ */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* セレクタの文字が読めなくなる事の調整 */
+.pure-form select {
+  padding: 0.3em 0.6em;
+}
+/* 注意書きと入力欄が近くなりすぎる事の調整 */
+textarea + .pure-form-message,
+select + .pure-form-message,
+input + .pure-form-message {
+  margin-top: 0.3em;
+}
+.pure-form-message + textarea,
+.pure-form-message + select,
+.pure-form-message + input {
+  margin-bottom: 0.3em;
+}
+/* フィールドセットの名前（表示しない） */
+.pure-form legend {
+  display: none;
+}
+/* 
+■「すぐ使えるCGI」で独自に定義したスタイル Rules of Sugutsukaeru CGI */
+/* 右寄せ・左寄せ・中央  Alignment and Centering */
+.sugu-clearfix:before,
+.sugu-clearfix:after {
+  content: " ";
+  display: table;
+}
+.sugu-clearfix:after {
+  clear: both;
+}
+.sugu-center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sugu-pull-right {
+  float: right;
+}
+.sugu-pull-left {
+  float: left;
+}
+.sugu-text-center {
+  text-align: center;
+}
+.sugu-text-right {
+  text-align: right;
+}
+/* ページ全体の枠  Basic Container */
+.sugu-container {
+  padding: 0 2em 2em 2em;
+}
+@media screen and (max-width: 35.499em) {
+  .sugu-container {
+    padding: 0 2.5em 1em 1em;
+  }
+}
+.sugu-container h1 {
+  font-size: 24px;
+}
+.sugu-container h2 {
+  font-size: 21px;
+}
+/* ログインページの枠  Login page Container */
+.sugu-login-panel {
+  margin: 0 auto 2em auto;
+  display: block;
+  border-radius: 4px;
+  -webkit-box-shadow: 3px 3px 5px 0px #cbcbcb;
+  -moz-box-shadow: 3px 3px 5px 0px #cbcbcb;
+  box-shadow: 3px 3px 5px 0px #cbcbcb;
+  padding: 1.8em;
+}
+@media screen and (min-width: 35.5em) {
+  .sugu-login-panel {
+    margin-top: 2em;
+  }
+}
+.sugu-login-panel h1 {
+  margin: 0;
+}
+/* プログレスバー  Progress Bar */
+.sugu-progress {
+  margin: 0 0 0.8em 0;
+  padding: 0;
+  z-index: -2;
+  white-space: nowrap !important;
+  overflow: hidden;
+  border-radius: 2px;
+  width: 100%;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+.sugu-progress .sugu-step {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin: 0 0.2em 0 0;
+  height: 2.8em;
+  line-height: 2.8em;
+  color: rgba(0, 0, 0, 0.8);
+  /* 基本の文字色。背景色は .step: before/after で付けているので、ここでは文字色のみ指定 */
+  width: 33.33%;
+  /* 100% を3ステップで割ったもの（削除の場合は2ステップになる。JavaScripで調整） */
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+.sugu-progress .sugu-step:before,
+.sugu-progress .sugu-step:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: #cbcbcb;
+  /* 基本の背景色 */
+  width: 100%;
+  height: 1.4em;
+  /* 高さ 2.8em / 2 */
+}
+.sugu-progress .sugu-step:before {
+  top: 0;
+  left: 0;
+  -webkit-transform: skew(45deg);
+  -moz-transform: skew(45deg);
+  transform: skew(45deg);
+}
+.sugu-progress .sugu-step:after {
+  top: 1.4em;
+  /* 高さ 2.8em / 2 */
+  left: 0;
+  -webkit-transform: skew(-45deg);
+  -moz-transform: skew(-45deg);
+  transform: skew(-45deg);
+}
+.sugu-progress .sugu-step:first-child {
+  margin-left: -1.6em;
+  /* 高さ 2.8em / 2 + 要素の基本マージン 0.2em */
+  padding-left: 1.6em;
+  /* 高さ 2.8em / 2 + 要素の基本マージン 0.2em */
+}
+.sugu-progress .sugu-step.sugu-step-active {
+  color: white;
+  /* 今いる場所の文字色 */
+}
+.sugu-progress .sugu-step.sugu-step-active:before,
+.sugu-progress .sugu-step.sugu-step-active:after {
+  background: #418141;
+  /* 今いる場所の背景色 */
+}
+/* フォーム項目  Form items */
+.sugu-control-group {
+  margin-top: 0.3em;
+  margin-bottom: 0.7em;
+}
+/* 項目名  Label */
+.sugu-control-group .sugu-label {
+  font-weight: 600;
+  margin-top: 0.1em;
+  /* 項目の説明をフィールドの上に配置する場合は、この位狭い方が座りが良い。 */
+}
+/* 選択項目のインライン表示  Inline Options */
+.sugu-control-group .sugu-inline {
+  display: inline-block;
+  margin-right: 1.2em;
+}
+/* 幅やレイアウトの指定  Width and Spacing */
+.sugu-input-small {
+  width: 6em;
+}
+.sugu-input-mini {
+  width: 3em;
+}
+.sugu-nowrap {
+  white-space: nowrap;
+}
+.sugu-form-wrapper {
+  margin: 0.3em 0;
+}
+/* 必須項目の表示  Mandatory items */
+.sugu-required {
+  color: red;
+}
+/* Buttons */
+/* 一覧内のボタン（小さ目） */
+.sugu-button-small {
+  padding: 0.3em 0.8em;
+}
+/* 赤いボタン */
+.sugu-button-danger {
+  background: #ca3c3c;
+  color: white;
+}
+/* 緑のボタン */
+.sugu-button-success {
+  background: #55aa55;
+  color: white;
+}
+/* リンクボタン */
+.sugu-button-link {
+  background: transparent;
+  color: #666;
+  text-decoration: underline;
+}
+.sugu-button-link:hover,
+.sugu-button-link:visited,
+.sugu-button-link:active {
+  background: transparent;
+  text-decoration: none;
+}
+/* Fonts */
+/* フォント指定 */
+.sugu-font-monospace {
+  font-family: monospace;
+}
+/* Images */
+/* 管理画面上の画像表示 */
+.sugu-image-preview {
+  padding-right: 0.8em;
+}
+.sugu-image-preview img.current_image {
+  border: 1px solid #cbcbcb;
+  -webkit-box-shadow: 1px 1px 3px 0px #cbcbcb;
+  -moz-box-shadow: 1px 1px 3px 0px #cbcbcb;
+  box-shadow: 1px 1px 3px 0px #cbcbcb;
+  margin-bottom: 0.3em;
+}
+@media screen and (min-width: 35.5em) {
+  .sugu-image-preview img.current_image {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 35.499em) {
+  .sugu-image-preview img.current_image {
+    max-height: 150px;
+  }
+}
+.sugu-image-preview + div {
+  padding-left: 0.8em;
+}
+/* Table for snippets */
+/* よく使うタグ用テーブル(pure-table と同時に指定) */
+.sugu-table-condensed th {
+  border-bottom: 1px solid #cbcbcb;
+  text-align: left;
+}
+.sugu-table-condensed tbody > tr:last-child > th {
+  border-bottom-width: 0;
+}
+.sugu-table-condensed td,
+.sugu-table-condensed th {
+  padding: 0.5em 0.5em;
+}
+/* Main table */
+/* 旧バージョンとの色味合わせ */
+.sugu-table-header th {
+  background-color: #418141;
+  color: white;
+}
+.sugu-table-header th.sugu-text-center {
+  text-align: center;
+}
+/* Table for multiple file fields */
+/* 複数ファイル用テーブル */
+.sugu-filetable {
+  /* マウスオーバーでの背景色の設定 */
+  margin: 0.3em 0 0.5em 0;
+  /* 画面が小さい時は右寄せをクリア */
+}
+.sugu-filetable .sugu-clearfix {
+  padding-bottom: 0.3em;
+}
+.sugu-filetable .sugu-file-unit {
+  padding: 0.8em;
+  border-bottom: 1px solid #cbcbcb;
+}
+.sugu-filetable .sugu-file-unit:hover {
+  background-color: #feffe0;
+}
+.sugu-filetable .sugu-file-unit:first-child {
+  border-top: 1px solid #cbcbcb;
+}
+@media screen and (max-width: 35.499em) {
+  .sugu-filetable .sugu-pull-right {
+    float: none;
+    display: block;
+  }
+}
+/* Pagination for admin list page */
+/* 一覧ページページネーション */
+.sugu-pagination {
+  margin: 0.8em 0 15px 1px;
+}
+.sugu-pagination p {
+  margin: 4px 20px 0 0;
+  float: left;
+}
+.sugu-pagination ul {
+  margin: 4px 15px 0 0;
+  padding: 0;
+  float: left;
+}
+.sugu-pagination ul li {
+  list-style: none;
+  float: left;
+}
+.sugu-pagination ul li a {
+  padding: 4px 10px 4px 10px;
+  vertical-align: middle;
+  border: #cbcbcb 1px solid;
+  margin-left: -1px;
+  text-decoration: none;
+}
+.sugu-pagination ul li a:hover {
+  background-color: #dfdfdf;
+}
+.sugu-pagination ul li:first-child a {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.sugu-pagination ul li:last-child a {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.sugu-pagination .active,
+.sugu-pagination .pagethis {
+  font-weight: bold;
+  color: black;
+}
+/* Images */
+/* 横並べ時の項目名を右寄せ、縦に積まれた時の画像の項目名には境界線を付ける */
+.sugu-label-right[for^=imagename] {
+  border-top: 1px #cbcbcb solid;
+  padding-top: 0.5em;
+}
+@media screen and (min-width: 48em) {
+  /* pure-u-sm-1 pure-u-md-1-3 の境界 */
+  .sugu-label-right {
+    text-align: right;
+    padding-right: 1.2em;
+  }
+  .sugu-label-right[for^=imagename] {
+    /* 積まれた時の境界線をクリア */
+    border-top-width: 0;
+    padding-top: 0;
+  }
+}
+/* Responsive visibility control */
+/* 小さなデバイスでの一覧テーブルの調整
+  表示する時のdisplay指定がさまざま(block, table-row, etc)なので mobile-first で定義するのに適さない。
+　max-width も使って隠す場合を指定する */
+@media screen and (max-width: 35.499em) {
+  .sugu-hidden-tiny {
+    display: none;
+  }
+}
+@media screen and (max-width: 47.999em) {
+  .sugu-hidden-phone {
+    display: none;
+  }
+}
+@media screen and (min-width: 48em) {
+  .sugu-visible-phone {
+    display: none;
+  }
+}
+.sugu-keep-width {
+  min-width: 8em;
+}
+/* Icons on list page */
+/* 一覧ページ ページ移動アイコン（戻る、ログアウト） */
+.sugu-icon-link {
+  text-decoration: none;
+  color: #cbcbcb;
+}
+.sugu-icon-link:visited {
+  color: #989898;
+}
+.sugu-icon-link:hover,
+.sugu-icon-link:active {
+  color: #0078e7;
+}
+.sugu-icon-active-red:hover,
+.sugu-icon-active-red:active {
+  color: #ca3c3c;
+}
+/* Check link on list page */
+/* 一覧ページチェックリンク */
+.sugu-check-menu {
+  width: 7em;
+  /* 幅があれば横ならべ */
+}
+.sugu-check-menu .pure-menu-children {
+  -webkit-box-shadow: 2px 2px 5px 0px #cbcbcb;
+  -moz-box-shadow: 2px 2px 5px 0px #cbcbcb;
+  box-shadow: 2px 2px 5px 0px #cbcbcb;
+}
+@media screen and (min-width: 35.5em) {
+  .sugu-check-menu {
+    display: inline-block;
+    margin-left: 0.6em;
+  }
+}
+@media screen and (max-width: 35.499em) {
+  .sugu-check-menu {
+    padding-top: 0.6em;
+  }
+}
+/* Responsive table control on list page */
+/* PC+タブレット 1行/スマホ 2行 の合計3行で1記事分。
+ * ボーダーの指定を個別に行う。*/
+.sugu-table-responsive tbody tr:nth-child(3n+1) td {
+  /* sm 以上 */
+  border-bottom: solid 1px #cbcbcb;
+}
+.sugu-table-responsive tbody tr:nth-child(2).sugu-visible-phone td {
+  /* sm 以下1行目 */
+  border-top: double 3px #b4cbb4;
+}
+.sugu-table-responsive tbody tr.sugu-phone-last td,
+.sugu-table-responsive tbody tr:nth-child(3n+3) td {
+  /* sm 以下2行目 */
+  border-bottom: double 3px #b4cbb4;
+}
+@media screen and (max-width: 47.999em) {
+  .sugu-table-responsive {
+    border-left: solid 1px #b4cbb4;
+    border-right: solid 1px #b4cbb4;
+  }
+}
+/* 
+■フォームの基本動作に関わるスタイル  Function-related classes */
+/* フォームの IME 入力モードの設定 */
+.noime {
+  ime-mode: disabled;
+  /* always off */
+}
+.imeoff {
+  ime-mode: inactive;
+  /* default off */
+}
+.imeon {
+  ime-mode: active;
+}
+.imeauto {
+  ime-mode: auto;
+  /* no change */
+}
+/* メッセージの色：通常 */
+.msg_info,
+.text-info {
+  color: purple;
+}
+/* メッセージの色：エラー */
+.msg_error,
+.text-error {
+  color: red;
+}
+/* 外部ファイルリンクチェック用 */
+.msg_link_check {
+  color: transparent;
+}
+/* 「よく使うタグ」の表示コントロール */
+.link2hide {
+  display: none;
+}
+/* 右クリックメニューパネルの表示 (ここから) */
+.rightclickmenupanel li a {
+  display: block;
+  padding: 0.2em 0.8em;
+  text-decoration: none;
+  color: black;
+}
+.rightclickmenupanel li a:hover {
+  background-color: #feffe0;
+}
+.rightclickmenupanel ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+.rightclickmenupanel {
+  width: 250px;
+  height: 360px;
+  font-size: 0.92em;
+  background-color: #efefef;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border: 1px solid #a5a5a5;
+  display: none;
+  overflow: auto;
+  border-radius: 4px;
+  -webkit-box-shadow: 2px 2px 5px 0px #cbcbcb;
+  -moz-box-shadow: 2px 2px 5px 0px #cbcbcb;
+  box-shadow: 2px 2px 5px 0px #cbcbcb;
+}
+/* 右クリックメニューパネルの表示 (ここまで) */
+/* ボタン表示のコントロール */
+.hidden {
+  display: none;
+}
+/* ファイルをアップロードしたときのアイコン表示  Icons for uploaded files */
+.filelink {
+  padding-left: 22px;
+  margin-right: 10px;
+  background-repeat: no-repeat;
+  background-position: 0.06em 50%;
+  background-image: url(../../icons/general.gif);
+}
+.doc {
+  background-image: url(../../icons/doc.gif);
+}
+.pdf {
+  background-image: url(../../icons/pdf.gif);
+}
+.ppt {
+  background-image: url(../../icons/ppt.gif);
+}
+.img {
+  background-image: url(../../icons/img.gif);
+}
+.txt {
+  background-image: url(../../icons/txt.gif);
+}
+.xls {
+  background-image: url(../../icons/xls.gif);
+}
+.zip {
+  background-image: url(../../icons/zip.gif);
+}
+/* ライセンス情報画面のレイアウト調整 */
+span[id$="uact"],
+span[id$="umsg"],
+span[id$="uactmsg"] {
+  display: block;
+  margin: 0.8em 0;
+}
+/* 製品情報 */
+.copyright {
+  color: #003300;
+  font-size: x-small;
+  padding: 0 2em 1em 2em;
+}
+@media screen and (max-width: 35.499em) {
+  .copyright {
+    padding: 0 2.5em 1em 1em;
+  }
+}

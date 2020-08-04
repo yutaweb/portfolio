@@ -1,0 +1,18 @@
+<div class="">
+	<input type="hidden" name="current_image_id" value="%_n_%">
+	<input type="hidden" name="current_image_name,%_n_%" id="current_image_name,%_n_%" value="%_filedir_%/%_filename_%">
+
+	<a href="%_relative_filedir_%/%_filename_escaped_%" title="%_imagetext_%"
+	id="current_image_%_n_%" class="current_file filelink %_icon_class_%" target="_blank">
+	%_imagetext_%
+	</a>
+	<span class="sugu-nowrap">
+		<label class="pure-radio sugu-inline">
+		<input type="radio" name="current_image_flg,%_n_%" value="1" %_checked1_%> 添付
+		</label>
+		<label class="pure-radio sugu-inline">
+		<input type="radio" name="current_image_flg,%_n_%" value="0" %_checked0_%> 削除
+		</label>
+	</span>
+	(%_filename_%)
+</div>
